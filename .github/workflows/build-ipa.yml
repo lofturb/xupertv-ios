@@ -29,8 +29,11 @@ jobs:
           curl -L --retry 3 -o /tmp/toolchain.tar.xz \
             "https://github.com/L1ghtmann/llvm-project/releases/download/test-210562a/iOSToolchain-x86_64.tar.xz"
           tar -xJf /tmp/toolchain.tar.xz -C "$HOME/theos/toolchain"
-          git clone --depth 1 https://github.com/theos/sdks.git /tmp/theos-sdks
+          git clone --depth 1 --filter=blob:none --sparse https://github.com/theos/sdks.git /tmp/theos-sdks
+          (cd /tmp/theos-sdks && git sparse-checkout set iPhoneOS9.3.sdk)
           cp -R /tmp/theos-sdks/iPhoneOS9.3.sdk "$HOME/theos/sdks/"
+          # El SDK trae un WebKit.framework privado (sin cabeceras) que tapa al publico.
+          rm -rf "$HOME/theos/sdks/iPhoneOS9.3.sdk/System/Library/PrivateFrameworks/WebKit.framework"
           ls "$HOME/theos/toolchain/linux/iphone/bin" | head
           echo "THEOS=$HOME/theos" >> "$GITHUB_ENV"
           echo "$HOME/theos/bin" >> "$GITHUB_PATH"
@@ -40,7 +43,7 @@ jobs:
           set -euo pipefail
           make clean || true
           make package FINALPACKAGE=1 PACKAGE_FORMAT=ipa
-          find . -name '*.ipa' -maxdepth 3 -print
+          find . -maxdepth 3 -name '*.ipa' -print
 
       - name: Publicar IPA
         uses: softprops/action-gh-release@v2
