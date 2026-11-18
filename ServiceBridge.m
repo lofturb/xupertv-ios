@@ -3,6 +3,8 @@
 #import <CommonCrypto/CommonCryptor.h>
 #import <CommonCrypto/CommonDigest.h>
 #import <Security/Security.h>
+#import <string.h>
+#import <stdio.h>
 
 @interface ServiceBridge () <NSURLSessionDelegate>
 @property (nonatomic, strong) JSContext *context;

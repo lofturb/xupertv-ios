@@ -30,8 +30,10 @@ jobs:
             "https://github.com/L1ghtmann/llvm-project/releases/download/test-210562a/iOSToolchain-x86_64.tar.xz"
           tar -xJf /tmp/toolchain.tar.xz -C "$HOME/theos/toolchain"
           git clone --depth 1 --filter=blob:none --sparse https://github.com/theos/sdks.git /tmp/theos-sdks
-          (cd /tmp/theos-sdks && git sparse-checkout set iPhoneOS9.3.sdk)
+          (cd /tmp/theos-sdks && git sparse-checkout set iPhoneOS9.3.sdk iPhoneOS10.3.sdk/usr/lib/system/liblaunch.tbd)
           cp -R /tmp/theos-sdks/iPhoneOS9.3.sdk "$HOME/theos/sdks/"
+          cp /tmp/theos-sdks/iPhoneOS10.3.sdk/usr/lib/system/liblaunch.tbd \
+             "$HOME/theos/sdks/iPhoneOS9.3.sdk/usr/lib/system/liblaunch.tbd" || true
           # El SDK trae un WebKit.framework privado (sin cabeceras) que tapa al publico.
           rm -rf "$HOME/theos/sdks/iPhoneOS9.3.sdk/System/Library/PrivateFrameworks/WebKit.framework"
           rm -rf "$HOME/theos/sdks/iPhoneOS9.3.sdk/System/Library/PrivateFrameworks/JavaScriptCore.framework"

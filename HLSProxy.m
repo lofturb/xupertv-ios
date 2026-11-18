@@ -2,6 +2,7 @@
 #import "GCDWebServerFileResponse.h"
 #import "GCDWebServerResponse.h"
 #import <UIKit/UIKit.h>
+#import <math.h>
 
 @interface HLSProxy () <NSURLSessionDelegate>
 @property (nonatomic, strong) NSMutableDictionary *streams;
