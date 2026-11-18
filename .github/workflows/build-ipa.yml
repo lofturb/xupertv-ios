@@ -34,6 +34,7 @@ jobs:
           cp -R /tmp/theos-sdks/iPhoneOS9.3.sdk "$HOME/theos/sdks/"
           # El SDK trae un WebKit.framework privado (sin cabeceras) que tapa al publico.
           rm -rf "$HOME/theos/sdks/iPhoneOS9.3.sdk/System/Library/PrivateFrameworks/WebKit.framework"
+          rm -rf "$HOME/theos/sdks/iPhoneOS9.3.sdk/System/Library/PrivateFrameworks/JavaScriptCore.framework"
           ls "$HOME/theos/toolchain/linux/iphone/bin" | head
           echo "THEOS=$HOME/theos" >> "$GITHUB_ENV"
           echo "$HOME/theos/bin" >> "$GITHUB_PATH"

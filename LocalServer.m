@@ -1,5 +1,6 @@
 #import "LocalServer.h"
 #import "ServiceBridge.h"
+#import "HLSProxy.h"
 #import "GCDWebServer.h"
 #import "GCDWebServerDataResponse.h"
 #import "GCDWebServerRequest.h"
@@ -7,6 +8,7 @@
 
 @interface LocalServer ()
 @property (nonatomic, strong) ServiceBridge *service;
+@property (nonatomic, strong) HLSProxy *hls;
 @end
 
 @implementation LocalServer {
@@ -88,7 +90,30 @@
 
 - (void)startAPI {
     _api = [[GCDWebServer alloc] init];
+    self.hls = [[HLSProxy alloc] init];
     __weak typeof(self) weakSelf = self;
+
+    [_api addHandlerForMethod:@"GET"
+                    pathRegex:@"/hls/[A-Za-z0-9]+\\.m3u8"
+                 requestClass:[GCDWebServerRequest class]
+                 processBlock:^GCDWebServerResponse *(GCDWebServerRequest *request) {
+        NSString *token = [request.path.lastPathComponent stringByDeletingPathExtension];
+        NSString *playlist = [weakSelf.hls playlistForToken:token];
+        if (!playlist) return [GCDWebServerResponse responseWithStatusCode:404];
+        GCDWebServerDataResponse *r = [GCDWebServerDataResponse responseWithData:
+            [playlist dataUsingEncoding:NSUTF8StringEncoding]
+            contentType:@"application/vnd.apple.mpegurl"];
+        [weakSelf addCORS:r];
+        [r setValue:@"no-store" forAdditionalHeader:@"Cache-Control"];
+        return r;
+    }];
+    [_api addHandlerForMethod:@"GET"
+                    pathRegex:@"/media/[A-Za-z0-9]+\\.ts"
+                 requestClass:[GCDWebServerRequest class]
+             asyncProcessBlock:^(GCDWebServerRequest *request, GCDWebServerCompletionBlock completion) {
+        NSString *token = [request.path.lastPathComponent stringByDeletingPathExtension];
+        [weakSelf.hls mediaForToken:token request:request completion:completion];
+    }];
     [_api addDefaultHandlerForMethod:@"OPTIONS"
                         requestClass:[GCDWebServerRequest class]
                         processBlock:^GCDWebServerResponse *(GCDWebServerRequest *request) {
@@ -179,6 +204,20 @@
         }
         NSMutableDictionary *out = [NSMutableDictionary dictionary];
         if ([data isKindOfClass:[NSDictionary class]]) [out addEntriesFromDictionary:data];
+        if ([name isEqualToString:@"resolve"] || [name isEqualToString:@"resolveSmooth"]) {
+            NSString *token = [weakSelf.hls registerStream:(NSDictionary *)data];
+            if (!token) {
+                completion([weakSelf json:@{@"returnValue": @NO,
+                                            @"errorText": @"el portal no devolvio URL de video"}]);
+                return;
+            }
+            NSString *local = [NSString stringWithFormat:@"http://127.0.0.1:8910/hls/%@.m3u8", token];
+            out[@"url"] = local;
+            out[@"proxyPath"] = local;
+            out[@"isHls"] = @YES;
+            out[@"mime"] = @"application/vnd.apple.mpegurl";
+            if (!out[@"codec"]) out[@"codec"] = @"H264";
+        }
         out[@"returnValue"] = @YES;
         completion([weakSelf json:out]);
     }];
