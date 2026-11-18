@@ -36,10 +36,7 @@
     NSString *webRoot = [indexPath stringByDeletingLastPathComponent];
     _web = [[GCDWebServer alloc] init];
 
-    [_web addHandlerForMethod:@"GET"
-                         path:@"/index.html"
-                 requestClass:[GCDWebServerRequest class]
-                 processBlock:^GCDWebServerResponse *(GCDWebServerRequest *request) {
+    GCDWebServerProcessBlock indexBlock = ^GCDWebServerResponse *(GCDWebServerRequest *request) {
         NSMutableString *html = [NSMutableString stringWithContentsOfFile:indexPath
                                                                  encoding:NSUTF8StringEncoding
                                                                     error:NULL];
@@ -77,13 +74,19 @@
                                  options:0
                                    range:NSMakeRange(0, html.length)];
         return [GCDWebServerDataResponse responseWithHTML:html];
-    }];
+    };
 
     [_web addGETHandlerForBasePath:@"/"
                        directoryPath:webRoot
                        indexFilename:nil
                             cacheAge:0
                 allowRangeRequests:YES];
+    // GCDWebServer inserta cada handler al principio: el index debe ir al final
+    // para tener prioridad sobre el handler generico de archivos.
+    [_web addHandlerForMethod:@"GET"
+                         path:@"/index.html"
+                 requestClass:[GCDWebServerRequest class]
+                 processBlock:indexBlock];
 
     NSArray *ports = @[@8080, @8081, @0];
     NSError *lastError = nil;
