@@ -5,4 +5,4 @@ packages/
 *.d
 *.ipa
 *.deb
-.build/
+.build/dist/

@@ -1,0 +1,285 @@
+[connected]
+
+
+Nov 18 16:15:32 routined[38] <Warning>: Connection interrupted!
+Nov 18 16:15:33 backboardd[63] <Error>: _IOHIDEventSystemConnectionFilterEvent(0x17556970): kr=0x10004003 '(ipc/rcv) timed out' filter=0 runLoop=0x17673810 pid=114 'com.apple.access'
+Nov 18 16:15:36 XuperTV[716] <Warning>: [xuper-ios] mediaInfo: v10/startPlayVOD -> portal100008 节目不存在
+Nov 18 16:16:50 kernel[0] <Notice>: AppleHDQGasGauge:stats num_clients=1,num_entries=710,dl_skip=0,dl_cali=0,dl_over=0,dl_drain=1 ops=27892,collated=0,bfailures=0,collate_error=0,ioerr=0,timeouts=0 retry16=6,chf16=10
+Nov 18 16:16:50 kernel[0] <Notice>: AppleHDQGasGauge:clientLog ld=0/
+Nov 18 16:16:50 kernel[0] <Notice>: AppleHDQGasGauge:clientLog 465416/S0 465449/C0 465450/S1 467774/S2 492480/S3 493095/T3 493095/C3 6727882/S4 6727883/e4
+Nov 18 16:19:09 DuetHeuristic-BM[739] <Notice>: MS:Notice: Injecting: com.apple.system.DuetHeuristic-BM [DuetHeuristic-BM] (1290.11)
+Nov 18 16:19:09 DuetHeuristic-BM[739] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 16:19:09 DuetHeuristic-BM[739] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 16:19:09 DuetHeuristic-BM[739] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 16:19:09 DuetHeuristic-BM[739] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 16:19:09 DuetHeuristic-BM[739] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:19:09 DuetHeuristic-BM[739] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:19:15 geod[742] <Notice>: MS:Notice: Injecting: com.apple.geod [geod] (1290.11)
+Nov 18 16:19:15 geod[742] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 16:19:15 geod[742] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 16:19:15 geod[742] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 16:19:15 geod[742] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 16:19:15 geod[742] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:19:15 geod[742] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:19:16 geod[742] <Notice>: 2026-11-18 16:19:16.464, 742, 17623f60, [GEOPersistenceManager]: Mapping directory does not exist. Will create it at path: /var/mobile/Library/GeoServices/PhoneNumberMapping.plist
+Nov 18 16:19:16 UserEventAgent[23] <Error>: Could not get event name for stream/token: com.apple.xpc.activity/128: 132: Request for stale data
+Nov 18 16:21:49 lockdownd[745] <Notice>: MS:Notice: Injecting: (null) [lockdownd] (1290.11)
+Nov 18 16:21:49 lockdownd[745] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 16:21:49 lockdownd[745] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 16:21:49 lockdownd[745] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 16:21:49 lockdownd[745] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 16:21:49 lockdownd[745] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:21:49 lockdownd[745] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:21:50 lockbot[748] <Notice>: MS:Notice: Injecting: (null) [lockbot] (1290.11)
+Nov 18 16:21:50 lockbot[748] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:21:50 lockbot[748] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:21:50 ptpd[608] <Notice>: PTP interface has been deactivated.
+Nov 18 16:21:51 kernel[0] <Notice>: stallSetupRequest USB request: 80 06 0f00 0000 0005
+Nov 18 16:21:51 atc[751] <Notice>: MS:Notice: Injecting: com.apple.atc [atc] (1290.11)
+Nov 18 16:21:51 ptpd[608] <Notice>: Photo library available
+Nov 18 16:21:51 ptpd[608] <Notice>: PTP interface has been activated at high speed.
+Nov 18 16:21:51 atc[751] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 16:21:51 atc[751] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 16:21:51 atc[751] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 16:21:51 atc[751] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 16:21:51 atc[751] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:21:51 atc[751] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:21:51 wifid[74] <Error>: WiFi:[816726111.644396]: Attached client lockdownd is background application
+Nov 18 16:21:51 wifid[74] <Error>: WiFi:[816726111.655087]: Enable WoW requested by "lockdownd"
+Nov 18 16:21:51 mobileactivationd[754] <Notice>: MS:Notice: Injecting: com.apple.mobileactivationd [mobileactivationd] (1290.11)
+Nov 18 16:21:51 mobileactivationd[754] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 16:21:51 mobileactivationd[754] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 16:21:51 mobileactivationd[754] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 16:21:51 mobileactivationd[754] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 16:21:51 mobileactivationd[754] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:21:51 mobileactivationd[754] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:21:52 SpringBoard[222] <Warning>: lockdown says the device is: [Activated], state is 3
+Nov 18 16:21:52 mobileactivationd[754] <Notice>: 0x1f219000 MA: -[MobileActivationDaemon recertifyDevice:WithCompletionBlock:]: Recertification (SB) requested by rolld<127>
+Nov 18 16:21:52 medialibraryd[759] <Notice>: MS:Notice: Injecting: com.apple.medialibraryd [medialibraryd] (1290.11)
+Nov 18 16:21:53 medialibraryd[759] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 16:21:53 medialibraryd[759] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 16:21:53 medialibraryd[759] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 16:21:53 medialibraryd[759] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 16:21:53 medialibraryd[759] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:21:53 medialibraryd[759] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:21:53 absd[762] <Notice>: MS:Notice: Injecting: (null) [absd] (1290.11)
+Nov 18 16:21:53 absd[762] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:21:53 atc[751] <Warning>: Framework NanoMusicSync could not be found.
+Nov 18 16:21:53 absd[762] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:21:54 itunesstored[765] <Notice>: MS:Notice: Injecting: com.apple.itunesstored [itunesstored] (1290.11)
+Nov 18 16:21:54 itunesstored[765] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 16:21:54 itunesstored[765] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 16:21:54 itunesstored[765] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 16:21:54 itunesstored[765] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 16:21:54 itunesstored[765] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:21:54 itunesstored[765] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:21:54 atc[751] <Notice>: (Error) NPSLogging: <NPSDomainAccessor.m +[NPSDomainAccessor resolveActivePairedDevicePairingID:pairingDataStore:]:40> Failed to resolve pairing ID ((null)) or data store ((null)) for active device
+Nov 18 16:21:54 SpringBoard[222] <Warning>: lockdown says the device is: [Activated], state is 3
+Nov 18 16:21:54 atc[751] <Warning>: Framework PairedSync could not be found.
+Nov 18 16:21:54 atc[751] <Warning>: [Warning] Bad response (null) from daemon for setup info
+Nov 18 16:21:54 atc[751] <Warning>: [Warning] Services all disappeared, removing all accounts
+Nov 18 16:21:54 atc[751] <Warning>: [Warning] Services all disappeared, removing all enabled accounts
+Nov 18 16:21:54 atc[751] <Warning>: [Warning] Services all disappeared, removing all dependent devices
+Nov 18 16:21:55 backupd[769] <Notice>: MS:Notice: Injecting: com.apple.backupd [backupd] (1290.11)
+Nov 18 16:21:55 accountsd[772] <Notice>: MS:Notice: Injecting: com.apple.accountsd [accountsd] (1290.11)
+Nov 18 16:21:55 accountsd[772] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 16:21:55 accountsd[772] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 16:21:55 accountsd[772] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 16:21:55 accountsd[772] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 16:21:55 accountsd[772] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:21:55 accountsd[772] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:21:55 backupd[769] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 16:21:55 backupd[769] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 16:21:55 backupd[769] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 16:21:55 backupd[769] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 16:21:55 backupd[769] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:21:55 backupd[769] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:21:55 accountsd[772] <Warning>: [Warning] Bad response (null) from daemon for setup info
+Nov 18 16:21:55 accountsd[772] <Warning>: [Warning] Services all disappeared, removing all accounts
+Nov 18 16:21:55 accountsd[772] <Warning>: [Warning] Services all disappeared, removing all enabled accounts
+Nov 18 16:21:55 accountsd[772] <Warning>: [Warning] Services all disappeared, removing all dependent devices
+Nov 18 16:21:55 ptpd[608] <Warning>: #### Storage allocated/var/mobile/Media 
+Nov 18 16:21:56 mobileactivationd[754] <Notice>: 0x1f29b000 MA: -[MobileActivationDaemon recertifyDevice:WithCompletionBlock:]: Recertification (SB) requested by rolld<127>
+Nov 18 16:21:56 ptpd[608] <Warning>: #### Storage allocated/var/mobile/Media 
+Nov 18 16:21:56 itunesstored[765] <Warning>: iTunes Store environment is: AS00
+Nov 18 16:21:56 coreduetd[85] <Notice>: (Error) WatchKit: -[SPDeviceConnection fetchInstalledApplicationsForPairedDevice:completion:] - error: Error Domain=NSCocoaErrorDomain Code=4099 "The connection to service named com.apple.companionappd was invalidated." UserInfo={NSDebugDescription=The connection to service named com.apple.companionappd was invalidated.}
+Nov 18 16:21:56 coreduetd[85] <Notice>: (Note ) WatchKit: SPDeviceConnection, createXPCConnection, invalidationHandler
+Nov 18 16:21:56 coreduetd[85] <Notice>: (Error) WatchKit: -[SPDeviceConnection activeComplicationsForPairedDevice:completion:] - error: Error Domain=NSCocoaErrorDomain Code=4099 "The connection to service named com.apple.companionappd was invalidated." UserInfo={NSDebugDescription=The connection to service named com.apple.companionappd was invalidated.}
+Nov 18 16:21:56 coreduetd[85] <Notice>: (Note ) WatchKit: SPDeviceConnection, createXPCConnection, invalidationHandler
+Nov 18 16:21:57 findmydeviced[757] <Notice>: MS:Notice: Injecting: com.apple.icloud.findmydeviced [findmydeviced] (1290.11)
+Nov 18 16:21:57 findmydeviced[757] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 16:21:57 findmydeviced[757] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 16:21:57 findmydeviced[757] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 16:21:57 findmydeviced[757] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 16:21:57 findmydeviced[757] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:21:57 findmydeviced[757] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:21:58 findmydeviced[757] <Warning>: findmydeviced has been launched
+Nov 18 16:22:57 mobile_installation_proxy[775] <Notice>: MS:Notice: Injecting: (null) [mobile_installation_proxy] (1290.11)
+Nov 18 16:22:57 afcd[777] <Notice>: MS:Notice: Injecting: com.apple.afcd [afcd] (1290.11)
+Nov 18 16:22:57 afcd[777] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:22:57 mobile_installation_proxy[775] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 16:22:57 mobile_installation_proxy[775] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 16:22:57 mobile_installation_proxy[775] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 16:22:57 mobile_installation_proxy[775] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 16:22:57 mobile_installation_proxy[775] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:22:57 afcd[777] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:22:57 mobile_installation_proxy[775] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:22:58 installd[781] <Notice>: MS:Notice: Injecting: (null) [installd] (1290.11)
+Nov 18 16:22:58 installd[781] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 16:22:58 installd[781] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 16:22:58 installd[781] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 16:22:58 installd[781] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 16:22:58 installd[781] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-installd.dylib
+Nov 18 16:22:58 installd[781] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified.dylib
+Nov 18 16:22:58 installd[781] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:22:58 installd[781] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:22:58 installd[781] <Warning>: CREATING PREFERENCE FILE
+Nov 18 16:22:58 installd[781] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/patcyh.dylib
+Nov 18 16:22:58 com.apple.xpc.launchd[1] <Error>: assertion failed: 13G37: launchd + 85529 [083E000D-4C31-3B98-A2C4-6FADB4D1940F]: 0x3
+Nov 18 16:22:58 com.apple.MobileInstallationHelperService[784] <Notice>: MS:Notice: Injecting: com.apple.MobileInstallationHelperService [com.apple.MobileInstallationHelperService] (1290.11)
+Nov 18 16:22:58 com.apple.MobileInstallationHelperService[784] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:22:58 com.apple.MobileInstallationHelperService[784] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:22:59 com.apple.xpc.launchd[1] <Error>: assertion failed: 13G37: launchd + 85529 [083E000D-4C31-3B98-A2C4-6FADB4D1940F]: 0x3
+Nov 18 16:22:59 installd[781] <Notice>: 0x1f115000 -[MIClientConnection _doBackgroundInstallationForPath:withOptions:completion:]: Install of "/var/mobile/Media/PublicStaging/com.webosflux.xupertv.ios" type Customer (LSInstallType = (null)) requested by mobile_installation_proxy (pid 775)
+Nov 18 16:23:00 com.apple.xpc.launchd[1] (com.apple.WebKit.Networking.932C6E48-D516-48F8-8AFA-2A2A1C9A340F[718]) <Warning>: Service exited with abnormal code: 1
+Nov 18 16:23:00 SpringBoard[222] <Warning>: HW kbd: Failed to set (null) as keyboard focus
+Nov 18 16:23:00 mediaserverd[44] <Notice>: '' com.apple.WebKit.WebContent(pid = 720) setting DiscoveryMode = DiscoveryMode_None, currentDiscoveryMode = DiscoveryMode_None
+Nov 18 16:23:00 mediaserverd[44] <Notice>: '' com.apple.WebKit.WebContent(pid = 720) setting DiscoveryMode = DiscoveryMode_None, currentDiscoveryMode = DiscoveryMode_None
+Nov 18 16:23:00 com.apple.accessibility.AccessibilityUIServer[114] <Warning>: Lost connection with client.
+Nov 18 16:23:00 assertiond[64] <Error>: assertion failed: 13G37: assertiond + 60233 [490D29F9-F790-3C02-B1F0-75F21A182589]: 0x3
+Nov 18 16:23:00 Unknown[64] <Error>: 
+Nov 18 16:23:00 com.apple.xpc.launchd[1] (UIKitApplication:com.webosflux.xupertv.ios[0x6cf5][716]) <Notice>: Service exited due to signal: Killed: 9
+Nov 18 16:23:00 com.apple.xpc.launchd[1] (com.apple.WebKit.WebContent.39576A74-9ABC-4122-A811-242892EA5409[720]) <Warning>: Service exited with abnormal code: 1
+Nov 18 16:23:01 SpringBoard[222] <Warning>: Application 'UIKitApplication:com.webosflux.xupertv.ios[0x6cf5]' exited abnormally via signal.
+Nov 18 16:23:01 UserEventAgent[23] <Warning>: 188322544235: id=com.webosflux.xupertv.ios pid=716, state=0
+Nov 18 16:23:01 installd[781] <Notice>: 0x1f115000 -[MIInstaller performInstallationWithError:]: Installing <MIInstallableBundle ID=com.webosflux.xupertv.ios; Version=1, ShortVersion=1.0.0>
+Nov 18 16:23:02 SpringBoard[222] <Warning>: [MPUSystemMediaControls] Updating supported commands for now playing application.
+Nov 18 16:23:02 SpringBoard[222] <Warning>: [MPUSystemMediaControls] Updating supported commands for now playing application.
+Nov 18 16:23:02 SpringBoard[222] <Warning>: [MPUSystemMediaControls] Updating supported commands for now playing application.
+Nov 18 16:23:02 SpringBoard[222] <Warning>: [MPUSystemMediaControls] Updating supported commands for now playing application.
+Nov 18 16:23:02 mediaserverd[44] <Notice>: 'FigPlayer - 46' (pid = 46) setting DiscoveryMode = DiscoveryMode_None, currentDiscoveryMode = DiscoveryMode_None
+Nov 18 16:23:04 installd[781] <Notice>: 0x1f115000 -[MIInstallableBundle _refreshUUIDForContainer:withError:]: Data container for com.webosflux.xupertv.ios is now at /private/var/mobile/Containers/Data/Application/EFCAB4CB-7E41-4CF7-B6DD-B676DE55383C
+Nov 18 16:23:04 installd[781] <Notice>: 0x1f115000 -[MIContainer makeContainerLiveReplacingContainer:reason:withError:]: Made container live for com.webosflux.xupertv.ios at /private/var/containers/Bundle/Application/3AECB9CE-52EB-4150-92C2-A3E4D460624D
+Nov 18 16:23:04 com.apple.MobileInstallationHelperService[784] <Notice>: 0x1f197000 __69-[MIFileManager urlsForItemsInDirectoryAtURL:ignoringSymlinks:error:]_block_invoke: Ignoring symlink at /System/Library/CoreServices/AuthBrokerAgent
+Nov 18 16:23:04 com.apple.MobileInstallationHelperService[784] <Notice>: 0x1f197000 __69-[MIFileManager urlsForItemsInDirectoryAtURL:ignoringSymlinks:error:]_block_invoke: Ignoring symlink at /System/Library/CoreServices/CFNetworkAgent
+Nov 18 16:23:04 installd[781] <Notice>: 0x1f115000 -[MIInstaller performInstallationWithError:]: Install Successful; Staging: 1.63s; Waiting: 0.08s; Preflight/Patch: 2.10s, Verifying: 0.16s; Overall: 5.74s
+Nov 18 16:23:04 pkd[647] <Warning>: releasing plug-in hold A4EDF8F3-C95B-40F5-9D8A-23ED2CABAB9C at client's request
+Nov 18 16:23:05 online-auth-agent[697] <Notice>: MIS: Could not copy code directory hash.
+Nov 18 16:23:05 online-auth-agent[697] <Notice>: MIS: Could not copy code directory hash (error: -402620415).
+Nov 18 16:23:05 swcd[789] <Notice>: MS:Notice: Injecting: (null) [swcd] (1290.11)
+Nov 18 16:23:05 syncdefaultsd[787] <Notice>: MS:Notice: Injecting: com.apple.syncdefaultsd [syncdefaultsd] (1290.11)
+Nov 18 16:23:05 bird[791] <Notice>: MS:Notice: Injecting: com.apple.bird [bird] (1290.11)
+Nov 18 16:23:05 ondemandd[795] <Notice>: MS:Notice: Injecting: com.apple.ondemandd [ondemandd] (1290.11)
+Nov 18 16:23:05 swcd[789] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:23:05 assetsd[793] <Notice>: MS:Notice: Injecting: com.apple.assetsd [assetsd] (1290.11)
+Nov 18 16:23:05 assetsd[793] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Activator.dylib
+Nov 18 16:23:05 ondemandd[795] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 16:23:05 ondemandd[795] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 16:23:05 ondemandd[795] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 16:23:05 ondemandd[795] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 16:23:05 syncdefaultsd[787] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 16:23:05 swcd[789] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:23:05 ondemandd[795] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:23:05 syncdefaultsd[787] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 16:23:05 syncdefaultsd[787] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 16:23:05 syncdefaultsd[787] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 16:23:05 syncdefaultsd[787] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:23:05 ondemandd[795] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:23:05 bird[791] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 16:23:05 bird[791] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 16:23:05 bird[791] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 16:23:05 bird[791] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 16:23:05 syncdefaultsd[787] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:23:05 bird[791] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:23:05 bird[791] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:23:06 assetsd[793] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 16:23:06 assetsd[793] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 16:23:06 assetsd[793] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 16:23:06 assetsd[793] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 16:23:06 assetsd[793] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:23:06 assetsd[793] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:23:06 ondemandd[795] <Warning>: ondemandd is starting up...
+Nov 18 16:23:06 SpringBoard[222] <Warning>: Installed apps did change.
+	Added: {(
+	)}
+	Removed: {(
+	)}
+	Modified: {(
+	    "com.webosflux.xupertv.ios"
+	)}
+Nov 18 16:23:06 syncdefaultsd[787] <Notice>: (Note ) SYDPIMAccount: no account (null)
+Nov 18 16:23:06 syncdefaultsd[787] <Notice>: (Note ) SYDBootAccount: no account (null)
+Nov 18 16:23:06 syncdefaultsd[787] <Notice>: (Note ) SYDAlwaysOnAccount: no account (null)
+Nov 18 16:23:06 syncdefaultsd[787] <Notice>: (Note ) SYDAccount: no account
+Nov 18 16:23:06 tccd[108] <Notice>: Refusing client without bundle identifier (/System/Library/Frameworks/CoreTelephony.framework/Support/CommCenter)
+Nov 18 16:23:06 tccd[108] <Notice>: Refusing client without bundle identifier (/usr/libexec/UserEventAgent)
+Nov 18 16:23:07 tccd[108] <Notice>: Refusing client without bundle identifier (/usr/libexec/backboardd)
+Nov 18 16:23:27 syslog_relay[802] <Notice>: MS:Notice: Injecting: (null) [syslog_relay] (1290.11)
+Nov 18 16:23:27 syslog_relay[802] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:23:27 syslog_relay[802] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:23:28 syslog_relay[802] <Notice>: syslog_relay found the ASL prompt. Starting...
+Nov 18 16:24:07 syslogd[22] <Notice>: ASL Sender Statistics
+Nov 18 16:28:12 kernel[0] <Notice>: AppleAP3GDL::handleInterrupt2 FIFO is Empty
+Nov 18 16:29:38 kernel[0] <Notice>: AppleAP3GDL::handleInterrupt2 FIFO is Empty
+Nov 18 16:32:08 kernel[0] <Notice>: AppleAP3GDL::handleInterrupt2 FIFO is Empty
+Nov 18 16:32:34 timed[805] <Notice>: MS:Notice: Injecting: com.apple.timed [timed] (1290.11)
+Nov 18 16:32:34 timed[805] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:32:34 timed[805] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:32:34 timed[805] <Notice>: (Error) CoreTime: Unable to prevent KeepAlive: Error Domain=NSCocoaErrorDomain Code=4 "“com.apple.timed.launchd” couldn’t be removed." UserInfo={NSUnderlyingError=0x15ea38f0 {Error Domain=NSPOSIXErrorDomain Code=2 "No such file or directory"}, NSFilePath=/var/mobile/Library/Caches/com.apple.timed.launchd, NSUserStringVariant=(
+	    Remove
+	)}
+Nov 18 16:32:34 timed[805] <Warning>: [Warning] Bad response (null) from daemon for setup info
+Nov 18 16:32:34 timed[805] <Warning>: [Warning] Services all disappeared, removing all accounts
+Nov 18 16:32:34 timed[805] <Warning>: [Warning] Services all disappeared, removing all enabled accounts
+Nov 18 16:32:34 timed[805] <Warning>: [Warning] Services all disappeared, removing all dependent devices
+Nov 18 16:32:34 timed[805] <Notice>: (Warn ) TimeLink: Not compatible, dropping {
+	    kTMLSLinkAutomaticTimeEnabledKey = 0;
+	    kTMLSLinkMsgKey = 12;
+	}
+Nov 18 16:32:34 timed[805] <Notice>: (Warn ) TimeLink: Not compatible, dropping {
+	    kTMLSLinkMsgKey = 7;
+	}
+Nov 18 16:32:34 timed[805] <Notice>: (Warn ) TimeLink: Not compatible, dropping {
+	    kTMLSLinkMsgKey = 4;
+	    kTMLSLinkSourceKey = TMLSSourceDevice;
+	    kTMLSLinkTimeZoneKey = "America/Caracas";
+	}
+Nov 18 16:32:36 timed[805] <Notice>: (Note ) CoreTime: Received time 11/18/2026 20:39:15±0.02 from "NTP"
+Nov 18 16:32:36 timed[805] <Notice>: (Note ) CoreTime: Want active time in 24.58min. Need active time in 8316.25min. Remaining retry interval: 14.966667min.
+Nov 18 16:32:36 UserEventAgent[23] <Error>: validateAndAddDefaults(com.apple.timed): End Time (inf) > now (816726756.9) + BACKGROUND_TASK_AGENT_JOB_WINDOW_MAX_TIME_FROM_NOW_SEC (3024000.0) + BACKGROUND_TASK_AGENT_JOB_TIME_ERROR_MARGIN (300.0)
+Nov 18 16:32:36 timed[805] <Notice>: (Error) CoreTime: Error requesting proactive time check job
+Nov 18 16:32:38 timed[805] <Notice>: (Note ) CoreTime: Want active time in 24.57min. Need active time in 8316.23min. Remaining retry interval: 14.950000min.
+Nov 18 16:32:38 UserEventAgent[23] <Error>: validateAndAddDefaults(com.apple.timed): End Time (inf) > now (816726758.0) + BACKGROUND_TASK_AGENT_JOB_WINDOW_MAX_TIME_FROM_NOW_SEC (3024000.0) + BACKGROUND_TASK_AGENT_JOB_TIME_ERROR_MARGIN (300.0)
+Nov 18 16:32:38 timed[805] <Notice>: (Error) CoreTime: Error requesting proactive time check job
+Nov 18 16:33:19 kernel[0] <Notice>: AppleAP3GDL::handleInterrupt2 FIFO is Empty
+Nov 18 16:34:10 syslogd[22] <Notice>: ASL Sender Statistics
+Nov 18 16:38:42 installd[781] <Notice>: 0x1f115000 -[MIClientConnection _doBackgroundInstallationForPath:withOptions:completion:]: Install of "/var/mobile/Media/PublicStaging/com.webosflux.xupertv.ios" type Customer (LSInstallType = (null)) requested by mobile_installation_proxy (pid 775)
+Nov 18 16:38:43 installd[781] <Notice>: 0x1f115000 -[MIInstaller performInstallationWithError:]: Installing <MIInstallableBundle ID=com.webosflux.xupertv.ios; Version=1, ShortVersion=1.0.0>
+Nov 18 16:38:44 installd[781] <Notice>: 0x1f115000 -[MIInstallableBundle _refreshUUIDForContainer:withError:]: Data container for com.webosflux.xupertv.ios is now at /private/var/mobile/Containers/Data/Application/95C0C26D-C0EB-4BF0-AC8B-A3446E51A7CE
+Nov 18 16:38:44 installd[781] <Notice>: 0x1f115000 -[MIContainer makeContainerLiveReplacingContainer:reason:withError:]: Made container live for com.webosflux.xupertv.ios at /private/var/containers/Bundle/Application/9525F750-E37F-4276-96E3-BCC35647FE24
+Nov 18 16:38:44 installd[781] <Notice>: 0x1f115000 -[MIInstaller performInstallationWithError:]: Install Successful; Staging: 1.58s; Waiting: 0.00s; Preflight/Patch: 0.02s, Verifying: 0.03s; Overall: 2.01s
+Nov 18 16:38:44 pkd[647] <Warning>: releasing plug-in hold 1665D747-3858-47DF-A605-6E56D49D87E5 at client's request
+Nov 18 16:38:44 online-auth-agent[697] <Notice>: MIS: Could not copy code directory hash.
+Nov 18 16:38:44 online-auth-agent[697] <Notice>: MIS: Could not copy code directory hash (error: -402620415).
+Nov 18 16:38:44 syncdefaultsd[808] <Notice>: MS:Notice: Injecting: com.apple.syncdefaultsd [syncdefaultsd] (1290.11)
+Nov 18 16:38:44 syncdefaultsd[808] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 16:38:44 syncdefaultsd[808] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 16:38:44 syncdefaultsd[808] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 16:38:44 syncdefaultsd[808] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 16:38:44 syncdefaultsd[808] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:38:44 syncdefaultsd[808] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:38:44 SpringBoard[222] <Warning>: Installed apps did change.
+	Added: {(
+	)}
+	Removed: {(
+	)}
+	Modified: {(
+	    "com.webosflux.xupertv.ios"
+	)}
+Nov 18 16:38:45 syncdefaultsd[808] <Notice>: (Note ) SYDPIMAccount: no account (null)
+Nov 18 16:38:45 syncdefaultsd[808] <Notice>: (Note ) SYDBootAccount: no account (null)
+Nov 18 16:38:45 syncdefaultsd[808] <Notice>: (Note ) SYDAlwaysOnAccount: no account (null)
+Nov 18 16:38:45 syncdefaultsd[808] <Notice>: (Note ) SYDAccount: no account
+Nov 18 16:39:02 syslog_relay[802] <Notice>: syslog_relay found the ASL prompt. Starting...
+Nov 18 16:39:37 kernel[0] <Notice>: AppleAP3GDL::handleInterrupt2 FIFO is Empty
+Nov 18 16:41:33 syslog_relay[802] <Notice>: syslog_relay found the ASL prompt. Starting...
