@@ -16,7 +16,7 @@ XuperTV_LDFLAGS = -Wl,-segalign,4000 -Wl,-undefined,dynamic_lookup -lz \
                  -Fvendor/vlckit/MobileVLCKit-binary -framework MobileVLCKit -lc++ -lstdc++ -lbz2 -liconv
 XuperTV_CFLAGS = -fobjc-arc -Wno-deprecated-declarations -Wno-unused-parameter \
                  -Wno-unused-variable -Wno-unused-function \
-                 -Ivendor/vlckit/MobileVLCKit-binary/MobileVLCKit.framework/Headers \
+                 -Fvendor/vlckit/MobileVLCKit-binary \
                  -Ivendor/GCDWebServer/GCDWebServer/Core \
                  -Ivendor/GCDWebServer/GCDWebServer/Requests \
                  -Ivendor/GCDWebServer/GCDWebServer/Responses
