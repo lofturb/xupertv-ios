@@ -29,12 +29,6 @@
 #error GCDWebServer requires ARC
 #endif
 
-#import <TargetConditionals.h>
-#if TARGET_OS_IPHONE
-#import <MobileCoreServices/MobileCoreServices.h>
-#else
-#import <SystemConfiguration/SystemConfiguration.h>
-#endif
 #import <CommonCrypto/CommonDigest.h>
 
 #import <ifaddrs.h>
@@ -167,20 +161,24 @@ NSString* GCDWebServerDescribeData(NSData* data, NSString* type) {
 }
 
 NSString* GCDWebServerGetMimeTypeForExtension(NSString* extension, NSDictionary<NSString*, NSString*>* overrides) {
-  NSDictionary* builtInOverrides = @{@"css" : @"text/css"};
+  NSDictionary* builtInOverrides = @{
+    @"css" : @"text/css", @"html" : @"text/html", @"htm" : @"text/html",
+    @"js" : @"application/javascript", @"json" : @"application/json",
+    @"png" : @"image/png", @"jpg" : @"image/jpeg", @"jpeg" : @"image/jpeg",
+    @"gif" : @"image/gif", @"svg" : @"image/svg+xml", @"ico" : @"image/x-icon",
+    @"txt" : @"text/plain", @"xml" : @"application/xml",
+    @"m3u8" : @"application/vnd.apple.mpegurl", @"ts" : @"video/mp2t",
+    @"mp4" : @"video/mp4", @"m4v" : @"video/mp4", @"mov" : @"video/quicktime",
+    @"woff" : @"font/woff", @"woff2" : @"font/woff2", @"ttf" : @"font/ttf",
+    @"otf" : @"font/otf", @"eot" : @"application/vnd.ms-fontobject",
+    @"srt" : @"application/x-subrip", @"vtt" : @"text/vtt"
+  };
   NSString* mimeType = nil;
   extension = [extension lowercaseString];
   if (extension.length) {
     mimeType = [overrides objectForKey:extension];
     if (mimeType == nil) {
       mimeType = [builtInOverrides objectForKey:extension];
-    }
-    if (mimeType == nil) {
-      CFStringRef uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (__bridge CFStringRef)extension, NULL);
-      if (uti) {
-        mimeType = CFBridgingRelease(UTTypeCopyPreferredTagWithClass(uti, kUTTagClassMIMEType));
-        CFRelease(uti);
-      }
     }
   }
   return mimeType ? mimeType : kGCDWebServerDefaultMimeType;

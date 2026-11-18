@@ -53,6 +53,12 @@
                            options:0
                              range:NSMakeRange(0, html.length)
                       withTemplate:@"<meta name=\"viewport\" content=\"width=1920, height=1080, user-scalable=no\">"];
+        // webOSTV.js define webOS.service.request (Luna); en iOS no existe
+        // PalmServiceBridge. Se elimina para que app.js use devServiceUrl (8910).
+        [html replaceOccurrencesOfString:@"<script src=\"js/webOSTV.js\"></script>"
+                              withString:@"<script src=\"js/webOSTV.js\"></script><script>try{window.PalmServiceBridge=undefined;if(window.webOS){try{delete window.webOS.service;}catch(e){}window.webOS.service=null;}}catch(e){}</script>"
+                                 options:0
+                                   range:NSMakeRange(0, html.length)];
         return [GCDWebServerDataResponse responseWithHTML:html];
     }];
 
