@@ -10,7 +10,7 @@ GCD_SRC = $(wildcard vendor/GCDWebServer/GCDWebServer/Core/*.m) \
           $(wildcard vendor/GCDWebServer/GCDWebServer/Requests/*.m) \
           $(wildcard vendor/GCDWebServer/GCDWebServer/Responses/*.m)
 
-XuperTV_FILES = main.m AppDelegate.m RootViewController.m LocalServer.m $(GCD_SRC)
+XuperTV_FILES = main.m AppDelegate.m RootViewController.m LocalServer.m ServiceBridge.m $(GCD_SRC)
 XuperTV_FRAMEWORKS = UIKit Foundation WebKit JavaScriptCore AVFoundation Security CoreGraphics
 XuperTV_LDFLAGS = -Wl,-segalign,4000 -lz
 XuperTV_CFLAGS = -fobjc-arc -Wno-deprecated-declarations -Wno-unused-parameter \
