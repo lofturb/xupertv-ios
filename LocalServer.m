@@ -233,6 +233,13 @@
         NSMutableDictionary *out = [NSMutableDictionary dictionary];
         if ([data isKindOfClass:[NSDictionary class]]) [out addEntriesFromDictionary:data];
         if ([name isEqualToString:@"resolve"] || [name isEqualToString:@"resolveSmooth"]) {
+            NSString *codec = [out[@"codec"] isKindOfClass:[NSString class]]
+                ? [out[@"codec"] uppercaseString] : @"";
+            if ([codec containsString:@"265"] || [codec containsString:@"HEVC"]) {
+                completion([weakSelf json:@{@"returnValue": @NO,
+                                            @"errorText": @"Este titulo solo esta en HEVC; el iPad mini 1 no puede decodificarlo."}]);
+                return;
+            }
             NSString *token = [weakSelf.hls registerStream:(NSDictionary *)data];
             if (!token) {
                 completion([weakSelf json:@{@"returnValue": @NO,

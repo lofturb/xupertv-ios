@@ -40,34 +40,54 @@ function b64decode(str) {
   return bytes;
 }
 function utf8encode(str) {
-  var s, out = [], i, c;
-  try { s = unescape(encodeURIComponent(String(str))); } catch (e) { s = String(str); }
+  var s = String(str), out = [], i, c, c2, cp;
   for (i = 0; i < s.length; i++) {
     c = s.charCodeAt(i);
-    if (c < 128) out.push(c);
-    else if (c < 2048) {
-      out.push(192 | (c >> 6));
-      out.push(128 | (c & 63));
+    if (c < 0x80) {
+      out.push(c);
+    } else if (c < 0x800) {
+      out.push(0xC0 | (c >> 6));
+      out.push(0x80 | (c & 63));
+    } else if (c >= 0xD800 && c <= 0xDBFF && i + 1 < s.length) {
+      c2 = s.charCodeAt(++i);
+      cp = 0x10000 + ((c - 0xD800) << 10) + (c2 - 0xDC00);
+      out.push(0xF0 | (cp >> 18));
+      out.push(0x80 | ((cp >> 12) & 63));
+      out.push(0x80 | ((cp >> 6) & 63));
+      out.push(0x80 | (cp & 63));
     } else {
-      out.push(224 | (c >> 12));
-      out.push(128 | ((c >> 6) & 63));
-      out.push(128 | (c & 63));
+      out.push(0xE0 | (c >> 12));
+      out.push(0x80 | ((c >> 6) & 63));
+      out.push(0x80 | (c & 63));
     }
   }
   return out;
 }
 function utf8decode(bytes) {
-  var s = "", i, c;
-  for (i = 0; i < bytes.length; i++) {
-    c = bytes[i];
-    if (c < 128) s += String.fromCharCode(c);
-    else if (c < 224 && i + 1 < bytes.length) {
-      s += String.fromCharCode(((c & 31) << 6) | (bytes[++i] & 63));
-    } else if (i + 2 < bytes.length) {
-      s += String.fromCharCode(((c & 15) << 12) | ((bytes[++i] & 63) << 6) | (bytes[++i] & 63));
+  var s = "", i = 0, c, c2, c3, c4, cp;
+  while (i < bytes.length) {
+    c = bytes[i++];
+    if (c < 0x80) {
+      s += String.fromCharCode(c);
+    } else if ((c & 0xE0) === 0xC0 && i < bytes.length) {
+      c2 = bytes[i++];
+      s += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
+    } else if ((c & 0xF0) === 0xE0 && i + 1 < bytes.length) {
+      c2 = bytes[i++];
+      c3 = bytes[i++];
+      s += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
+    } else if ((c & 0xF8) === 0xF0 && i + 2 < bytes.length) {
+      c2 = bytes[i++];
+      c3 = bytes[i++];
+      c4 = bytes[i++];
+      cp = ((c & 7) << 18) | ((c2 & 63) << 12) | ((c3 & 63) << 6) | (c4 & 63);
+      cp -= 0x10000;
+      s += String.fromCharCode(0xD800 + (cp >> 10), 0xDC00 + (cp & 1023));
+    } else {
+      s += String.fromCharCode(c);
     }
   }
-  try { return decodeURIComponent(escape(s)); } catch (e) { return s; }
+  return s;
 }
 function hexOf(buf) {
   var out = "", i, h;

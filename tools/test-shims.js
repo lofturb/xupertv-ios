@@ -122,6 +122,15 @@ if (method === "rawsearch") {
 } else if (method === "detailtest") {
   const code = "(function(){var m=module.exports;m.detail('405C67D1F2B01EAD9506FE82AD86BFDC',function(e,d){if(e)return __deliver(1,String(e),'');var out={title:d.item&&d.item.title,itemId:d.item&&d.item.id,seasons:(d.seasons||[]).length,episodes:(d.episodes||[]).slice(0,3)};__deliver(1,'',JSON.stringify(out));});})()";
   vm.runInContext(code, sandbox);
+} else if (method === "resolvetest") {
+  const code = "(function(){var m=module.exports;var p={contentId:'609E20053A2F48EAA49806DB97950C74',seriesContentId:'405C67D1F2B01EAD9506FE82AD86BFDC',quality:'720',hevc:false,uhd:false,trackIndex:0,audioPreference:'es-lat',audioTrack:0};m.resolve(p.contentId,p.seriesContentId,p,function(e,d){if(e)return __deliver(1,String(e),'');var out={url:d.url,mime:d.mime,duration:d.duration,audio:d.audio,codec:d.codec,headers:Object.keys(d.headers||{}),subtitles:(d.subtitles||[]).length,tracks:(d.availableTracks||[]).length};__deliver(1,'',JSON.stringify(out));});})()";
+  vm.runInContext(code, sandbox);
+} else if (method === "qualities") {
+  const code = "(function(){var m=module.exports;var qs=['auto','720','480','1080'];var out=[];var i=0;function next(){if(i>=qs.length)return __deliver(1,'',JSON.stringify(out));var q=qs[i++];var p={contentId:'609E20053A2F48EAA49806DB97950C74',seriesContentId:'405C67D1F2B01EAD9506FE82AD86BFDC',quality:q,hevc:false,uhd:false,trackIndex:0,audioPreference:'es-lat',audioTrack:0};m.resolve(p.contentId,p.seriesContentId,p,function(e,d){out.push({q:q,err:e?String(e.message||e):'',codec:d&&d.codec,quality:d&&d.quality,dur:d&&d.duration,audio:d&&d.audio,selected:d&&d.selectedTrack,tracks:(d&&d.availableTracks||[]).map(function(x){return {q:x.quality,h:x.height,b:x.bitrateKbps,f:x.format};})});next();});}next();})()";
+  vm.runInContext(code, sandbox);
+} else if (method === "codecprobe") {
+  const code = "(function(){var m=module.exports;var terms=['spiderman','avatar','naruto','batman','dragon ball'];var out=[];var i=0;function next(){if(i>=terms.length)return __deliver(1,'',JSON.stringify(out));var q=terms[i++];m.search(q,1,function(e,r){var it=r&&r.items&&r.items[0];if(!it){out.push({q:q,err:'sin resultados'});return next();}m.detail(it.id,function(e2,d){var ep=(d&&d.episodes&&d.episodes[0])||{id:it.id};var p={quality:'auto',hevc:false,uhd:false,trackIndex:0,audioPreference:'es-lat',audioTrack:0};m.resolve(ep.id,it.id,p,function(e3,s){out.push({q:q,title:it.title,ep:ep.title,err:e3?String(e3.message||e3):'',codec:s&&s.codec,quality:s&&s.quality,audio:s&&s.audio,dur:s&&s.duration,tracks:(s&&s.availableTracks||[]).length});next();});});});}next();})()";
+  vm.runInContext(code, sandbox);
 } else {
   vm.runInContext("__serviceInvoke(" + JSON.stringify(method) + ", " + JSON.stringify(params) + ", 1);", sandbox);
 }
@@ -131,4 +140,4 @@ setTimeout(() => {
     console.log("TIMEOUT");
     process.exit(3);
   }
-}, 45000);
+}, 90000);
