@@ -1,0 +1,10 @@
+Package: com.webosflux.xupertv.ios
+Name: XuperTV
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: XuperTV para iPad mini 1 (iOS 9, armv7)
+Homepage: https://github.com/cristianco7/xupertv-ios
+Maintainer: cristianco7
+Author: cristianco7
+Section: Applications
+Depends: firmware (>= 9.0)

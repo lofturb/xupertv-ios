@@ -1,0 +1,18 @@
+{
+  "id": "com.webosflux.xuptertv.fidelity",
+  "version": "3.1.13",
+  "vendor": "webosflux",
+  "type": "web",
+  "main": "index.html",
+  "title": "XuperTV",
+  "icon": "images/icon-xuper-cristiancodev.png",
+  "largeIcon": "images/icon-large-xuper-cristiancodev.png",
+  "resolution": "1280x720",
+  "bgColor": "#000000",
+  "bgImage": "",
+  "spinnerOnLaunch": false,
+  "uiRevision": 2,
+  "disableBackHistoryAPI": true,
+  "requiredACG": [],
+  "requiredPermissions": []
+}

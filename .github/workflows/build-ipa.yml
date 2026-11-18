@@ -1,0 +1,54 @@
+name: build-ipa
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Dependencias del sistema
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential fakeroot rsync curl perl zip unzip git \
+            xz-utils libxml2 libz3-dev libtinfo6
+          sudo update-alternatives --set fakeroot /usr/bin/fakeroot-sysv || true
+
+      - name: Instalar Theos + toolchain + SDK 9.3
+        run: |
+          set -euo pipefail
+          git clone --recursive https://github.com/theos/theos.git "$HOME/theos"
+          mkdir -p "$HOME/theos/toolchain" "$HOME/theos/sdks"
+          curl -L --retry 3 -o /tmp/toolchain.tar.xz \
+            "https://github.com/L1ghtmann/llvm-project/releases/download/test-210562a/iOSToolchain-x86_64.tar.xz"
+          tar -xJf /tmp/toolchain.tar.xz -C "$HOME/theos/toolchain"
+          git clone --depth 1 https://github.com/theos/sdks.git /tmp/theos-sdks
+          cp -R /tmp/theos-sdks/iPhoneOS9.3.sdk "$HOME/theos/sdks/"
+          ls "$HOME/theos/toolchain/linux/iphone/bin" | head
+          echo "THEOS=$HOME/theos" >> "$GITHUB_ENV"
+          echo "$HOME/theos/bin" >> "$GITHUB_PATH"
+
+      - name: Compilar IPA
+        run: |
+          set -euo pipefail
+          make clean || true
+          make package FINALPACKAGE=1 PACKAGE_FORMAT=ipa
+          find . -name '*.ipa' -maxdepth 3 -print
+
+      - name: Publicar IPA
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: build-${{ github.run_number }}
+          name: Build ${{ github.run_number }}
+          files: packages/*.ipa
+          prerelease: true
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
