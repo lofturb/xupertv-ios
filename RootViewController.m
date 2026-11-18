@@ -50,6 +50,16 @@
 
     [self addBackButton];
 
+    UILabel *status = [[UILabel alloc] initWithFrame:CGRectMake(8.0, 6.0, 340.0, 18.0)];
+    status.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin;
+    status.text = [NSString stringWithFormat:@"iOS 9 armv7 | web %lu | api 8910 | js %@",
+                   (unsigned long)self.server.port,
+                   self.server.serviceLoaded ? @"ok" : @"fallo"];
+    status.font = [UIFont systemFontOfSize:11.0];
+    status.textColor = [UIColor colorWithWhite:1.0 alpha:0.55];
+    status.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.35];
+    [self.view addSubview:status];
+
     NSString *url = [NSString stringWithFormat:@"http://127.0.0.1:%lu/index.html", (unsigned long)self.server.port];
     NSLog(@"[xuper-ios] cargando %@", url);
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];

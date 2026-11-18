@@ -79,7 +79,7 @@
     self.context[@"__nativeCancelTimer"] = ^(NSString *sid) {
         [weakSelf.cancelledTimers addObject:sid];
     };
-    self.context[@"__nativeLog"] = ^(id msg) {
+    self.context[@"__nativeLog"] = ^(NSString *msg) {
         NSLog(@"[xuper-js] %@", msg);
     };
     self.context[@"__deliver"] = ^(NSString *token, NSString *error, NSString *data) {

@@ -9,6 +9,7 @@
 @interface LocalServer ()
 @property (nonatomic, strong) ServiceBridge *service;
 @property (nonatomic, strong) HLSProxy *hls;
+@property (nonatomic, readwrite) BOOL serviceLoaded;
 @end
 
 @implementation LocalServer {
@@ -18,7 +19,8 @@
 
 - (BOOL)start:(NSError **)error {
     self.service = [[ServiceBridge alloc] init];
-    if (![self.service load]) {
+    self.serviceLoaded = [self.service load];
+    if (!self.serviceLoaded) {
         NSLog(@"[xuper-ios] aviso: el servicio JS no cargo; la app usara el catalogo empaquetado");
     }
 
