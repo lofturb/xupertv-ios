@@ -31,7 +31,7 @@
 
 #import <TargetConditionals.h>
 #if TARGET_OS_IPHONE
-#import <CoreServices/CoreServices.h>
+#import <MobileCoreServices/MobileCoreServices.h>
 #else
 #import <SystemConfiguration/SystemConfiguration.h>
 #endif
