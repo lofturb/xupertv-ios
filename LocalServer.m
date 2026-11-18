@@ -53,10 +53,27 @@
                            options:0
                              range:NSMakeRange(0, html.length)
                       withTemplate:@"<meta name=\"viewport\" content=\"width=1920, height=1080, user-scalable=no\">"];
-        // webOSTV.js define webOS.service.request (Luna); en iOS no existe
-        // PalmServiceBridge. Se elimina para que app.js use devServiceUrl (8910).
+        // webOSTV.js define webOS.service.request (Luna) pero en iOS no hay
+        // PalmServiceBridge. Se reemplaza por un puente XHR a nuestra API 8910.
+        NSString *bridge =
+            @"(function(){if(!window.webOS)window.webOS={};window.PalmServiceBridge=undefined;"
+             "window.webOS.service={request:function(uri,opts){opts=opts||{};"
+             "var method=opts.method||'';var params=opts.parameters||{};var xhr=new XMLHttpRequest();"
+             "var url='http://127.0.0.1:8910/'+encodeURIComponent(method)+'?q='+encodeURIComponent(JSON.stringify(params));"
+             "var finished=false;var timer=setTimeout(function(){if(finished)return;finished=true;"
+             "try{xhr.abort();}catch(e){}if(opts.onFailure)opts.onFailure({returnValue:false,errorText:'timeout'});},35000);"
+             "function done(data){if(finished)return;finished=true;clearTimeout(timer);"
+             "var ok=!(data&&data.returnValue===false);if(ok){if(opts.onSuccess)opts.onSuccess(data);}"
+             "else{if(opts.onFailure)opts.onFailure(data);}if(opts.onComplete)opts.onComplete(data);}"
+             "xhr.onreadystatechange=function(){if(xhr.readyState!==4)return;var data;"
+             "try{data=JSON.parse(xhr.responseText);}catch(e){data={returnValue:false,errorText:xhr.responseText};}done(data);};"
+             "xhr.onerror=function(){done({returnValue:false,errorText:'network'});};"
+             "xhr.open('GET',url,true);xhr.send(null);"
+             "return {cancel:function(){finished=true;clearTimeout(timer);try{xhr.abort();}catch(e){}}};}};})();";
+        NSString *tag = [NSString stringWithFormat:
+            @"<script src=\"js/webOSTV.js\"></script><script>%@</script>", bridge];
         [html replaceOccurrencesOfString:@"<script src=\"js/webOSTV.js\"></script>"
-                              withString:@"<script src=\"js/webOSTV.js\"></script><script>try{window.PalmServiceBridge=undefined;if(window.webOS){try{delete window.webOS.service;}catch(e){}window.webOS.service=null;}}catch(e){}</script>"
+                              withString:tag
                                  options:0
                                    range:NSMakeRange(0, html.length)];
         return [GCDWebServerDataResponse responseWithHTML:html];

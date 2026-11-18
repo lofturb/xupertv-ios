@@ -119,6 +119,9 @@ if (method === "rawsearch") {
 } else if (method === "debugsearch") {
   const code = "(function(){var m=module.exports;var old=m.search;m.search=function(v,p,cb){console.log('search args '+v+' '+p);old(v,p,function(e,r){console.log('search cb err='+e+' data='+JSON.stringify(r).slice(0,400));cb(e,r);});};__serviceInvoke('search',JSON.stringify({value:'how i met your mother',pageNum:1}),1);})()";
   vm.runInContext(code, sandbox);
+} else if (method === "detailtest") {
+  const code = "(function(){var m=module.exports;m.detail('405C67D1F2B01EAD9506FE82AD86BFDC',function(e,d){if(e)return __deliver(1,String(e),'');var out={title:d.item&&d.item.title,itemId:d.item&&d.item.id,seasons:(d.seasons||[]).length,episodes:(d.episodes||[]).slice(0,3)};__deliver(1,'',JSON.stringify(out));});})()";
+  vm.runInContext(code, sandbox);
 } else {
   vm.runInContext("__serviceInvoke(" + JSON.stringify(method) + ", " + JSON.stringify(params) + ", 1);", sandbox);
 }
