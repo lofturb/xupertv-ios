@@ -41,6 +41,17 @@ jobs:
           echo "THEOS=$HOME/theos" >> "$GITHUB_ENV"
           echo "$HOME/theos/bin" >> "$GITHUB_PATH"
 
+      - name: MobileVLCKit
+        run: |
+          set -euo pipefail
+          mkdir -p vendor/vlckit
+          if [ ! -f vendor/vlckit/MobileVLCKit-binary/MobileVLCKit.framework/MobileVLCKit ]; then
+            curl -L --retry 5 --retry-delay 3 -o /tmp/mv.tar.xz \
+              "https://download.videolan.org/pub/cocoapods/prod/MobileVLCKit-3.3.1-3387892-12ce8cd7f6.tar.xz"
+            tar -xJf /tmp/mv.tar.xz -C vendor/vlckit
+          fi
+          ls -la vendor/vlckit/MobileVLCKit-binary
+
       - name: Compilar IPA
         run: |
           set -euo pipefail

@@ -6,3 +6,5 @@ packages/
 *.ipa
 *.deb
 .build/dist/
+vendor/vlckit/
+!vendor/vlckit/COPYING.txt

@@ -165,6 +165,13 @@
         NSString *token = [request.path.lastPathComponent stringByDeletingPathExtension];
         [weakSelf.hls mediaForToken:token request:request completion:completion];
     }];
+    [_api addHandlerForMethod:@"GET"
+                    pathRegex:@"/vlc/[A-Za-z0-9]+\\.ts"
+                 requestClass:[GCDWebServerRequest class]
+             asyncProcessBlock:^(GCDWebServerRequest *request, GCDWebServerCompletionBlock completion) {
+        NSString *token = [request.path.lastPathComponent stringByDeletingPathExtension];
+        [weakSelf.hls relayToken:token request:request completion:completion];
+    }];
     [_api addDefaultHandlerForMethod:@"OPTIONS"
                         requestClass:[GCDWebServerRequest class]
                         processBlock:^GCDWebServerResponse *(GCDWebServerRequest *request) {
@@ -256,11 +263,12 @@
         NSMutableDictionary *out = [NSMutableDictionary dictionary];
         if ([data isKindOfClass:[NSDictionary class]]) [out addEntriesFromDictionary:data];
         if ([name isEqualToString:@"resolve"] || [name isEqualToString:@"resolveSmooth"]) {
-            NSString *codec = [out[@"codec"] isKindOfClass:[NSString class]]
-                ? [out[@"codec"] uppercaseString] : @"";
-            if ([codec containsString:@"265"] || [codec containsString:@"HEVC"]) {
-                NSLog(@"[xuper-ios] %@ en HEVC: AVPlayer no lo decodifica", out[@"name"] ?: @"titulo");
+            NSString *srcUrl = [data isKindOfClass:[NSDictionary class]] ? data[@"url"] : nil;
+            if ([srcUrl isKindOfClass:[NSString class]] && srcUrl.length) {
+                out[@"remoteUrl"] = srcUrl;
             }
+            NSDictionary *srcHeaders = [data isKindOfClass:[NSDictionary class]] ? data[@"headers"] : nil;
+            if ([srcHeaders isKindOfClass:[NSDictionary class]]) out[@"remoteHeaders"] = srcHeaders;
             NSString *token = [weakSelf.hls registerStream:(NSDictionary *)data];
             if (!token) {
                 completion([weakSelf json:@{@"returnValue": @NO,

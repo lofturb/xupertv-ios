@@ -1,0 +1,1265 @@
+[connected]
+
+
+Nov 18 16:23:06 syncdefaultsd[787] <Notice>: (Note ) SYDBootAccount: no account (null)
+Nov 18 16:23:06 syncdefaultsd[787] <Notice>: (Note ) SYDAlwaysOnAccount: no account (null)
+Nov 18 16:23:06 syncdefaultsd[787] <Notice>: (Note ) SYDAccount: no account
+Nov 18 16:23:06 tccd[108] <Notice>: Refusing client without bundle identifier (/System/Library/Frameworks/CoreTelephony.framework/Support/CommCenter)
+Nov 18 16:23:06 tccd[108] <Notice>: Refusing client without bundle identifier (/usr/libexec/UserEventAgent)
+Nov 18 16:23:07 tccd[108] <Notice>: Refusing client without bundle identifier (/usr/libexec/backboardd)
+Nov 18 16:23:27 syslog_relay[802] <Notice>: MS:Notice: Injecting: (null) [syslog_relay] (1290.11)
+Nov 18 16:23:27 syslog_relay[802] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:23:27 syslog_relay[802] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:23:28 syslog_relay[802] <Notice>: syslog_relay found the ASL prompt. Starting...
+Nov 18 16:24:07 syslogd[22] <Notice>: ASL Sender Statistics
+Nov 18 16:28:12 kernel[0] <Notice>: AppleAP3GDL::handleInterrupt2 FIFO is Empty
+Nov 18 16:29:38 kernel[0] <Notice>: AppleAP3GDL::handleInterrupt2 FIFO is Empty
+Nov 18 16:32:08 kernel[0] <Notice>: AppleAP3GDL::handleInterrupt2 FIFO is Empty
+Nov 18 16:32:34 timed[805] <Notice>: MS:Notice: Injecting: com.apple.timed [timed] (1290.11)
+Nov 18 16:32:34 timed[805] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:32:34 timed[805] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:32:34 timed[805] <Notice>: (Error) CoreTime: Unable to prevent KeepAlive: Error Domain=NSCocoaErrorDomain Code=4 "“com.apple.timed.launchd” couldn’t be removed." UserInfo={NSUnderlyingError=0x15ea38f0 {Error Domain=NSPOSIXErrorDomain Code=2 "No such file or directory"}, NSFilePath=/var/mobile/Library/Caches/com.apple.timed.launchd, NSUserStringVariant=(
+	    Remove
+	)}
+Nov 18 16:32:34 timed[805] <Warning>: [Warning] Bad response (null) from daemon for setup info
+Nov 18 16:32:34 timed[805] <Warning>: [Warning] Services all disappeared, removing all accounts
+Nov 18 16:32:34 timed[805] <Warning>: [Warning] Services all disappeared, removing all enabled accounts
+Nov 18 16:32:34 timed[805] <Warning>: [Warning] Services all disappeared, removing all dependent devices
+Nov 18 16:32:34 timed[805] <Notice>: (Warn ) TimeLink: Not compatible, dropping {
+	    kTMLSLinkAutomaticTimeEnabledKey = 0;
+	    kTMLSLinkMsgKey = 12;
+	}
+Nov 18 16:32:34 timed[805] <Notice>: (Warn ) TimeLink: Not compatible, dropping {
+	    kTMLSLinkMsgKey = 7;
+	}
+Nov 18 16:32:34 timed[805] <Notice>: (Warn ) TimeLink: Not compatible, dropping {
+	    kTMLSLinkMsgKey = 4;
+	    kTMLSLinkSourceKey = TMLSSourceDevice;
+	    kTMLSLinkTimeZoneKey = "America/Caracas";
+	}
+Nov 18 16:32:36 timed[805] <Notice>: (Note ) CoreTime: Received time 11/18/2026 20:39:15±0.02 from "NTP"
+Nov 18 16:32:36 timed[805] <Notice>: (Note ) CoreTime: Want active time in 24.58min. Need active time in 8316.25min. Remaining retry interval: 14.966667min.
+Nov 18 16:32:36 UserEventAgent[23] <Error>: validateAndAddDefaults(com.apple.timed): End Time (inf) > now (816726756.9) + BACKGROUND_TASK_AGENT_JOB_WINDOW_MAX_TIME_FROM_NOW_SEC (3024000.0) + BACKGROUND_TASK_AGENT_JOB_TIME_ERROR_MARGIN (300.0)
+Nov 18 16:32:36 timed[805] <Notice>: (Error) CoreTime: Error requesting proactive time check job
+Nov 18 16:32:38 timed[805] <Notice>: (Note ) CoreTime: Want active time in 24.57min. Need active time in 8316.23min. Remaining retry interval: 14.950000min.
+Nov 18 16:32:38 UserEventAgent[23] <Error>: validateAndAddDefaults(com.apple.timed): End Time (inf) > now (816726758.0) + BACKGROUND_TASK_AGENT_JOB_WINDOW_MAX_TIME_FROM_NOW_SEC (3024000.0) + BACKGROUND_TASK_AGENT_JOB_TIME_ERROR_MARGIN (300.0)
+Nov 18 16:32:38 timed[805] <Notice>: (Error) CoreTime: Error requesting proactive time check job
+Nov 18 16:33:19 kernel[0] <Notice>: AppleAP3GDL::handleInterrupt2 FIFO is Empty
+Nov 18 16:34:10 syslogd[22] <Notice>: ASL Sender Statistics
+Nov 18 16:38:42 installd[781] <Notice>: 0x1f115000 -[MIClientConnection _doBackgroundInstallationForPath:withOptions:completion:]: Install of "/var/mobile/Media/PublicStaging/com.webosflux.xupertv.ios" type Customer (LSInstallType = (null)) requested by mobile_installation_proxy (pid 775)
+Nov 18 16:38:43 installd[781] <Notice>: 0x1f115000 -[MIInstaller performInstallationWithError:]: Installing <MIInstallableBundle ID=com.webosflux.xupertv.ios; Version=1, ShortVersion=1.0.0>
+Nov 18 16:38:44 installd[781] <Notice>: 0x1f115000 -[MIInstallableBundle _refreshUUIDForContainer:withError:]: Data container for com.webosflux.xupertv.ios is now at /private/var/mobile/Containers/Data/Application/95C0C26D-C0EB-4BF0-AC8B-A3446E51A7CE
+Nov 18 16:38:44 installd[781] <Notice>: 0x1f115000 -[MIContainer makeContainerLiveReplacingContainer:reason:withError:]: Made container live for com.webosflux.xupertv.ios at /private/var/containers/Bundle/Application/9525F750-E37F-4276-96E3-BCC35647FE24
+Nov 18 16:38:44 installd[781] <Notice>: 0x1f115000 -[MIInstaller performInstallationWithError:]: Install Successful; Staging: 1.58s; Waiting: 0.00s; Preflight/Patch: 0.02s, Verifying: 0.03s; Overall: 2.01s
+Nov 18 16:38:44 pkd[647] <Warning>: releasing plug-in hold 1665D747-3858-47DF-A605-6E56D49D87E5 at client's request
+Nov 18 16:38:44 online-auth-agent[697] <Notice>: MIS: Could not copy code directory hash.
+Nov 18 16:38:44 online-auth-agent[697] <Notice>: MIS: Could not copy code directory hash (error: -402620415).
+Nov 18 16:38:44 syncdefaultsd[808] <Notice>: MS:Notice: Injecting: com.apple.syncdefaultsd [syncdefaultsd] (1290.11)
+Nov 18 16:38:44 syncdefaultsd[808] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 16:38:44 syncdefaultsd[808] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 16:38:44 syncdefaultsd[808] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 16:38:44 syncdefaultsd[808] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 16:38:44 syncdefaultsd[808] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 16:38:44 syncdefaultsd[808] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 16:38:44 SpringBoard[222] <Warning>: Installed apps did change.
+	Added: {(
+	)}
+	Removed: {(
+	)}
+	Modified: {(
+	    "com.webosflux.xupertv.ios"
+	)}
+Nov 18 16:38:45 syncdefaultsd[808] <Notice>: (Note ) SYDPIMAccount: no account (null)
+Nov 18 16:38:45 syncdefaultsd[808] <Notice>: (Note ) SYDBootAccount: no account (null)
+Nov 18 16:38:45 syncdefaultsd[808] <Notice>: (Note ) SYDAlwaysOnAccount: no account (null)
+Nov 18 16:38:45 syncdefaultsd[808] <Notice>: (Note ) SYDAccount: no account
+Nov 18 16:39:02 syslog_relay[802] <Notice>: syslog_relay found the ASL prompt. Starting...
+Nov 18 16:39:37 kernel[0] <Notice>: AppleAP3GDL::handleInterrupt2 FIFO is Empty
+Nov 18 16:41:33 syslog_relay[802] <Notice>: syslog_relay found the ASL prompt. Starting...
+Nov 18 16:42:10 installd[781] <Error>: 0x1f115000 -[MIBundle isApplicableToOSVersion:error:]: 644: The system version is lower than the minimum OS version specified for bundle at /private/var/containers/Bundle/Application/F9923B74-FE49-4595-A08F-A04A08F946F4/Puffin.app/PlugIns/StickerExtension.appex. Have 9.3.6; need 10.0
+Nov 18 16:42:10 installd[781] <Notice>: 0x1f115000 -[MIBundle pluginKitBundlesSkippingPlatformValidation:withError:]: Ignoring plugin at /private/var/containers/Bundle/Application/F9923B74-FE49-4595-A08F-A04A08F946F4/Puffin.app/PlugIns/StickerExtension.appex because it doesn't work on this OS version
+Nov 18 16:43:17 com.apple.CDScheduler[23] <Error>: Failed to read UserNextSleepPeriod from contextstore
+Nov 18 16:43:17 com.apple.CDScheduler[23] <Error>: Failed to get user inactivity forecast
+Nov 18 16:43:17 com.apple.CDScheduler[23] <Error>: AutoSu doesn't have any prediction yet
+Nov 18 16:43:17 com.apple.CDScheduler[23] <Error>: Failed to get device restart forecast
+Nov 18 16:43:17 mobileactivationd[754] <Notice>: 0x1f115000 MA: -[MobileActivationDaemon recertifyDevice:WithCompletionBlock:]: Recertification (SB) requested by rolld<127>
+Nov 18 16:44:17 syslogd[22] <Notice>: ASL Sender Statistics
+Nov 18 16:54:20 syslogd[22] <Notice>: ASL Sender Statistics
+Nov 18 16:57:14 timed[805] <Notice>: (Note ) CoreTime: Received time 11/18/2026 21:03:53±0.03 from "NTP"
+Nov 18 16:57:14 timed[805] <Notice>: (Note ) CoreTime: Want active time in 22.50min. Need active time in 8314.16min. Remaining retry interval: 14.950000min.
+Nov 18 16:57:14 UserEventAgent[23] <Error>: validateAndAddDefaults(com.apple.timed): End Time (inf) > now (816728234.9) + BACKGROUND_TASK_AGENT_JOB_WINDOW_MAX_TIME_FROM_NOW_SEC (3024000.0) + BACKGROUND_TASK_AGENT_JOB_TIME_ERROR_MARGIN (300.0)
+Nov 18 16:57:14 timed[805] <Notice>: (Error) CoreTime: Error requesting proactive time check job
+Nov 18 17:04:26 syslogd[22] <Notice>: ASL Sender Statistics
+Nov 18 17:09:25 installd[781] <Notice>: 0x1f115000 -[MIClientConnection _doBackgroundInstallationForPath:withOptions:completion:]: Install of "/var/mobile/Media/PublicStaging/com.webosflux.xupertv.ios" type Customer (LSInstallType = (null)) requested by mobile_installation_proxy (pid 775)
+Nov 18 17:09:27 installd[781] <Notice>: 0x1f115000 -[MIInstaller performInstallationWithError:]: Installing <MIInstallableBundle ID=com.webosflux.xupertv.ios; Version=1, ShortVersion=1.0.0>
+Nov 18 17:09:27 installd[781] <Notice>: 0x1f115000 -[MIInstallableBundle _refreshUUIDForContainer:withError:]: Data container for com.webosflux.xupertv.ios is now at /private/var/mobile/Containers/Data/Application/E3DBEDA5-FAF8-4D82-82AA-1C261AA4EE6C
+Nov 18 17:09:27 installd[781] <Notice>: 0x1f115000 -[MIContainer makeContainerLiveReplacingContainer:reason:withError:]: Made container live for com.webosflux.xupertv.ios at /private/var/containers/Bundle/Application/DF21D0F2-9710-47E4-A912-05D2A0A193C5
+Nov 18 17:09:27 installd[781] <Notice>: 0x1f115000 -[MIInstaller performInstallationWithError:]: Install Successful; Staging: 1.66s; Waiting: 0.00s; Preflight/Patch: 0.01s, Verifying: 0.02s; Overall: 2.08s
+Nov 18 17:09:27 pkd[647] <Warning>: releasing plug-in hold DED3E682-3879-4D0B-9BFD-B76222A5CDB7 at client's request
+Nov 18 17:09:27 online-auth-agent[697] <Notice>: MIS: Could not copy code directory hash.
+Nov 18 17:09:27 online-auth-agent[697] <Notice>: MIS: Could not copy code directory hash (error: -402620415).
+Nov 18 17:09:27 syncdefaultsd[811] <Notice>: MS:Notice: Injecting: com.apple.syncdefaultsd [syncdefaultsd] (1290.11)
+Nov 18 17:09:28 syncdefaultsd[811] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 17:09:28 SpringBoard[222] <Warning>: Installed apps did change.
+	Added: {(
+	)}
+	Removed: {(
+	)}
+	Modified: {(
+	    "com.webosflux.xupertv.ios"
+	)}
+Nov 18 17:09:28 syncdefaultsd[811] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 17:09:28 syncdefaultsd[811] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 17:09:28 syncdefaultsd[811] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 17:09:28 syncdefaultsd[811] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 17:09:28 syncdefaultsd[811] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 17:09:28 syncdefaultsd[811] <Notice>: (Note ) SYDPIMAccount: no account (null)
+Nov 18 17:09:28 syncdefaultsd[811] <Notice>: (Note ) SYDBootAccount: no account (null)
+Nov 18 17:09:28 syncdefaultsd[811] <Notice>: (Note ) SYDAlwaysOnAccount: no account (null)
+Nov 18 17:09:28 syncdefaultsd[811] <Notice>: (Note ) SYDAccount: no account
+Nov 18 17:11:27 XuperTV[814] <Notice>: MS:Notice: Injecting: com.webosflux.xupertv.ios [XuperTV] (1290.11)
+Nov 18 17:11:27 XuperTV[814] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Activator.dylib
+Nov 18 17:11:27 XuperTV[814] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 17:11:27 XuperTV[814] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 17:11:27 XuperTV[814] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 17:11:27 XuperTV[814] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 17:11:27 XuperTV[814] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 17:11:27 XuperTV[814] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 17:11:27 XuperTV[814] <Warning>: [xuper-ios] servicio JS cargado
+Nov 18 17:11:27 XuperTV[814] <Warning>: [xuper-ios] web en 127.0.0.1:8080
+Nov 18 17:11:27 XuperTV[814] <Warning>: [xuper-ios] API en 127.0.0.1:8910
+Nov 18 17:11:27 com.apple.xpc.launchd[1] <Error>: assertion failed: 13G37: launchd + 85529 [083E000D-4C31-3B98-A2C4-6FADB4D1940F]: 0x3
+Nov 18 17:11:27 XuperTV[814] <Warning>: [xuper-ios] cargando http://127.0.0.1:8080/index.html
+Nov 18 17:11:28 com.apple.WebKit.WebContent[816] <Notice>: MS:Notice: Injecting: com.apple.WebKit.WebContent [com.apple.WebKit.WebContent] (1290.11)
+Nov 18 17:11:28 com.apple.WebKit.WebContent[816] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Activator.dylib
+Nov 18 17:11:28 com.apple.WebKit.Networking[818] <Notice>: MS:Notice: Injecting: com.apple.WebKit.Networking [com.apple.WebKit.Networking] (1290.11)
+Nov 18 17:11:28 com.apple.WebKit.Networking[818] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Activator.dylib
+Nov 18 17:11:28 com.apple.WebKit.WebContent[816] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 17:11:28 com.apple.WebKit.WebContent[816] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 17:11:28 com.apple.WebKit.Networking[818] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 17:11:28 com.apple.WebKit.WebContent[816] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 17:11:28 com.apple.WebKit.WebContent[816] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 17:11:28 com.apple.WebKit.WebContent[816] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 17:11:28 com.apple.WebKit.Networking[818] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 17:11:28 com.apple.WebKit.Networking[818] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 17:11:28 com.apple.WebKit.Networking[818] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 17:11:28 com.apple.WebKit.Networking[818] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 17:11:28 com.apple.WebKit.WebContent[816] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 17:11:28 com.apple.WebKit.Networking[818] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 17:11:28 com.apple.xpc.launchd[1] <Error>: assertion failed: 13G37: launchd + 85529 [083E000D-4C31-3B98-A2C4-6FADB4D1940F]: 0x3
+Nov 18 17:11:28 com.apple.xpc.launchd[1] <Error>: assertion failed: 13G37: launchd + 85529 [083E000D-4C31-3B98-A2C4-6FADB4D1940F]: 0x3
+Nov 18 17:11:29 XuperTV[814] <Warning>: [xuper-ios] pagina cargada: http://127.0.0.1:8080/index.html
+Nov 18 17:11:29 SpringBoard[222] <Warning>: [MPUSystemMediaControls] Updating supported commands for now playing application.
+Nov 18 17:11:29 SpringBoard[222] <Warning>: [MPUSystemMediaControls] Updating supported commands for now playing application.
+Nov 18 17:11:30 com.apple.WebKit.WebContent[816] <Error>: CoreAnimation: rendering error 506
+Nov 18 17:11:30 XuperTV[814] <Warning>: [xuper-js] [magis] semillas actualizadas: 91
+Nov 18 17:11:30 XuperTV[814] <Warning>: [xuper-js] [magis] pool inicial de semillas descargado: 91
+Nov 18 17:11:37 networkd[86] <Error>: -[NETAWDManager reportStats:metricID:] AWDServerConnection newMetricContainerWithIdentifier failed for metric 2686983, server 0x16d7cb90, not reporting:
+	<AWDLibnetcoreTCPConnectionReport: 0x16e6b580> {
+	    cellularFallbackReport =     {
+	        dataUsageSnapshotsAtNetworkEvents =         (
+	                        {
+	                bytesIn = 0;
+	                bytesOut = 340;
+	            }
+	        );
+	        "fallbackTimer_msecs" = 0;
+	        fellback = 0;
+	        networkEvents =         (
+	            "NETWORK_EVENT_DATA_STALL_AT_APP_LAYER"
+	        );
+	        "timeToNetworkEvents_msecs" =         (
+	            3030
+	        );
+	    };
+	    clientIdentifier = "com.apple.WebKit.Networking";
+	    connectionStatisticsReport =     {
+	        DNSAnswersCached = 0;
+	        "DNSResolvedTime_msecs" = 0;
+	        RTTvariance = 0;
+	        "appDataStallTimer_msecs" = 3;
+	        appReportingDataStallCount = 1;
+	        "bestRTT_msecs" = 0;
+	        betterRouteEventCount = 0;
+	        bytesDuplicate = 0;
+	        bytesIn = 100000;
+	        bytesOut = 340;
+	        bytesOutOfOrder = 0;
+	        bytesRetransmitted = 0;
+	        cellularFallback = 0;
+	        cellularRRCConnected = 0;
+	        connected = 1;
+	        connectedInterfaceType = "(unknown: 4)";
+	        "connectionEstablishmentTime_msecs" = 3;
+	        connectionReuseCount = 0;
+	        "currentRTT_msecs" = 1;
+	        "flowDuration_msecs" = 7115;
+	        interfaceType = "(unknown: 4)";
+	        kernelReportedStalls = 0;
+	        kernelReportingConnectionStalled = 0;
+	        kernelReportingReadStalled = 0;
+	        kernelReportingWriteStalled = 0;
+	        packetsDuplicate = 0;
+	        packetsIn = 9;
+	        packetsOut = 1;
+	        packetsOutOfOrder = 0;
+	        packetsRetransmitted = 0;
+	        "smoothedRTT_msecs" = 0;
+	        synRetransmissionCount = 0;
+	        tcpFastOpen = 0;
+	        "timeToConnectionEstablishment_msecs" = 5;
+	        "timeToConnectionStart_msecs" = 2;
+	        "timeToDNSResolved_msecs" = 0;
+	        "timeToDNSStart_msecs" = 0;
+	        trafficClass = 0;
+	    };
+	    delegated = 1;
+	    reportReason = "REPORT_REASON_DATA_STALL_AT_APP_LAYER";
+	    sourceAppIdentifier = "com.webosflux.xupertv.ios";
+	}
+Nov 18 17:11:52 networkd[86] <Error>: -[NETAWDManager reportStats:metricID:] AWDServerConnection newMetricContainerWithIdentifier failed for metric 2686983, server 0x16d7cb90, not reporting:
+	<AWDLibnetcoreTCPConnectionReport: 0x16d5bb90> {
+	    cellularFallbackReport =     {
+	        dataUsageSnapshotsAtNetworkEvents =         (
+	                        {
+	                bytesIn = 0;
+	                bytesOut = 340;
+	            }
+	        );
+	        "fallbackTimer_msecs" = 0;
+	        fellback = 0;
+	        networkEvents =         (
+	            "NETWORK_EVENT_DATA_STALL_AT_APP_LAYER"
+	        );
+	        "timeToNetworkEvents_msecs" =         (
+	            3017
+	        );
+	    };
+	    clientIdentifier = "com.apple.WebKit.Networking";
+	    connectionStatisticsReport =     {
+	        DNSAnswersCached = 0;
+	        "DNSResolvedTime_msecs" = 0;
+	        RTTvariance = 0;
+	        "appDataStallTimer_msecs" = 3;
+	        appReportingDataStallCount = 1;
+	        "bestRTT_msecs" = 0;
+	        betterRouteEventCount = 0;
+	        bytesDuplicate = 0;
+	        bytesIn = 280000;
+	        bytesOut = 340;
+	        bytesOutOfOrder = 0;
+	        bytesRetransmitted = 0;
+	        cellularFallback = 0;
+	        cellularRRCConnected = 0;
+	        connected = 1;
+	        connectedInterfaceType = "(unknown: 4)";
+	        "connectionEstablishmentTime_msecs" = 3;
+	        connectionReuseCount = 0;
+	        "currentRTT_msecs" = 0;
+	        "flowDuration_msecs" = 15803;
+	        interfaceType = "(unknown: 4)";
+	        kernelReportedStalls = 0;
+	        kernelReportingConnectionStalled = 0;
+	        kernelReportingReadStalled = 0;
+	        kernelReportingWriteStalled = 0;
+	        packetsDuplicate = 0;
+	        packetsIn = 21;
+	        packetsOut = 1;
+	        packetsOutOfOrder = 0;
+	        packetsRetransmitted = 0;
+	        "smoothedRTT_msecs" = 0;
+	        synRetransmissionCount = 0;
+	        tcpFastOpen = 0;
+	        "timeToConnectionEstablishment_msecs" = 7;
+	        "timeToConnectionStart_msecs" = 4;
+	        "timeToDNSResolved_msecs" = 0;
+	        "timeToDNSStart_msecs" = 0;
+	        trafficClass = 0;
+	    };
+	    delegated = 1;
+	    reportReason = "REPORT_REASON_DATA_STALL_AT_APP_LAYER";
+	    sourceAppIdentifier = "com.webosflux.xupertv.ios";
+	}
+Nov 18 17:12:00 backboardd[63] <Error>: _IOHIDEventSystemConnectionFilterEvent(0x17556970): kr=0x10004003 '(ipc/rcv) timed out' filter=0 runLoop=0x17673810 pid=114 'com.apple.access'
+Nov 18 17:12:12 networkd[86] <Error>: -[NETAWDManager reportStats:metricID:] AWDServerConnection newMetricContainerWithIdentifier failed for metric 2686983, server 0x16d7cb90, not reporting:
+	<AWDLibnetcoreTCPConnectionReport: 0x16d658f0> {
+	    cellularFallbackReport =     {
+	        dataUsageSnapshotsAtNetworkEvents =         (
+	                        {
+	                bytesIn = 0;
+	                bytesOut = 340;
+	            }
+	        );
+	        "fallbackTimer_msecs" = 0;
+	        fellback = 0;
+	        networkEvents =         (
+	            "NETWORK_EVENT_DATA_STALL_AT_APP_LAYER"
+	        );
+	        "timeToNetworkEvents_msecs" =         (
+	            3010
+	        );
+	    };
+	    clientIdentifier = "com.apple.WebKit.Networking";
+	    connectionStatisticsReport =     {
+	        DNSAnswersCached = 0;
+	        "DNSResolvedTime_msecs" = 0;
+	        RTTvariance = 0;
+	        "appDataStallTimer_msecs" = 3;
+	        appReportingDataStallCount = 1;
+	        "bestRTT_msecs" = 0;
+	        betterRouteEventCount = 0;
+	        bytesDuplicate = 0;
+	        bytesIn = 320000;
+	        bytesOut = 340;
+	        bytesOutOfOrder = 0;
+	        bytesRetransmitted = 0;
+	        cellularFallback = 0;
+	        cellularRRCConnected = 0;
+	        connected = 1;
+	        connectedInterfaceType = "(unknown: 4)";
+	        "connectionEstablishmentTime_msecs" = 2;
+	        connectionReuseCount = 0;
+	        "currentRTT_msecs" = 0;
+	        "flowDuration_msecs" = 19440;
+	        interfaceType = "(unknown: 4)";
+	        kernelReportedStalls = 0;
+	        kernelReportingConnectionStalled = 0;
+	        kernelReportingReadStalled = 0;
+	        kernelReportingWriteStalled = 0;
+	        packetsDuplicate = 0;
+	        packetsIn = 23;
+	        packetsOut = 1;
+	        packetsOutOfOrder = 0;
+	        packetsRetransmitted = 0;
+	        "smoothedRTT_msecs" = 0;
+	        synRetransmissionCount = 0;
+	        tcpFastOpen = 0;
+	        "timeToConnectionEstablishment_msecs" = 4;
+	        "timeToConnectionStart_msecs" = 2;
+	        "timeToDNSResolved_msecs" = 0;
+	        "timeToDNSStart_msecs" = 0;
+	        trafficClass = 0;
+	    };
+	    delegated = 1;
+	    reportReason = "REPORT_REASON_DATA_STALL_AT_APP_LAYER";
+	    sourceAppIdentifier = "com.webosflux.xupertv.ios";
+	}
+Nov 18 17:12:20 networkd[86] <Error>: -[NETAWDManager reportStats:metricID:] AWDServerConnection newMetricContainerWithIdentifier failed for metric 2686983, server 0x16d7cb90, not reporting:
+	<AWDLibnetcoreTCPConnectionReport: 0x16e74c90> {
+	    cellularFallbackReport =     {
+	        dataUsageSnapshotsAtNetworkEvents =         (
+	                        {
+	                bytesIn = 0;
+	                bytesOut = 340;
+	            }
+	        );
+	        "fallbackTimer_msecs" = 0;
+	        fellback = 0;
+	        networkEvents =         (
+	            "NETWORK_EVENT_DATA_STALL_AT_APP_LAYER"
+	        );
+	        "timeToNetworkEvents_msecs" =         (
+	            3022
+	        );
+	    };
+	    clientIdentifier = "com.apple.WebKit.Networking";
+	    connectionStatisticsReport =     {
+	        DNSAnswersCached = 0;
+	        "DNSResolvedTime_msecs" = 0;
+	        RTTvariance = 0;
+	        "appDataStallTimer_msecs" = 3;
+	        appReportingDataStallCount = 1;
+	        "bestRTT_msecs" = 0;
+	        betterRouteEventCount = 0;
+	        bytesDuplicate = 0;
+	        bytesIn = 130000;
+	        bytesOut = 340;
+	        bytesOutOfOrder = 0;
+	        bytesRetransmitted = 0;
+	        cellularFallback = 0;
+	        cellularRRCConnected = 0;
+	        connected = 1;
+	        connectedInterfaceType = "(unknown: 4)";
+	        "connectionEstablishmentTime_msecs" = 4;
+	        connectionReuseCount = 0;
+	        "currentRTT_msecs" = 0;
+	        "flowDuration_msecs" = 7493;
+	        interfaceType = "(unknown: 4)";
+	        kernelReportedStalls = 0;
+	        kernelReportingConnectionStalled = 0;
+	        kernelReportingReadStalled = 0;
+	        kernelReportingWriteStalled = 0;
+	        packetsDuplicate = 0;
+	        packetsIn = 11;
+	        packetsOut = 1;
+	        packetsOutOfOrder = 0;
+	        packetsRetransmitted = 0;
+	        "smoothedRTT_msecs" = 0;
+	        synRetransmissionCount = 0;
+	        tcpFastOpen = 0;
+	        "timeToConnectionEstablishment_msecs" = 14;
+	        "timeToConnectionStart_msecs" = 10;
+	        "timeToDNSResolved_msecs" = 0;
+	        "timeToDNSStart_msecs" = 0;
+	        trafficClass = 0;
+	    };
+	    delegated = 1;
+	    reportReason = "REPORT_REASON_DATA_STALL_AT_APP_LAYER";
+	    sourceAppIdentifier = "com.webosflux.xupertv.ios";
+	}
+Nov 18 17:12:27 networkd[86] <Error>: -[NETAWDManager reportStats:metricID:] AWDServerConnection newMetricContainerWithIdentifier failed for metric 2686983, server 0x16d7cb90, not reporting:
+	<AWDLibnetcoreTCPConnectionReport: 0x16e6fda0> {
+	    cellularFallbackReport =     {
+	        dataUsageSnapshotsAtNetworkEvents =         (
+	                        {
+	                bytesIn = 0;
+	                bytesOut = 340;
+	            }
+	        );
+	        "fallbackTimer_msecs" = 0;
+	        fellback = 0;
+	        networkEvents =         (
+	            "NETWORK_EVENT_DATA_STALL_AT_APP_LAYER"
+	        );
+	        "timeToNetworkEvents_msecs" =         (
+	            3018
+	        );
+	    };
+	    clientIdentifier = "com.apple.WebKit.Networking";
+	    connectionStatisticsReport =     {
+	        DNSAnswersCached = 0;
+	        "DNSResolvedTime_msecs" = 0;
+	        RTTvariance = 0;
+	        "appDataStallTimer_msecs" = 3;
+	        appReportingDataStallCount = 1;
+	        "bestRTT_msecs" = 0;
+	        betterRouteEventCount = 0;
+	        bytesDuplicate = 0;
+	        bytesIn = 120000;
+	        bytesOut = 340;
+	        bytesOutOfOrder = 0;
+	        bytesRetransmitted = 0;
+	        cellularFallback = 0;
+	        cellularRRCConnected = 0;
+	        connected = 1;
+	        connectedInterfaceType = "(unknown: 4)";
+	        "connectionEstablishmentTime_msecs" = 8;
+	        connectionReuseCount = 0;
+	        "currentRTT_msecs" = 0;
+	        "flowDuration_msecs" = 7485;
+	        interfaceType = "(unknown: 4)";
+	        kernelReportedStalls = 0;
+	        kernelReportingConnectionStalled = 0;
+	        kernelReportingReadStalled = 0;
+	        kernelReportingWriteStalled = 0;
+	        packetsDuplicate = 0;
+	        packetsIn = 10;
+	        packetsOut = 1;
+	        packetsOutOfOrder = 0;
+	        packetsRetransmitted = 0;
+	        "smoothedRTT_msecs" = 0;
+	        synRetransmissionCount = 0;
+	        tcpFastOpen = 0;
+	        "timeToConnectionEstablishment_msecs" = 10;
+	        "timeToConnectionStart_msecs" = 2;
+	        "timeToDNSResolved_msecs" = 0;
+	        "timeToDNSStart_msecs" = 0;
+	        trafficClass = 0;
+	    };
+	    delegated = 1;
+	    reportReason = "REPORT_REASON_DATA_STALL_AT_APP_LAYER";
+	    sourceAppIdentifier = "com.webosflux.xupertv.ios";
+	}
+Nov 18 17:12:52 SpringBoard[222] <Warning>: RocketBootstrap: rocketd terminated: 730, relaunching
+Nov 18 17:12:52 SpringBoard[222] <Warning>: RocketBootstrap: rocketd terminated: 823, relaunching
+Nov 18 17:13:01 XuperTV[814] <Warning>: [xuper-ios] mediaInfo: v10/startPlayVOD -> portal100008 节目不存在
+Nov 18 17:13:10 backboardd[63] <Warning>: BKSendHIDEvent: IOHIDEventSystemConnectionDispatchEvent error:0xE00002E8 -- Unknown event dropped
+Nov 18 17:13:10 backboardd[63] <Warning>: BKSendHIDEvent: IOHIDEventSystemConnectionDispatchEvent error:0xE00002E8 -- Unknown event dropped
+Nov 18 17:13:10 backboardd[63] <Warning>: BKSendHIDEvent: IOHIDEventSystemConnectionDispatchEvent error:0xE00002E8 -- Unknown event dropped
+Nov 18 17:13:10 backboardd[63] <Warning>: BKSendHIDEvent: IOHIDEventSystemConnectionDispatchEvent error:0xE00002E8 -- Unknown event dropped
+Nov 18 17:13:10 backboardd[63] <Warning>: BKSendHIDEvent: IOHIDEventSystemConnectionDispatchEvent error:0xE00002E8 -- Unknown event dropped
+Nov 18 17:13:11 networkd[86] <Error>: -[NETAWDManager reportStats:metricID:] AWDServerConnection newMetricContainerWithIdentifier failed for metric 2686983, server 0x16d7cb90, not reporting:
+	<AWDLibnetcoreTCPConnectionReport: 0x16e655e0> {
+	    cellularFallbackReport =     {
+	        dataUsageSnapshotsAtNetworkEvents =         (
+	                        {
+	                bytesIn = 0;
+	                bytesOut = 380;
+	            }
+	        );
+	        "fallbackTimer_msecs" = 0;
+	        fellback = 0;
+	        networkEvents =         (
+	            "NETWORK_EVENT_DATA_STALL_AT_APP_LAYER"
+	        );
+	        "timeToNetworkEvents_msecs" =         (
+	            3111
+	        );
+	    };
+	    clientIdentifier = "com.apple.WebKit.Networking";
+	    connectionStatisticsReport =     {
+	        DNSAnswersCached = 0;
+	        "DNSResolvedTime_msecs" = 0;
+	        RTTvariance = 0;
+	        "appDataStallTimer_msecs" = 3;
+	        appReportingDataStallCount = 1;
+	        "bestRTT_msecs" = 0;
+	        betterRouteEventCount = 0;
+	        bytesDuplicate = 0;
+	        bytesIn = 210000;
+	        bytesOut = 380;
+	        bytesOutOfOrder = 0;
+	        bytesRetransmitted = 0;
+	        cellularFallback = 0;
+	        cellularRRCConnected = 0;
+	        connected = 1;
+	        connectedInterfaceType = "(unknown: 4)";
+	        "connectionEstablishmentTime_msecs" = 2;
+	        connectionReuseCount = 0;
+	        "currentRTT_msecs" = 0;
+	        "flowDuration_msecs" = 10088;
+	        interfaceType = "(unknown: 4)";
+	        kernelReportedStalls = 0;
+	        kernelReportingConnectionStalled = 0;
+	        kernelReportingReadStalled = 0;
+	        kernelReportingWriteStalled = 0;
+	        packetsDuplicate = 0;
+	        packetsIn = 15;
+	        packetsOut = 1;
+	        packetsOutOfOrder = 0;
+	        packetsRetransmitted = 0;
+	        "smoothedRTT_msecs" = 0;
+	        synRetransmissionCount = 0;
+	        tcpFastOpen = 0;
+	        "timeToConnectionEstablishment_msecs" = 7;
+	        "timeToConnectionStart_msecs" = 5;
+	        "timeToDNSResolved_msecs" = 0;
+	        "timeToDNSStart_msecs" = 0;
+	        trafficClass = 0;
+	    };
+	    delegated = 1;
+	    reportReason = "REPORT_REASON_DATA_STALL_AT_APP_LAYER";
+	    sourceAppIdentifier = "com.webosflux.xupertv.ios";
+	}
+Nov 18 17:13:13 XuperTV[814] <Warning>: [xuper-ios] One Piece T1_1 en HEVC: AVPlayer no lo decodifica
+Nov 18 17:13:13 XuperTV[814] <Warning>: [xuper-ios] descargando media 833DEC12A89046DA9798AA9BA7EC90AC
+Nov 18 17:13:14 nehelper[825] <Notice>: MS:Notice: Injecting: (null) [nehelper] (1290.11)
+Nov 18 17:13:14 nehelper[825] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 17:13:14 nehelper[825] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 17:13:14 nehelper[825] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 17:13:14 nehelper[825] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 17:13:14 nehelper[825] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 17:13:15 nehelper[825] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 17:13:17 com.apple.CDScheduler[23] <Error>: Failed to read UserNextSleepPeriod from contextstore
+Nov 18 17:13:17 com.apple.CDScheduler[23] <Error>: Failed to get user inactivity forecast
+Nov 18 17:13:17 com.apple.CDScheduler[23] <Error>: AutoSu doesn't have any prediction yet
+Nov 18 17:13:17 com.apple.CDScheduler[23] <Error>: Failed to get device restart forecast
+Nov 18 17:13:17 nehelper[825] <Error>: Configuration for provider com.apple.NetworkExtension.NetworkServiceProxy does not exist (<__NSConcreteUUID 0x17db06b0> 7845A73A-4160-4673-8921-1062D0D33872) or is not enabled (0)
+Nov 18 17:13:17 UserEventAgent[23] <Error>: Probe message failed
+Nov 18 17:13:18 XuperTV[814] <Warning>: [xuper-ios] media 833DEC12A89046DA9798AA9BA7EC90AC aun descargando (1 en espera)
+Nov 18 17:13:18 rtcreportingd[828] <Notice>: MS:Notice: Injecting: (null) [rtcreportingd] (1290.11)
+Nov 18 17:13:18 rtcreportingd[828] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 17:13:19 rtcreportingd[828] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 17:13:20 mobileactivationd[831] <Notice>: MS:Notice: Injecting: com.apple.mobileactivationd [mobileactivationd] (1290.11)
+Nov 18 17:13:20 mobileactivationd[831] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 17:13:20 mobileactivationd[831] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 17:13:20 mobileactivationd[831] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 17:13:20 mobileactivationd[831] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 17:13:20 mobileactivationd[831] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 17:13:21 mobileactivationd[831] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 17:13:22 mobileactivationd[831] <Notice>: 0x1f115000 MA: -[MobileActivationDaemon recertifyDevice:WithCompletionBlock:]: Recertification (SB) requested by rolld<127>
+Nov 18 17:13:22 mediaserverd[44] <Notice>: '' com.apple.WebKit.WebContent(pid = 816) setting DiscoveryMode = DiscoveryMode_None, currentDiscoveryMode = DiscoveryMode_None
+Nov 18 17:13:22 networkd[86] <Error>: -[NETAWDManager reportStats:metricID:] AWDServerConnection newMetricContainerWithIdentifier failed for metric 2686983, server 0x16d7cb90, not reporting:
+	<AWDLibnetcoreTCPConnectionReport: 0x16e5f210> {
+	    cellularFallbackReport =     {
+	        dataUsageSnapshotsAtNetworkEvents =         (
+	                        {
+	                bytesIn = 0;
+	                bytesOut = 390;
+	            }
+	        );
+	        "fallbackTimer_msecs" = 0;
+	        fellback = 0;
+	        networkEvents =         (
+	            "NETWORK_EVENT_DATA_STALL_AT_APP_LAYER"
+	        );
+	        "timeToNetworkEvents_msecs" =         (
+	            3021
+	        );
+	    };
+	    clientIdentifier = mediaserverd;
+	    connectionStatisticsReport =     {
+	        DNSAnswersCached = 0;
+	        "DNSResolvedTime_msecs" = 0;
+	        RTTvariance = 0;
+	        "appDataStallTimer_msecs" = 3;
+	        appReportingDataStallCount = 1;
+	        "bestRTT_msecs" = 0;
+	        betterRouteEventCount = 0;
+	        bytesDuplicate = 0;
+	        bytesIn = 0;
+	        bytesOut = 390;
+	        bytesOutOfOrder = 0;
+	        bytesRetransmitted = 0;
+	        cellularFallback = 0;
+	        cellularRRCConnected = 0;
+	        connected = 1;
+	        connectedInterfaceType = "(unknown: 4)";
+	        "connectionEstablishmentTime_msecs" = 7;
+	        connectionReuseCount = 0;
+	        "currentRTT_msecs" = 1;
+	        "flowDuration_msecs" = 4086;
+	        interfaceType = "(unknown: 4)";
+	        kernelReportedStalls = 0;
+	        kernelReportingConnectionStalled = 0;
+	        kernelReportingReadStalled = 0;
+	        kernelReportingWriteStalled = 0;
+	        packetsDuplicate = 0;
+	        packetsIn = 0;
+	        packetsOut = 1;
+	        packetsOutOfOrder = 0;
+	        packetsRetransmitted = 0;
+	        "smoothedRTT_msecs" = 0;
+	        synRetransmissionCount = 0;
+	        tcpFastOpen = 0;
+	        "timeToConnectionEstablishment_msecs" = 11;
+	        "timeToConnectionStart_msecs" = 4;
+	        "timeToDNSResolved_msecs" = 0;
+	        "timeToDNSStart_msecs" = 0;
+	        trafficClass = 500;
+	    };
+	    delegated = 1;
+	    reportReason = "REPORT_REASON_DATA_STALL_AT_APP_LAYER";
+	    sourceAppIdentifier = "com.webosflux.xupertv.ios";
+	}
+Nov 18 17:13:22 XuperTV[814] <Warning>: [xuper-ios] One Piece T1_1 en HEVC: AVPlayer no lo decodifica
+Nov 18 17:13:22 XuperTV[814] <Warning>: [xuper-ios] descargando media 1979CC42E88949B19966A4B33C6FEDE8
+Nov 18 17:13:23 XuperTV[814] <Warning>: [xuper-ios] media 1979CC42E88949B19966A4B33C6FEDE8 aun descargando (1 en espera)
+Nov 18 17:13:24 absd[837] <Notice>: MS:Notice: Injecting: (null) [absd] (1290.11)
+Nov 18 17:13:24 absd[837] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 17:13:24 absd[837] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 17:13:26 SpringBoard[222] <Warning>: lockdown says the device is: [Activated], state is 3
+Nov 18 17:13:27 SpringBoard[222] <Warning>: lockdown says the device is: [Activated], state is 3
+Nov 18 17:13:29 findmydeviced[834] <Notice>: MS:Notice: Injecting: com.apple.icloud.findmydeviced [findmydeviced] (1290.11)
+Nov 18 17:13:31 findmydeviced[834] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 17:13:31 findmydeviced[834] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 17:13:31 findmydeviced[834] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 17:13:31 findmydeviced[834] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 17:13:31 findmydeviced[834] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 17:13:32 findmydeviced[834] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 17:13:33 findmydeviced[834] <Warning>: findmydeviced has been launched
+Nov 18 17:13:56 mediaserverd[44] <Notice>: '' com.apple.WebKit.WebContent(pid = 816) setting DiscoveryMode = DiscoveryMode_None, currentDiscoveryMode = DiscoveryMode_None
+Nov 18 17:13:56 networkd[86] <Error>: -[NETAWDManager reportStats:metricID:] AWDServerConnection newMetricContainerWithIdentifier failed for metric 2686983, server 0x16d7cb90, not reporting:
+	<AWDLibnetcoreTCPConnectionReport: 0x16e755c0> {
+	    cellularFallbackReport =     {
+	        dataUsageSnapshotsAtNetworkEvents =         (
+	                        {
+	                bytesIn = 0;
+	                bytesOut = 390;
+	            }
+	        );
+	        "fallbackTimer_msecs" = 0;
+	        fellback = 0;
+	        networkEvents =         (
+	            "NETWORK_EVENT_DATA_STALL_AT_APP_LAYER"
+	        );
+	        "timeToNetworkEvents_msecs" =         (
+	            3267
+	        );
+	    };
+	    clientIdentifier = mediaserverd;
+	    connectionStatisticsReport =     {
+	        DNSAnswersCached = 0;
+	        "DNSResolvedTime_msecs" = 0;
+	        RTTvariance = 0;
+	        "appDataStallTimer_msecs" = 3;
+	        appReportingDataStallCount = 1;
+	        "bestRTT_msecs" = 0;
+	        betterRouteEventCount = 0;
+	        bytesDuplicate = 0;
+	        bytesIn = 0;
+	        bytesOut = 390;
+	        bytesOutOfOrder = 0;
+	        bytesRetransmitted = 0;
+	        cellularFallback = 0;
+	        cellularRRCConnected = 0;
+	        connected = 1;
+	        connectedInterfaceType = "(unknown: 4)";
+	        "connectionEstablishmentTime_msecs" = 211;
+	        connectionReuseCount = 0;
+	        "currentRTT_msecs" = 0;
+	        "flowDuration_msecs" = 33239;
+	        interfaceType = "(unknown: 4)";
+	        kernelReportedStalls = 0;
+	        kernelReportingConnectionStalled = 0;
+	        kernelReportingReadStalled = 0;
+	        kernelReportingWriteStalled = 0;
+	        packetsDuplicate = 0;
+	        packetsIn = 0;
+	        packetsOut = 1;
+	        packetsOutOfOrder = 0;
+	        packetsRetransmitted = 0;
+	        "smoothedRTT_msecs" = 0;
+	        synRetransmissionCount = 0;
+	        tcpFastOpen = 0;
+	        "timeToConnectionEstablishment_msecs" = 216;
+	        "timeToConnectionStart_msecs" = 5;
+	        "timeToDNSResolved_msecs" = 0;
+	        "timeToDNSStart_msecs" = 0;
+	        trafficClass = 500;
+	    };
+	    delegated = 1;
+	    reportReason = "REPORT_REASON_DATA_STALL_AT_APP_LAYER";
+	    sourceAppIdentifier = "com.webosflux.xupertv.ios";
+	}
+Nov 18 17:14:03 XuperTV[814] <Warning>: [xuper-ios] mediaInfo: v10/startPlayVOD -> portal100008 节目不存在
+Nov 18 17:14:15 networkd[86] <Error>: -[NETAWDManager reportStats:metricID:] AWDServerConnection newMetricContainerWithIdentifier failed for metric 2686983, server 0x16d7cb90, not reporting:
+	<AWDLibnetcoreTCPConnectionReport: 0x16d5cd10> {
+	    cellularFallbackReport =     {
+	        dataUsageSnapshotsAtNetworkEvents =         (
+	                        {
+	                bytesIn = 0;
+	                bytesOut = 380;
+	            }
+	        );
+	        "fallbackTimer_msecs" = 0;
+	        fellback = 0;
+	        networkEvents =         (
+	            "NETWORK_EVENT_DATA_STALL_AT_APP_LAYER"
+	        );
+	        "timeToNetworkEvents_msecs" =         (
+	            3084
+	        );
+	    };
+	    clientIdentifier = "com.apple.WebKit.Networking";
+	    connectionStatisticsReport =     {
+	        DNSAnswersCached = 0;
+	        "DNSResolvedTime_msecs" = 0;
+	        RTTvariance = 0;
+	        "appDataStallTimer_msecs" = 3;
+	        appReportingDataStallCount = 1;
+	        "bestRTT_msecs" = 0;
+	        betterRouteEventCount = 0;
+	        bytesDuplicate = 0;
+	        bytesIn = 120000;
+	        bytesOut = 380;
+	        bytesOutOfOrder = 0;
+	        bytesRetransmitted = 0;
+	        cellularFallback = 0;
+	        cellularRRCConnected = 0;
+	        connected = 1;
+	        connectedInterfaceType = "(unknown: 4)";
+	        "connectionEstablishmentTime_msecs" = 3;
+	        connectionReuseCount = 0;
+	        "currentRTT_msecs" = 0;
+	        "flowDuration_msecs" = 11329;
+	        interfaceType = "(unknown: 4)";
+	        kernelReportedStalls = 0;
+	        kernelReportingConnectionStalled = 0;
+	        kernelReportingReadStalled = 0;
+	        kernelReportingWriteStalled = 0;
+	        packetsDuplicate = 0;
+	        packetsIn = 9;
+	        packetsOut = 1;
+	        packetsOutOfOrder = 0;
+	        packetsRetransmitted = 0;
+	        "smoothedRTT_msecs" = 0;
+	        synRetransmissionCount = 0;
+	        tcpFastOpen = 0;
+	        "timeToConnectionEstablishment_msecs" = 53;
+	        "timeToConnectionStart_msecs" = 50;
+	        "timeToDNSResolved_msecs" = 0;
+	        "timeToDNSStart_msecs" = 0;
+	        trafficClass = 0;
+	    };
+	    delegated = 1;
+	    reportReason = "REPORT_REASON_DATA_STALL_AT_APP_LAYER";
+	    sourceAppIdentifier = "com.webosflux.xupertv.ios";
+	}
+Nov 18 17:14:15 XuperTV[814] <Warning>: [xuper-ios] Naruto: Shippuden (Español Latino) T1_1 en HEVC: AVPlayer no lo decodifica
+Nov 18 17:14:15 XuperTV[814] <Warning>: [xuper-ios] descargando media 6C00C9EABEAF410F93F4501F72A6D416
+Nov 18 17:14:16 XuperTV[814] <Warning>: [xuper-ios] media 6C00C9EABEAF410F93F4501F72A6D416 aun descargando (1 en espera)
+Nov 18 17:14:24 mediaserverd[44] <Notice>: '' com.apple.WebKit.WebContent(pid = 816) setting DiscoveryMode = DiscoveryMode_None, currentDiscoveryMode = DiscoveryMode_None
+Nov 18 17:14:24 networkd[86] <Error>: -[NETAWDManager reportStats:metricID:] AWDServerConnection newMetricContainerWithIdentifier failed for metric 2686983, server 0x16d7cb90, not reporting:
+	<AWDLibnetcoreTCPConnectionReport: 0x16d6bb30> {
+	    cellularFallbackReport =     {
+	        dataUsageSnapshotsAtNetworkEvents =         (
+	                        {
+	                bytesIn = 0;
+	                bytesOut = 390;
+	            }
+	        );
+	        "fallbackTimer_msecs" = 0;
+	        fellback = 0;
+	        networkEvents =         (
+	            "NETWORK_EVENT_DATA_STALL_AT_APP_LAYER"
+	        );
+	        "timeToNetworkEvents_msecs" =         (
+	            3012
+	        );
+	    };
+	    clientIdentifier = mediaserverd;
+	    connectionStatisticsReport =     {
+	        DNSAnswersCached = 0;
+	        "DNSResolvedTime_msecs" = 0;
+	        RTTvariance = 0;
+	        "appDataStallTimer_msecs" = 3;
+	        appReportingDataStallCount = 1;
+	        "bestRTT_msecs" = 0;
+	        betterRouteEventCount = 0;
+	        bytesDuplicate = 0;
+	        bytesIn = 0;
+	        bytesOut = 390;
+	        bytesOutOfOrder = 0;
+	        bytesRetransmitted = 0;
+	        cellularFallback = 0;
+	        cellularRRCConnected = 0;
+	        connected = 1;
+	        connectedInterfaceType = "(unknown: 4)";
+	        "connectionEstablishmentTime_msecs" = 2;
+	        connectionReuseCount = 0;
+	        "currentRTT_msecs" = 0;
+	        "flowDuration_msecs" = 8646;
+	        interfaceType = "(unknown: 4)";
+	        kernelReportedStalls = 0;
+	        kernelReportingConnectionStalled = 0;
+	        kernelReportingReadStalled = 0;
+	        kernelReportingWriteStalled = 0;
+	        packetsDuplicate = 0;
+	        packetsIn = 0;
+	        packetsOut = 1;
+	        packetsOutOfOrder = 0;
+	        packetsRetransmitted = 0;
+	        "smoothedRTT_msecs" = 0;
+	        synRetransmissionCount = 0;
+	        tcpFastOpen = 0;
+	        "timeToConnectionEstablishment_msecs" = 3;
+	        "timeToConnectionStart_msecs" = 1;
+	        "timeToDNSResolved_msecs" = 0;
+	        "timeToDNSStart_msecs" = 0;
+	        trafficClass = 500;
+	    };
+	    delegated = 1;
+	    reportReason = "REPORT_REASON_DATA_STALL_AT_APP_LAYER";
+	    sourceAppIdentifier = "com.webosflux.xupertv.ios";
+	}
+Nov 18 17:14:26 XuperTV[814] <Warning>: [xuper-ios] Naruto: Shippuden (Español Latino) T1_2 en HEVC: AVPlayer no lo decodifica
+Nov 18 17:14:26 XuperTV[814] <Warning>: [xuper-ios] descargando media 871A709126F34D24A23FD95F51C3575D
+Nov 18 17:14:26 syslogd[22] <Notice>: ASL Sender Statistics
+Nov 18 17:14:26 XuperTV[814] <Warning>: [xuper-ios] media 871A709126F34D24A23FD95F51C3575D aun descargando (1 en espera)
+Nov 18 17:14:30 networkd[86] <Error>: -[NETAWDManager reportStats:metricID:] AWDServerConnection newMetricContainerWithIdentifier failed for metric 2686983, server 0x16d7cb90, not reporting:
+	<AWDLibnetcoreTCPConnectionReport: 0x16e5a180> {
+	    cellularFallbackReport =     {
+	        dataUsageSnapshotsAtNetworkEvents =         (
+	                        {
+	                bytesIn = 0;
+	                bytesOut = 390;
+	            }
+	        );
+	        "fallbackTimer_msecs" = 0;
+	        fellback = 0;
+	        networkEvents =         (
+	            "NETWORK_EVENT_DATA_STALL_AT_APP_LAYER"
+	        );
+	        "timeToNetworkEvents_msecs" =         (
+	            3019
+	        );
+	    };
+	    clientIdentifier = mediaserverd;
+	    connectionStatisticsReport =     {
+	        DNSAnswersCached = 0;
+	        "DNSResolvedTime_msecs" = 0;
+	        RTTvariance = 0;
+	        "appDataStallTimer_msecs" = 3;
+	        appReportingDataStallCount = 1;
+	        "bestRTT_msecs" = 0;
+	        betterRouteEventCount = 0;
+	        bytesDuplicate = 0;
+	        bytesIn = 0;
+	        bytesOut = 390;
+	        bytesOutOfOrder = 0;
+	        bytesRetransmitted = 0;
+	        cellularFallback = 0;
+	        cellularRRCConnected = 0;
+	        connected = 1;
+	        connectedInterfaceType = "(unknown: 4)";
+	        "connectionEstablishmentTime_msecs" = 3;
+	        connectionReuseCount = 0;
+	        "currentRTT_msecs" = 0;
+	        "flowDuration_msecs" = 4192;
+	        interfaceType = "(unknown: 4)";
+	        kernelReportedStalls = 0;
+	        kernelReportingConnectionStalled = 0;
+	        kernelReportingReadStalled = 0;
+	        kernelReportingWriteStalled = 0;
+	        packetsDuplicate = 0;
+	        packetsIn = 0;
+	        packetsOut = 1;
+	        packetsOutOfOrder = 0;
+	        packetsRetransmitted = 0;
+	        "smoothedRTT_msecs" = 0;
+	        synRetransmissionCount = 0;
+	        tcpFastOpen = 0;
+	        "timeToConnectionEstablishment_msecs" = 4;
+	        "timeToConnectionStart_msecs" = 1;
+	        "timeToDNSResolved_msecs" = 0;
+	        "timeToDNSStart_msecs" = 0;
+	        trafficClass = 500;
+	    };
+	    delegated = 1;
+	    reportReason = "REPORT_REASON_DATA_STALL_AT_APP_LAYER";
+	    sourceAppIdentifier = "com.webosflux.xupertv.ios";
+	}
+Nov 18 17:14:30 mediaserverd[44] <Notice>: '' com.apple.WebKit.WebContent(pid = 816) setting DiscoveryMode = DiscoveryMode_None, currentDiscoveryMode = DiscoveryMode_None
+Nov 18 17:14:31 XuperTV[814] <Warning>: [xuper-ios] Naruto: Shippuden (Español Latino) T1_1 en HEVC: AVPlayer no lo decodifica
+Nov 18 17:14:31 XuperTV[814] <Warning>: [xuper-ios] descargando media 70DA787B3BAD4BF8A689AA0688EAAFEB
+Nov 18 17:14:31 XuperTV[814] <Warning>: [xuper-ios] media 70DA787B3BAD4BF8A689AA0688EAAFEB aun descargando (1 en espera)
+Nov 18 17:15:49 mediaserverd[44] <Notice>: '' com.apple.WebKit.WebContent(pid = 816) setting DiscoveryMode = DiscoveryMode_None, currentDiscoveryMode = DiscoveryMode_None
+Nov 18 17:15:49 networkd[86] <Error>: -[NETAWDManager reportStats:metricID:] AWDServerConnection newMetricContainerWithIdentifier failed for metric 2686983, server 0x16d7cb90, not reporting:
+	<AWDLibnetcoreTCPConnectionReport: 0x16d5cd10> {
+	    cellularFallbackReport =     {
+	        dataUsageSnapshotsAtNetworkEvents =         (
+	                        {
+	                bytesIn = 0;
+	                bytesOut = 390;
+	            }
+	        );
+	        "fallbackTimer_msecs" = 0;
+	        fellback = 0;
+	        networkEvents =         (
+	            "NETWORK_EVENT_DATA_STALL_AT_APP_LAYER"
+	        );
+	        "timeToNetworkEvents_msecs" =         (
+	            3026
+	        );
+	    };
+	    clientIdentifier = mediaserverd;
+	    connectionStatisticsReport =     {
+	        DNSAnswersCached = 0;
+	        "DNSResolvedTime_msecs" = 0;
+	        RTTvariance = 0;
+	        "appDataStallTimer_msecs" = 3;
+	        appReportingDataStallCount = 1;
+	        "bestRTT_msecs" = 0;
+	        betterRouteEventCount = 0;
+	        bytesDuplicate = 0;
+	        bytesIn = 0;
+	        bytesOut = 390;
+	        bytesOutOfOrder = 0;
+	        bytesRetransmitted = 0;
+	        cellularFallback = 0;
+	        cellularRRCConnected = 0;
+	        connected = 1;
+	        connectedInterfaceType = "(unknown: 4)";
+	        "connectionEstablishmentTime_msecs" = 6;
+	        connectionReuseCount = 0;
+	        "currentRTT_msecs" = 0;
+	        "flowDuration_msecs" = 77818;
+	        interfaceType = "(unknown: 4)";
+	        kernelReportedStalls = 0;
+	        kernelReportingConnectionStalled = 0;
+	        kernelReportingReadStalled = 0;
+	        kernelReportingWriteStalled = 0;
+	        packetsDuplicate = 0;
+	        packetsIn = 0;
+	        packetsOut = 1;
+	        packetsOutOfOrder = 0;
+	        packetsRetransmitted = 0;
+	        "smoothedRTT_msecs" = 0;
+	        synRetransmissionCount = 0;
+	        tcpFastOpen = 0;
+	        "timeToConnectionEstablishment_msecs" = 14;
+	        "timeToConnectionStart_msecs" = 8;
+	        "timeToDNSResolved_msecs" = 0;
+	        "timeToDNSStart_msecs" = 0;
+	        trafficClass = 500;
+	    };
+	    delegated = 1;
+	    reportReason = "REPORT_REASON_DATA_STALL_AT_APP_LAYER";
+	    sourceAppIdentifier = "com.webosflux.xupertv.ios";
+	}
+Nov 18 17:15:50 XuperTV[814] <Warning>: [xuper-ios] Naruto: Shippuden (Español Latino) T1_2 en HEVC: AVPlayer no lo decodifica
+Nov 18 17:15:50 XuperTV[814] <Warning>: [xuper-ios] descargando media 45432067F63E4EB0BA405DB09297A11B
+Nov 18 17:15:50 XuperTV[814] <Warning>: [xuper-ios] media 45432067F63E4EB0BA405DB09297A11B aun descargando (1 en espera)
+Nov 18 17:15:52 DuetHeuristic-BM[840] <Notice>: MS:Notice: Injecting: com.apple.system.DuetHeuristic-BM [DuetHeuristic-BM] (1290.11)
+Nov 18 17:15:55 DuetHeuristic-BM[840] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 17:15:55 DuetHeuristic-BM[840] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 17:15:55 DuetHeuristic-BM[840] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 17:15:55 DuetHeuristic-BM[840] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 17:15:55 DuetHeuristic-BM[840] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 17:15:56 DuetHeuristic-BM[840] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 17:16:22 networkd[86] <Error>: -[NETAWDManager reportStats:metricID:] AWDServerConnection newMetricContainerWithIdentifier failed for metric 2686983, server 0x16d7cb90, not reporting:
+	<AWDLibnetcoreTCPConnectionReport: 0x16e5ba00> {
+	    cellularFallbackReport =     {
+	        dataUsageSnapshotsAtNetworkEvents =         (
+	                        {
+	                bytesIn = 0;
+	                bytesOut = 390;
+	            }
+	        );
+	        "fallbackTimer_msecs" = 0;
+	        fellback = 0;
+	        networkEvents =         (
+	            "NETWORK_EVENT_DATA_STALL_AT_APP_LAYER"
+	        );
+	        "timeToNetworkEvents_msecs" =         (
+	            3018
+	        );
+	    };
+	    clientIdentifier = mediaserverd;
+	    connectionStatisticsReport =     {
+	        DNSAnswersCached = 0;
+	        "DNSResolvedTime_msecs" = 0;
+	        RTTvariance = 0;
+	        "appDataStallTimer_msecs" = 3;
+	        appReportingDataStallCount = 1;
+	        "bestRTT_msecs" = 0;
+	        betterRouteEventCount = 0;
+	        bytesDuplicate = 0;
+	        bytesIn = 0;
+	        bytesOut = 390;
+	        bytesOutOfOrder = 0;
+	        bytesRetransmitted = 0;
+	        cellularFallback = 0;
+	        cellularRRCConnected = 0;
+	        connected = 1;
+	        connectedInterfaceType = "(unknown: 4)";
+	        "connectionEstablishmentTime_msecs" = 2;
+	        connectionReuseCount = 0;
+	        "currentRTT_msecs" = 0;
+	        "flowDuration_msecs" = 31405;
+	        interfaceType = "(unknown: 4)";
+	        kernelReportedStalls = 0;
+	        kernelReportingConnectionStalled = 0;
+	        kernelReportingReadStalled = 0;
+	        kernelReportingWriteStalled = 0;
+	        packetsDuplicate = 0;
+	        packetsIn = 0;
+	        packetsOut = 1;
+	        packetsOutOfOrder = 0;
+	        packetsRetransmitted = 0;
+	        "smoothedRTT_msecs" = 0;
+	        synRetransmissionCount = 0;
+	        tcpFastOpen = 0;
+	        "timeToConnectionEstablishment_msecs" = 9;
+	        "timeToConnectionStart_msecs" = 7;
+	        "timeToDNSResolved_msecs" = 0;
+	        "timeToDNSStart_msecs" = 0;
+	        trafficClass = 500;
+	    };
+	    delegated = 1;
+	    reportReason = "REPORT_REASON_DATA_STALL_AT_APP_LAYER";
+	    sourceAppIdentifier = "com.webosflux.xupertv.ios";
+	}
+Nov 18 17:16:22 mediaserverd[44] <Notice>: '' com.apple.WebKit.WebContent(pid = 816) setting DiscoveryMode = DiscoveryMode_None, currentDiscoveryMode = DiscoveryMode_None
+Nov 18 17:16:48 XuperTV[814] <Warning>: [xuper-ios] mediaInfo: v10/startPlayVOD -> portal100008 节目不存在
+Nov 18 17:16:50 XuperTV[814] <Warning>: [xuper-ios] Pluribus T1_1 en HEVC: AVPlayer no lo decodifica
+Nov 18 17:16:50 XuperTV[814] <Warning>: [xuper-ios] descargando media B03C7A5037D3420FAEACED876EF90939
+Nov 18 17:16:51 XuperTV[814] <Warning>: [xuper-ios] media B03C7A5037D3420FAEACED876EF90939 aun descargando (1 en espera)
+Nov 18 17:17:03 mediaserverd[44] <Notice>: '' com.apple.WebKit.WebContent(pid = 816) setting DiscoveryMode = DiscoveryMode_None, currentDiscoveryMode = DiscoveryMode_None
+Nov 18 17:17:03 networkd[86] <Error>: -[NETAWDManager reportStats:metricID:] AWDServerConnection newMetricContainerWithIdentifier failed for metric 2686983, server 0x16d7cb90, not reporting:
+	<AWDLibnetcoreTCPConnectionReport: 0x16d58cd0> {
+	    cellularFallbackReport =     {
+	        dataUsageSnapshotsAtNetworkEvents =         (
+	                        {
+	                bytesIn = 0;
+	                bytesOut = 390;
+	            }
+	        );
+	        "fallbackTimer_msecs" = 0;
+	        fellback = 0;
+	        networkEvents =         (
+	            "NETWORK_EVENT_DATA_STALL_AT_APP_LAYER"
+	        );
+	        "timeToNetworkEvents_msecs" =         (
+	            3017
+	        );
+	    };
+	    clientIdentifier = mediaserverd;
+	    connectionStatisticsReport =     {
+	        DNSAnswersCached = 0;
+	        "DNSResolvedTime_msecs" = 0;
+	        RTTvariance = 0;
+	        "appDataStallTimer_msecs" = 3;
+	        appReportingDataStallCount = 1;
+	        "bestRTT_msecs" = 0;
+	        betterRouteEventCount = 0;
+	        bytesDuplicate = 0;
+	        bytesIn = 0;
+	        bytesOut = 390;
+	        bytesOutOfOrder = 0;
+	        bytesRetransmitted = 0;
+	        cellularFallback = 0;
+	        cellularRRCConnected = 0;
+	        connected = 1;
+	        connectedInterfaceType = "(unknown: 4)";
+	        "connectionEstablishmentTime_msecs" = 2;
+	        connectionReuseCount = 0;
+	        "currentRTT_msecs" = 0;
+	        "flowDuration_msecs" = 11990;
+	        interfaceType = "(unknown: 4)";
+	        kernelReportedStalls = 0;
+	        kernelReportingConnectionStalled = 0;
+	        kernelReportingReadStalled = 0;
+	        kernelReportingWriteStalled = 0;
+	        packetsDuplicate = 0;
+	        packetsIn = 0;
+	        packetsOut = 1;
+	        packetsOutOfOrder = 0;
+	        packetsRetransmitted = 0;
+	        "smoothedRTT_msecs" = 0;
+	        synRetransmissionCount = 0;
+	        tcpFastOpen = 0;
+	        "timeToConnectionEstablishment_msecs" = 5;
+	        "timeToConnectionStart_msecs" = 3;
+	        "timeToDNSResolved_msecs" = 0;
+	        "timeToDNSStart_msecs" = 0;
+	        trafficClass = 500;
+	    };
+	    delegated = 1;
+	    reportReason = "REPORT_REASON_DATA_STALL_AT_APP_LAYER";
+	    sourceAppIdentifier = "com.webosflux.xupertv.ios";
+	}
+Nov 18 17:17:03 XuperTV[814] <Warning>: [xuper-ios] Pluribus T1_1 en HEVC: AVPlayer no lo decodifica
+Nov 18 17:17:03 XuperTV[814] <Warning>: [xuper-ios] descargando media 6C44BABF68A44F2A81BBFCB643CA27C5
+Nov 18 17:17:03 XuperTV[814] <Warning>: [xuper-ios] media 6C44BABF68A44F2A81BBFCB643CA27C5 aun descargando (1 en espera)
+Nov 18 17:17:32 kernel[0] <Notice>: AppleHDQGasGauge:stats num_clients=1,num_entries=4355,dl_skip=0,dl_cali=0,dl_over=0,dl_drain=1 ops=42961,collated=0,bfailures=0,collate_error=0,ioerr=0,timeouts=0 retry16=6,chf16=10
+Nov 18 17:17:32 kernel[0] <Notice>: AppleHDQGasGauge:clientLog ld=0/
+Nov 18 17:17:32 kernel[0] <Notice>: AppleHDQGasGauge:clientLog 465416/S0 465449/C0 465450/S1 467774/S2 492480/S3 493095/T3 493095/C3 6727882/S4 6727883/e4
+Nov 18 17:19:45 timed[843] <Notice>: MS:Notice: Injecting: com.apple.timed [timed] (1290.11)
+Nov 18 17:19:45 timed[843] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 17:19:45 timed[843] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 17:19:47 timed[843] <Notice>: (Error) CoreTime: Unable to prevent KeepAlive: Error Domain=NSCocoaErrorDomain Code=4 "“com.apple.timed.launchd” couldn’t be removed." UserInfo={NSUnderlyingError=0x17565810 {Error Domain=NSPOSIXErrorDomain Code=2 "No such file or directory"}, NSFilePath=/var/mobile/Library/Caches/com.apple.timed.launchd, NSUserStringVariant=(
+	    Remove
+	)}
+Nov 18 17:19:48 timed[843] <Warning>: [Warning] Bad response (null) from daemon for setup info
+Nov 18 17:19:48 timed[843] <Warning>: [Warning] Services all disappeared, removing all accounts
+Nov 18 17:19:48 timed[843] <Warning>: [Warning] Services all disappeared, removing all enabled accounts
+Nov 18 17:19:48 timed[843] <Warning>: [Warning] Services all disappeared, removing all dependent devices
+Nov 18 17:19:48 timed[843] <Notice>: (Warn ) TimeLink: Not compatible, dropping {
+	    kTMLSLinkAutomaticTimeEnabledKey = 0;
+	    kTMLSLinkMsgKey = 12;
+	}
+Nov 18 17:19:48 timed[843] <Notice>: (Warn ) TimeLink: Not compatible, dropping {
+	    kTMLSLinkMsgKey = 7;
+	}
+Nov 18 17:19:48 timed[843] <Notice>: (Warn ) TimeLink: Not compatible, dropping {
+	    kTMLSLinkMsgKey = 4;
+	    kTMLSLinkSourceKey = TMLSSourceDevice;
+	    kTMLSLinkTimeZoneKey = "America/Caracas";
+	}
+Nov 18 17:19:51 timed[843] <Notice>: (Note ) CoreTime: Want active time in -0.00min. Need active time in 8291.55min. Remaining retry interval: 14.950000min.
+Nov 18 17:19:51 UserEventAgent[23] <Error>: validateAndAddDefaults(com.apple.timed): End Time (inf) > now (816729591.5) + BACKGROUND_TASK_AGENT_JOB_WINDOW_MAX_TIME_FROM_NOW_SEC (3024000.0) + BACKGROUND_TASK_AGENT_JOB_TIME_ERROR_MARGIN (300.0)
+Nov 18 17:19:51 timed[843] <Notice>: (Error) CoreTime: Error requesting proactive time check job
+Nov 18 17:19:51 timed[843] <Notice>: (Note ) CoreTime: Received time 11/18/2026 21:26:28±0.02 from "NTP"
+Nov 18 17:19:52 timed[843] <Notice>: (Note ) CoreTime: Want active time in 25.39min. Need active time in 8317.05min. Remaining retry interval: 14.950000min.
+Nov 18 17:19:52 UserEventAgent[23] <Error>: validateAndAddDefaults(com.apple.timed): End Time (inf) > now (816729592.2) + BACKGROUND_TASK_AGENT_JOB_WINDOW_MAX_TIME_FROM_NOW_SEC (3024000.0) + BACKGROUND_TASK_AGENT_JOB_TIME_ERROR_MARGIN (300.0)
+Nov 18 17:19:52 timed[843] <Notice>: (Error) CoreTime: Error requesting proactive time check job
+Nov 18 17:20:08 lockbot[846] <Notice>: MS:Notice: Injecting: (null) [lockbot] (1290.11)
+Nov 18 17:20:08 lockbot[846] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 17:20:08 lockbot[846] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 17:20:27 syslog_relay[849] <Notice>: MS:Notice: Injecting: (null) [syslog_relay] (1290.11)
+Nov 18 17:20:27 syslog_relay[849] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 17:20:27 syslog_relay[849] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 17:20:29 syslog_relay[849] <Notice>: syslog_relay found the ASL prompt. Starting...
+Nov 18 17:22:03 networkd[86] <Error>: -[NETAWDManager reportStats:metricID:] AWDServerConnection newMetricContainerWithIdentifier failed for metric 2686983, server 0x16d7cb90, not reporting:
+	<AWDLibnetcoreTCPConnectionReport: 0x16d72ee0> {
+	    cellularFallbackReport =     {
+	        dataUsageSnapshotsAtNetworkEvents =         (
+	                        {
+	                bytesIn = 0;
+	                bytesOut = 390;
+	            }
+	        );
+	        "fallbackTimer_msecs" = 0;
+	        fellback = 0;
+	        networkEvents =         (
+	            "NETWORK_EVENT_DATA_STALL_AT_APP_LAYER"
+	        );
+	        "timeToNetworkEvents_msecs" =         (
+	            3016
+	        );
+	    };
+	    clientIdentifier = mediaserverd;
+	    connectionStatisticsReport =     {
+	        DNSAnswersCached = 0;
+	        "DNSResolvedTime_msecs" = 0;
+	        RTTvariance = 0;
+	        "appDataStallTimer_msecs" = 3;
+	        appReportingDataStallCount = 1;
+	        "bestRTT_msecs" = 0;
+	        betterRouteEventCount = 0;
+	        bytesDuplicate = 0;
+	        bytesIn = 0;
+	        bytesOut = 390;
+	        bytesOutOfOrder = 0;
+	        bytesRetransmitted = 0;
+	        cellularFallback = 0;
+	        cellularRRCConnected = 0;
+	        connected = 1;
+	        connectedInterfaceType = "(unknown: 4)";
+	        "connectionEstablishmentTime_msecs" = 2;
+	        connectionReuseCount = 0;
+	        "currentRTT_msecs" = 0;
+	        "flowDuration_msecs" = 300019;
+	        interfaceType = "(unknown: 4)";
+	        kernelReportedStalls = 0;
+	        kernelReportingConnectionStalled = 0;
+	        kernelReportingReadStalled = 0;
+	        kernelReportingWriteStalled = 0;
+	        packetsDuplicate = 0;
+	        packetsIn = 0;
+	        packetsOut = 1;
+	        packetsOutOfOrder = 0;
+	        packetsRetransmitted = 0;
+	        "smoothedRTT_msecs" = 0;
+	        synRetransmissionCount = 0;
+	        tcpFastOpen = 0;
+	        "timeToConnectionEstablishment_msecs" = 7;
+	        "timeToConnectionStart_msecs" = 5;
+	        "timeToDNSResolved_msecs" = 0;
+	        "timeToDNSStart_msecs" = 0;
+	        trafficClass = 500;
+	    };
+	    delegated = 1;
+	    reportReason = "REPORT_REASON_DATA_STALL_AT_APP_LAYER";
+	    sourceAppIdentifier = "com.webosflux.xupertv.ios";
+	}
+Nov 18 17:24:30 syslogd[22] <Notice>: ASL Sender Statistics
+Nov 18 17:25:52 XuperTV[814] <Warning>: [xuper-ios] media 6C44BABF68A44F2A81BBFCB643CA27C5 lista (585722460 bytes)
+Nov 18 17:34:40 syslogd[22] <Notice>: ASL Sender Statistics
+Nov 18 17:39:13 mobile_installation_proxy[852] <Notice>: MS:Notice: Injecting: (null) [mobile_installation_proxy] (1290.11)
+Nov 18 17:39:13 mobile_installation_proxy[852] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 17:39:13 mobile_installation_proxy[852] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 17:39:13 mobile_installation_proxy[852] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 17:39:13 mobile_installation_proxy[852] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 17:39:13 mobile_installation_proxy[852] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 17:39:13 mobile_installation_proxy[852] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 17:39:14 installd[855] <Notice>: MS:Notice: Injecting: (null) [installd] (1290.11)
+Nov 18 17:39:14 installd[855] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-FrontBoard.dylib
+Nov 18 17:39:14 installd[855] <Warning>: MS:Warning: nil class argument for selector trustStateForApplication:
+Nov 18 17:39:14 installd[855] <Warning>: MS:Warning: nil class argument for selector trustStateWithTrustRequiredReasons:
+Nov 18 17:39:14 installd[855] <Warning>: MS:Warning: nil class argument for selector trustState
+Nov 18 17:39:14 installd[855] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified-installd.dylib
+Nov 18 17:39:14 installd[855] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/AppSyncUnified.dylib
+Nov 18 17:39:14 installd[855] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 17:39:14 installd[855] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 17:39:14 installd[855] <Warning>: CREATING PREFERENCE FILE
+Nov 18 17:39:14 installd[855] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/patcyh.dylib
+Nov 18 17:39:14 com.apple.xpc.launchd[1] <Error>: assertion failed: 13G37: launchd + 85529 [083E000D-4C31-3B98-A2C4-6FADB4D1940F]: 0x3
+Nov 18 17:39:14 com.apple.MobileInstallationHelperService[858] <Notice>: MS:Notice: Injecting: com.apple.MobileInstallationHelperService [com.apple.MobileInstallationHelperService] (1290.11)
+Nov 18 17:39:14 com.apple.MobileInstallationHelperService[858] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/CertHook.dylib
+Nov 18 17:39:14 com.apple.MobileInstallationHelperService[858] <Notice>: MS:Notice: Loading: /Library/MobileSubstrate/DynamicLibraries/Eclipse.dylib
+Nov 18 17:39:15 com.apple.xpc.launchd[1] <Error>: assertion failed: 13G37: launchd + 85529 [083E000D-4C31-3B98-A2C4-6FADB4D1940F]: 0x3
+Nov 18 17:39:17 installd[855] <Error>: 0x1f115000 -[MIBundle isApplicableToOSVersion:error:]: 644: The system version is lower than the minimum OS version specified for bundle at /private/var/containers/Bundle/Application/F9923B74-FE49-4595-A08F-A04A08F946F4/Puffin.app/PlugIns/StickerExtension.appex. Have 9.3.6; need 10.0
+Nov 18 17:39:17 installd[855] <Notice>: 0x1f115000 -[MIBundle pluginKitBundlesSkippingPlatformValidation:withError:]: Ignoring plugin at /private/var/containers/Bundle/Application/F9923B74-FE49-4595-A08F-A04A08F946F4/Puffin.app/PlugIns/StickerExtension.appex because it doesn't work on this OS version
+Nov 18 17:39:27 installd[855] <Error>: 0x1f115000 -[MIBundle isApplicableToOSVersion:error:]: 644: The system version is lower than the minimum OS version specified for bundle at /private/var/containers/Bundle/Application/F9923B74-FE49-4595-A08F-A04A08F946F4/Puffin.app/PlugIns/StickerExtension.appex. Have 9.3.6; need 10.0
+Nov 18 17:39:27 installd[855] <Notice>: 0x1f115000 -[MIBundle pluginKitBundlesSkippingPlatformValidation:withError:]: Ignoring plugin at /private/var/containers/Bundle/Application/F9923B74-FE49-4595-A08F-A04A08F946F4/Puffin.app/PlugIns/StickerExtension.appex because it doesn't work on this OS version
+Nov 18 17:40:00 installd[855] <Error>: 0x1f115000 -[MIBundle isApplicableToOSVersion:error:]: 644: The system version is lower than the minimum OS version specified for bundle at /private/var/containers/Bundle/Application/F9923B74-FE49-4595-A08F-A04A08F946F4/Puffin.app/PlugIns/StickerExtension.appex. Have 9.3.6; need 10.0
+Nov 18 17:40:00 installd[855] <Notice>: 0x1f115000 -[MIBundle pluginKitBundlesSkippingPlatformValidation:withError:]: Ignoring plugin at /private/var/containers/Bundle/Application/F9923B74-FE49-4595-A08F-A04A08F946F4/Puffin.app/PlugIns/StickerExtension.appex because it doesn't work on this OS version
+Nov 18 17:40:23 kernel[0] <Notice>: Loading diags data region 0
+Nov 18 17:40:23 kernel[0] <Notice>: Loading diags data region 1
+Nov 18 17:40:23 kernel[0] <Notice>: Loading diags data region 2
+Nov 18 17:40:23 kernel[0] <Notice>: Failed to diags data region 2.
+Nov 18 17:40:24 installd[855] <Error>: 0x1f219000 -[MIBundle isApplicableToOSVersion:error:]: 644: The system version is lower than the minimum OS version specified for bundle at /private/var/containers/Bundle/Application/F9923B74-FE49-4595-A08F-A04A08F946F4/Puffin.app/PlugIns/StickerExtension.appex. Have 9.3.6; need 10.0
+Nov 18 17:40:24 installd[855] <Notice>: 0x1f219000 -[MIBundle pluginKitBundlesSkippingPlatformValidation:withError:]: Ignoring plugin at /private/var/containers/Bundle/Application/F9923B74-FE49-4595-A08F-A04A08F946F4/Puffin.app/PlugIns/StickerExtension.appex because it doesn't work on this OS version

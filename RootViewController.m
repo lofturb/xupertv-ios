@@ -1,8 +1,9 @@
 #import "RootViewController.h"
 #import "LocalServer.h"
+#import "XuperPlayerViewController.h"
 #import <WebKit/WebKit.h>
 
-@interface RootViewController () <WKNavigationDelegate>
+@interface RootViewController () <WKNavigationDelegate, WKScriptMessageHandler>
 
 @property (nonatomic, strong) LocalServer *server;
 @property (nonatomic, strong) WKWebView *webView;
@@ -33,6 +34,7 @@
     [uc addUserScript:[[WKUserScript alloc] initWithSource:[self bootstrapScript]
                                               injectionTime:WKUserScriptInjectionTimeAtDocumentStart
                                            forMainFrameOnly:YES]];
+    [uc addScriptMessageHandler:self name:@"xuperPlay"];
     config.userContentController = uc;
 
     self.webView = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:config];
@@ -92,6 +94,20 @@
     [self.webView evaluateJavaScript:js completionHandler:nil];
 }
 
+- (void)userContentController:(WKUserContentController *)uc
+      didReceiveScriptMessage:(WKScriptMessage *)message {
+    if (![message.name isEqualToString:@"xuperPlay"]) return;
+    NSDictionary *body = [message.body isKindOfClass:[NSDictionary class]] ? message.body : nil;
+    NSString *url = body[@"url"];
+    if (![url isKindOfClass:[NSString class]] || !url.length) return;
+    NSDictionary *headers = [body[@"headers"] isKindOfClass:[NSDictionary class]] ? body[@"headers"] : @{};
+    NSLog(@"[xuper-ios] xuperPlay %@", url);
+    XuperPlayerViewController *player =
+        [[XuperPlayerViewController alloc] initWithURL:url headers:headers title:body[@"title"]];
+    player.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:player animated:YES completion:nil];
+}
+
 - (NSString *)bootstrapScript {
     return @"(function(){"
     "var info={modelName:'LJ5500',platformVersionMajor:3,platformVersionMinor:0,"
@@ -109,6 +125,9 @@
     "window.webOS.deviceInfo=function(cb){try{cb(info);}catch(e){}};"
     "window.webOS.systemInfo=function(cb){try{cb(info);}catch(e){}};"
     "window.webOS.platformBack=window.__xuperNativeBack;"
+    "window.__xuperPlay=function(url,headers,title){"
+    "try{window.webkit.messageHandlers.xuperPlay.postMessage("
+    "{url:String(url||''),headers:headers||{},title:String(title||'')});}catch(e){}};"
     "try{var k='xuper_global_playback_v1';var s=JSON.parse(localStorage.getItem(k)||'{}');"
     "s.streamMode='normal';s.audioPreferenceCode='es-lat';s.playback=s.playback||{};"
     "s.playback.quality='720';s.playback.audio='spa';localStorage.setItem(k,JSON.stringify(s));"

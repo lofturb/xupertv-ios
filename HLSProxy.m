@@ -43,6 +43,44 @@
     return token;
 }
 
+- (NSDictionary *)sourceForToken:(NSString *)token {
+    NSDictionary *s = self.streams[token];
+    if (!s) return nil;
+    return @{ @"url": s[@"url"] ?: @"", @"headers": s[@"headers"] ?: @{} };
+}
+
+- (void)relayToken:(NSString *)token
+           request:(GCDWebServerRequest *)request
+        completion:(GCDWebServerCompletionBlock)completion {
+    NSDictionary *s = self.streams[token];
+    NSString *url = s[@"url"];
+    if (!url.length) {
+        completion([GCDWebServerResponse responseWithStatusCode:404]);
+        return;
+    }
+    NSString *range = request.headers[@"Range"];
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    req.timeoutInterval = 600.0;
+    if (range.length) [req setValue:range forHTTPHeaderField:@"Range"];
+    for (NSString *key in s[@"headers"]) {
+        [req setValue:[s[@"headers"][key] description] forHTTPHeaderField:key];
+    }
+    NSURLSessionDataTask *task = [self.session dataTaskWithRequest:req
+        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (!response) {
+            completion([GCDWebServerResponse responseWithStatusCode:502]);
+            return;
+        }
+        NSHTTPURLResponse *hr = (NSHTTPURLResponse *)response;
+        GCDWebServerDataResponse *r = [GCDWebServerDataResponse responseWithData:(data ?: [NSData data])
+                                                                    contentType:@"video/mp2t"];
+        r.statusCode = hr.statusCode;
+        [r setValue:@"*" forAdditionalHeader:@"Access-Control-Allow-Origin"];
+        completion(r);
+    }];
+    [task resume];
+}
+
 - (NSString *)playlistForToken:(NSString *)token {
     NSDictionary *s = self.streams[token];
     if (!s) return nil;

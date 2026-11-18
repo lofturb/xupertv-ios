@@ -10,9 +10,10 @@ GCD_SRC = $(wildcard vendor/GCDWebServer/GCDWebServer/Core/*.m) \
           $(wildcard vendor/GCDWebServer/GCDWebServer/Requests/*.m) \
           $(wildcard vendor/GCDWebServer/GCDWebServer/Responses/*.m)
 
-XuperTV_FILES = main.m AppDelegate.m RootViewController.m LocalServer.m ServiceBridge.m HLSProxy.m $(GCD_SRC)
-XuperTV_FRAMEWORKS = UIKit Foundation WebKit JavaScriptCore AVFoundation Security CoreGraphics MobileCoreServices SystemConfiguration
-XuperTV_LDFLAGS = -Wl,-segalign,4000 -Wl,-undefined,dynamic_lookup -lz
+XuperTV_FILES = main.m AppDelegate.m RootViewController.m LocalServer.m ServiceBridge.m HLSProxy.m XuperPlayerViewController.m $(GCD_SRC)
+XuperTV_FRAMEWORKS = UIKit Foundation WebKit JavaScriptCore AVFoundation Security CoreGraphics MobileCoreServices SystemConfiguration MobileVLCKit
+XuperTV_LDFLAGS = -Wl,-segalign,4000 -Wl,-undefined,dynamic_lookup -lz \
+                 -Fvendor/vlckit/MobileVLCKit-binary -framework MobileVLCKit -lc++ -lstdc++ -lbz2 -liconv
 XuperTV_CFLAGS = -fobjc-arc -Wno-deprecated-declarations -Wno-unused-parameter \
                  -Wno-unused-variable -Wno-unused-function \
                  -Ivendor/GCDWebServer/GCDWebServer/Core \
@@ -20,7 +21,18 @@ XuperTV_CFLAGS = -fobjc-arc -Wno-deprecated-declarations -Wno-unused-parameter \
                  -Ivendor/GCDWebServer/GCDWebServer/Responses
 XuperTV_CODESIGN_FLAGS = -Sentitlements.plist
 
+VLC_FRAMEWORK = vendor/vlckit/MobileVLCKit-binary/MobileVLCKit.framework
+XuperTV_EMBEDDED_FRAMEWORKS = $(VLC_FRAMEWORK)
+
 include $(THEOS_MAKE_PATH)/application.mk
+
+before-package::
+	@set -e; APP="$(THEOS_STAGING_DIR)/Applications/XuperTV.app"; \
+	FRAMEWORKS="$$APP/Frameworks"; \
+	mkdir -p "$$FRAMEWORKS"; \
+	rm -rf "$$FRAMEWORKS/MobileVLCKit.framework"; \
+	cp -R "$(THEOS_PROJECT_DIR)/$(VLC_FRAMEWORK)" "$$FRAMEWORKS/"; \
+	$(THEOS)/bin/ldid -S"$$FRAMEWORKS/MobileVLCKit.framework/MobileVLCKit" || true
 
 after-install::
 	install.exec "killall -9 XuperTV 2>/dev/null || true"
