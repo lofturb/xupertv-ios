@@ -1,5 +1,6 @@
 #import "HLSProxy.h"
 #import "GCDWebServerFileResponse.h"
+#import "GCDWebServerDataResponse.h"
 #import "GCDWebServerResponse.h"
 #import <UIKit/UIKit.h>
 #import <math.h>
