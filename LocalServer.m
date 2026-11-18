@@ -75,6 +75,28 @@
                               withString:tag
                                  options:0
                                    range:NSMakeRange(0, html.length)];
+
+        // iOS 9 / A5: sin transiciones ni sombras, y scroll con inercia.
+        NSString *perf =
+            @"<style id='xuper-ios-perf'>"
+             "*{transition:none!important;animation:none!important;box-shadow:none!important;text-shadow:none!important;}"
+             "html,body,.scrollable,[class*='rail']{-webkit-overflow-scrolling:touch;}"
+             "</style>";
+        [html replaceOccurrencesOfString:@"</head>"
+                              withString:[perf stringByAppendingString:@"</head>"]
+                                 options:0
+                                   range:NSMakeRange(0, html.length)];
+
+        // El snapshot del portal trae ~270 tarjetas; en el A5 basta con 90.
+        NSString *trim =
+            @"<script>(function(){try{var P=window.XUPERTV_PORTAL;if(!P||!P.items||P.items.length<=90)return;"
+             "var seen={},out=[],i,it,r,c;for(i=0;i<P.items.length&&out.length<90;i++){"
+             "it=P.items[i]||{};r=String(it.row||it.category||'');c=seen[r]||0;"
+             "if(c<8){seen[r]=c+1;out.push(it);}}P.items=out;}catch(e){}})();</script>";
+        [html replaceOccurrencesOfString:@"<script src=\"data/portal.js\"></script>"
+                              withString:[@"<script src=\"data/portal.js\"></script>" stringByAppendingString:trim]
+                                 options:0
+                                   range:NSMakeRange(0, html.length)];
         return [GCDWebServerDataResponse responseWithHTML:html];
     };
 

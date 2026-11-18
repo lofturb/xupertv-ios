@@ -84,9 +84,10 @@
 
 - (void)goBack {
     NSString *js =
-        @"(function(){var ev;try{ev=new KeyboardEvent('keydown',{keyCode:461,which:461,key:'GoBack',bubbles:true});}"
-        "catch(e){ev=document.createEvent('Event');ev.initEvent('keydown',true,true);}"
-        "try{ev.keyCode=461;ev.which=461;ev.charCode=461;}catch(e){}document.dispatchEvent(ev);})();";
+        @"(function(){try{if(window.__xuper&&window.__xuper.key){window.__xuper.key(461);return;}}catch(e){}"
+         "var ev;try{ev=new KeyboardEvent('keydown',{keyCode:461,which:461,key:'GoBack',bubbles:true});}"
+         "catch(e){ev=document.createEvent('Event');ev.initEvent('keydown',true,true);}"
+         "try{ev.keyCode=461;ev.which=461;ev.charCode=461;}catch(e){}document.dispatchEvent(ev);})();";
     [self.webView evaluateJavaScript:js completionHandler:nil];
 }
 
