@@ -25,7 +25,6 @@
     }
 
     WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
-    config.mediaTypesRequiringUserActionForPlayback = WKAudiovisualMediaTypeNone;
     config.allowsInlineMediaPlayback = YES;
     if ([config respondsToSelector:@selector(setRequiresUserActionForMediaPlayback:)]) {
         config.requiresUserActionForMediaPlayback = NO;
