@@ -25,6 +25,7 @@
     }
 
     WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
+    config.mediaTypesRequiringUserActionForPlayback = WKAudiovisualMediaTypeNone;
     config.allowsInlineMediaPlayback = YES;
     if ([config respondsToSelector:@selector(setRequiresUserActionForMediaPlayback:)]) {
         config.requiresUserActionForMediaPlayback = NO;
@@ -67,16 +68,16 @@
 
 - (void)addBackButton {
     self.backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.backButton.frame = CGRectMake(self.view.bounds.size.width - 70.0, self.view.bounds.size.height - 70.0, 54.0, 54.0);
-    self.backButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
+    self.backButton.frame = CGRectMake(self.view.bounds.size.width - 92.0, 54.0, 64.0, 48.0);
+    self.backButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
     [self.backButton setTitle:@"\u2039" forState:UIControlStateNormal];
     [self.backButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    self.backButton.titleLabel.font = [UIFont boldSystemFontOfSize:34.0];
-    self.backButton.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.35];
-    self.backButton.layer.cornerRadius = 27.0;
-    self.backButton.layer.borderColor = [UIColor colorWithWhite:1.0 alpha:0.45].CGColor;
+    self.backButton.titleLabel.font = [UIFont boldSystemFontOfSize:30.0];
+    self.backButton.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.28];
+    self.backButton.layer.cornerRadius = 10.0;
+    self.backButton.layer.borderColor = [UIColor colorWithWhite:1.0 alpha:0.30].CGColor;
     self.backButton.layer.borderWidth = 1.0;
-    self.backButton.alpha = 0.7;
+    self.backButton.alpha = 0.55;
     self.backButton.accessibilityLabel = @"Atras";
     [self.backButton addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.backButton];
@@ -84,10 +85,11 @@
 
 - (void)goBack {
     NSString *js =
-        @"(function(){try{if(window.__xuper&&window.__xuper.key){window.__xuper.key(461);return;}}catch(e){}"
+        @"(function(){try{if(window.__xuperNativeBack)return window.__xuperNativeBack();}catch(e){}"
          "var ev;try{ev=new KeyboardEvent('keydown',{keyCode:461,which:461,key:'GoBack',bubbles:true});}"
          "catch(e){ev=document.createEvent('Event');ev.initEvent('keydown',true,true);}"
-         "try{ev.keyCode=461;ev.which=461;ev.charCode=461;}catch(e){}document.dispatchEvent(ev);})();";
+         "try{ev.keyCode=461;ev.which=461;ev.charCode=461;}catch(e){}document.dispatchEvent(ev);"
+         "try{if(window.__xuper&&window.__xuper.key)window.__xuper.key(461);}catch(e2){}})();";
     [self.webView evaluateJavaScript:js completionHandler:nil];
 }
 
@@ -98,11 +100,16 @@
     "window.__xuperIos=true;"
     "window.PalmSystem=window.PalmSystem||{};"
     "window.PalmSystem.deviceInfo=JSON.stringify(info);"
-    "window.PalmSystem.platformBack=function(){};"
+    "window.__xuperNativeBack=function(){"
+    "try{var ev;try{ev=new KeyboardEvent('keydown',{keyCode:461,which:461,key:'GoBack',bubbles:true});}"
+    "catch(e){ev=document.createEvent('Event');ev.initEvent('keydown',true,true);}"
+    "try{ev.keyCode=461;ev.which=461;}catch(e2){}document.dispatchEvent(ev);}catch(e3){}"
+    "try{if(window.__xuper&&window.__xuper.key)window.__xuper.key(461);}catch(e4){}};"
+    "window.PalmSystem.platformBack=window.__xuperNativeBack;"
     "window.webOS=window.webOS||{};"
     "window.webOS.deviceInfo=function(cb){try{cb(info);}catch(e){}};"
     "window.webOS.systemInfo=function(cb){try{cb(info);}catch(e){}};"
-    "window.webOS.platformBack=function(){};"
+    "window.webOS.platformBack=window.__xuperNativeBack;"
     "try{var k='xuper_global_playback_v1';var s=JSON.parse(localStorage.getItem(k)||'{}');"
     "s.streamMode='normal';s.audioPreferenceCode='es-lat';s.playback=s.playback||{};"
     "s.playback.quality='720';s.playback.audio='spa';localStorage.setItem(k,JSON.stringify(s));"

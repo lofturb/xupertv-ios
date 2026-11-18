@@ -79,8 +79,9 @@
         // iOS 9 / A5: sin transiciones ni sombras, y scroll con inercia.
         NSString *perf =
             @"<style id='xuper-ios-perf'>"
-             "*{transition:none!important;animation:none!important;box-shadow:none!important;text-shadow:none!important;}"
-             "html,body,.scrollable,[class*='rail']{-webkit-overflow-scrolling:touch;}"
+             "*{transition:none!important;animation:none!important;box-shadow:none!important;text-shadow:none!important;"
+             "background-attachment:scroll!important;}"
+             "img,video{-webkit-transform:translateZ(0);}"
              "</style>";
         [html replaceOccurrencesOfString:@"</head>"
                               withString:[perf stringByAppendingString:@"</head>"]
@@ -258,9 +259,7 @@
             NSString *codec = [out[@"codec"] isKindOfClass:[NSString class]]
                 ? [out[@"codec"] uppercaseString] : @"";
             if ([codec containsString:@"265"] || [codec containsString:@"HEVC"]) {
-                completion([weakSelf json:@{@"returnValue": @NO,
-                                            @"errorText": @"Este titulo solo esta en HEVC; el iPad mini 1 no puede decodificarlo."}]);
-                return;
+                NSLog(@"[xuper-ios] %@ en HEVC: AVPlayer no lo decodifica", out[@"name"] ?: @"titulo");
             }
             NSString *token = [weakSelf.hls registerStream:(NSDictionary *)data];
             if (!token) {
