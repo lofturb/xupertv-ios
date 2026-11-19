@@ -53,7 +53,18 @@ jobs:
           # Cabeceras publicas del framework (solo para compilar)
           tar -xJf /tmp/mv.tar.xz -C vendor/vlckit \
             MobileVLCKit-binary/MobileVLCKit.framework/Headers
-          ls -la vendor/vlckit/MobileVLCKit-binary/MobileVLCKit.framework/Headers | head
+          FW=vendor/vlckit/MobileVLCKit-binary/MobileVLCKit.framework
+          if [ ! -f "$FW/Info.plist" ]; then
+            /usr/libexec/PlistBuddy -c "Add :CFBundleIdentifier string org.videolan.ios.MobileVLCKit" \
+                                       -c "Add :CFBundleName string MobileVLCKit" \
+                                       -c "Add :CFBundleExecutable string MobileVLCKit" \
+                                       -c "Add :CFBundlePackageType string FMWK" \
+                                       -c "Add :CFBundleShortVersionString string 3.3.1" \
+                                       -c "Add :CFBundleVersion string 3.3.1" \
+                                       -c "Add :MinimumOSVersion string 9.0" \
+                                       "$FW/Info.plist"
+          fi
+          ls -la "$FW"
 
       - name: Compilar IPA
         run: |
