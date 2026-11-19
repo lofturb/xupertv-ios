@@ -47,7 +47,9 @@ jobs:
           curl -L --retry 5 --retry-delay 3 -o /tmp/mv.tar.xz \
             "https://download.videolan.org/pub/cocoapods/prod/MobileVLCKit-3.3.1-3387892-12ce8cd7f6.tar.xz"
           tar -xJf /tmp/mv.tar.xz -C vendor/vlckit
-          ls -la vendor/vlckit/MobileVLCKit-binary
+          python3 tools/make-framework-plist.py \
+            vendor/vlckit/MobileVLCKit-binary/MobileVLCKit.framework/Info.plist
+          ls -la vendor/vlckit/MobileVLCKit-binary/MobileVLCKit.framework
 
       - name: Compilar IPA
         run: |
