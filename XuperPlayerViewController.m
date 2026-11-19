@@ -69,8 +69,15 @@
         }
     }
     opts[@":http-user-agent"] = [ua copy];
-    if (refs.count) opts[@":http-referrer"] = [refs copy];
     [media addOptions:opts];
+    // VLCKit permite inyectar cabeceras HTTP arbitrarias por pista:
+    //   :http-headers  (o :http-headers=KEY: VALUE encadenado en algunas builds)
+    // Las del portal (Content-Auth / Content-License / App / App-Version) son
+    // obligatorias o el CDN responde 403.
+    for (NSString *key in refs) {
+        NSString *opt = [NSString stringWithFormat:@":http-%@", [key lowercaseString]];
+        [media addOptions:@{ opt: refs[key] }];
+    }
 
     VLCMediaPlayer *player = [[VLCMediaPlayer alloc] init];
     player.media = media;

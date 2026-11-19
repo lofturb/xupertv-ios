@@ -35,6 +35,7 @@
                                               injectionTime:WKUserScriptInjectionTimeAtDocumentStart
                                            forMainFrameOnly:YES]];
     [uc addScriptMessageHandler:self name:@"xuperPlay"];
+    [uc addScriptMessageHandler:self name:@"xuperService"];
     config.userContentController = uc;
 
     self.webView = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:config];
@@ -96,6 +97,10 @@
 
 - (void)userContentController:(WKUserContentController *)uc
       didReceiveScriptMessage:(WKScriptMessage *)message {
+    if ([message.name isEqualToString:@"xuperService"]) {
+        [self handleServiceCall:message.body];
+        return;
+    }
     if (![message.name isEqualToString:@"xuperPlay"]) return;
     NSDictionary *body = [message.body isKindOfClass:[NSDictionary class]] ? message.body : nil;
     NSString *url = body[@"url"];
@@ -106,6 +111,38 @@
         [[XuperPlayerViewController alloc] initWithURL:url headers:headers title:body[@"title"]];
     player.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:player animated:YES completion:nil];
+}
+
+- (void)handleServiceCall:(id)body {
+    if (![body isKindOfClass:[NSDictionary class]]) return;
+    NSString *ident = body[@"id"];
+    NSString *service = body[@"service"];
+    NSString *payload = body[@"payload"];
+    if (![ident isKindOfClass:[NSString class]] || !ident.length) return;
+    if (![service isKindOfClass:[NSString class]] || !service.length) {
+        [self replyService:ident json:@"{\"returnValue\":false,\"errorText\":\"servicio vacio\"}"];
+        return;
+    }
+    if (![payload isKindOfClass:[NSString class]] || !payload.length) payload = @"{}";
+    __weak typeof(self) weakSelf = self;
+    [self.server callService:service
+                  parameters:payload
+                  completion:^(NSString *json) {
+        [weakSelf replyService:ident json:json];
+    }];
+}
+
+- (void)replyService:(NSString *)ident json:(NSString *)json {
+    if (!ident.length) return;
+    NSString *safe = json ?: @"{}";
+    NSData *d = [NSJSONSerialization dataWithJSONObject:@[ident, safe] options:0 error:NULL];
+    NSString *args = d ? [[NSString alloc] initWithData:d encoding:NSUTF8StringEncoding] : nil;
+    if (!args || args.length < 2) args = [NSString stringWithFormat:@"[\"%@\",\"{}\"]", ident];
+    NSString *js = [NSString stringWithFormat:
+        @"(function(){try{window.__xuperServiceResolve.apply(null,%@);}catch(e){}})();", args];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.webView evaluateJavaScript:js completionHandler:nil];
+    });
 }
 
 - (NSString *)bootstrapScript {

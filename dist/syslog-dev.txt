@@ -1,0 +1,199 @@
+[connected]
+
+
+Nov 18 21:12:46 networkd[86] <Error>: -[NETAWDManager reportStats:metricID:] AWDServerConnection newMetricContainerWithIdentifier failed for metric 2686983, server 0x16d7cb90, not reporting:
+	<AWDLibnetcoreTCPConnectionReport: 0x16d57eb0> {
+	    cellularFallbackReport =     {
+	        dataUsageSnapshotsAtNetworkEvents =         (
+	                        {
+	                bytesIn = 0;
+	                bytesOut = 390;
+	            }
+	        );
+	        "fallbackTimer_msecs" = 0;
+	        fellback = 0;
+	        networkEvents =         (
+	            "NETWORK_EVENT_DATA_STALL_AT_APP_LAYER"
+	        );
+	        "timeToNetworkEvents_msecs" =         (
+	            3046
+	        );
+	    };
+	    clientIdentifier = mediaserverd;
+	    connectionStatisticsReport =     {
+	        DNSAnswersCached = 0;
+	        "DNSResolvedTime_msecs" = 0;
+	        RTTvariance = 0;
+	        "appDataStallTimer_msecs" = 3;
+	        appReportingDataStallCount = 1;
+	        "bestRTT_msecs" = 0;
+	        betterRouteEventCount = 0;
+	        bytesDuplicate = 0;
+	        bytesIn = 0;
+	        bytesOut = 390;
+	        bytesOutOfOrder = 0;
+	        bytesRetransmitted = 0;
+	        cellularFallback = 0;
+	        cellularRRCConnected = 0;
+	        connected = 1;
+	        connectedInterfaceType = "(unknown: 4)";
+	        "connectionEstablishmentTime_msecs" = 5;
+	        connectionReuseCount = 0;
+	        "currentRTT_msecs" = 0;
+	        "flowDuration_msecs" = 11243;
+	        interfaceType = "(unknown: 4)";
+	        kernelReportedStalls = 0;
+	        kernelReportingConnectionStalled = 0;
+	        kernelReportingReadStalled = 0;
+	        kernelReportingWriteStalled = 0;
+	        packetsDuplicate = 0;
+	        packetsIn = 0;
+	        packetsOut = 1;
+	        packetsOutOfOrder = 0;
+	        packetsRetransmitted = 0;
+	        "smoothedRTT_msecs" = 0;
+	        synRetransmissionCount = 0;
+	        tcpFastOpen = 0;
+	        "timeToConnectionEstablishment_msecs" = 25;
+	        "timeToConnectionStart_msecs" = 20;
+	        "timeToDNSResolved_msecs" = 0;
+	        "timeToDNSStart_msecs" = 0;
+	        trafficClass = 500;
+	    };
+	    delegated = 1;
+	    reportReason = "REPORT_REASON_DATA_STALL_AT_APP_LAYER";
+	    sourceAppIdentifier = "com.webosflux.xupertv.ios";
+	}
+Nov 18 21:12:47 XuperTV[906] <Warning>: [xuper-ios] descargando media 858E09A11B4249F7B4698A71EB19B6A0
+Nov 18 21:12:48 XuperTV[906] <Warning>: [xuper-ios] media 858E09A11B4249F7B4698A71EB19B6A0 aun descargando (1 en espera)
+Nov 18 21:13:49 networkd[86] <Error>: -[NETAWDManager reportStats:metricID:] AWDServerConnection newMetricContainerWithIdentifier failed for metric 2686983, server 0x16d7cb90, not reporting:
+	<AWDLibnetcoreTCPConnectionReport: 0x16e6f4e0> {
+	    cellularFallbackReport =     {
+	        dataUsageSnapshotsAtNetworkEvents =         (
+	                        {
+	                bytesIn = 0;
+	                bytesOut = 390;
+	            }
+	        );
+	        "fallbackTimer_msecs" = 0;
+	        fellback = 0;
+	        networkEvents =         (
+	            "NETWORK_EVENT_DATA_STALL_AT_APP_LAYER"
+	        );
+	        "timeToNetworkEvents_msecs" =         (
+	            3021
+	        );
+	    };
+	    clientIdentifier = mediaserverd;
+	    connectionStatisticsReport =     {
+	        DNSAnswersCached = 0;
+	        "DNSResolvedTime_msecs" = 0;
+	        RTTvariance = 0;
+	        "appDataStallTimer_msecs" = 3;
+	        appReportingDataStallCount = 1;
+	        "bestRTT_msecs" = 0;
+	        betterRouteEventCount = 0;
+	        bytesDuplicate = 0;
+	        bytesIn = 0;
+	        bytesOut = 390;
+	        bytesOutOfOrder = 0;
+	        bytesRetransmitted = 0;
+	        cellularFallback = 0;
+	        cellularRRCConnected = 0;
+	        connected = 1;
+	        connectedInterfaceType = "(unknown: 4)";
+	        "connectionEstablishmentTime_msecs" = 4;
+	        connectionReuseCount = 0;
+	        "currentRTT_msecs" = 0;
+	        "flowDuration_msecs" = 61272;
+	        interfaceType = "(unknown: 4)";
+	        kernelReportedStalls = 0;
+	        kernelReportingConnectionStalled = 0;
+	        kernelReportingReadStalled = 0;
+	        kernelReportingWriteStalled = 0;
+	        packetsDuplicate = 0;
+	        packetsIn = 0;
+	        packetsOut = 1;
+	        packetsOutOfOrder = 0;
+	        packetsRetransmitted = 0;
+	        "smoothedRTT_msecs" = 0;
+	        synRetransmissionCount = 0;
+	        tcpFastOpen = 0;
+	        "timeToConnectionEstablishment_msecs" = 6;
+	        "timeToConnectionStart_msecs" = 2;
+	        "timeToDNSResolved_msecs" = 0;
+	        "timeToDNSStart_msecs" = 0;
+	        trafficClass = 500;
+	    };
+	    delegated = 1;
+	    reportReason = "REPORT_REASON_DATA_STALL_AT_APP_LAYER";
+	    sourceAppIdentifier = "com.webosflux.xupertv.ios";
+	}
+Nov 18 21:13:49 XuperTV[906] <Warning>: [xuper-ios] descargando media 843967D2F0C843A8999C5BD2DFA2E676
+Nov 18 21:13:50 XuperTV[906] <Warning>: [xuper-ios] media 843967D2F0C843A8999C5BD2DFA2E676 aun descargando (1 en espera)
+Nov 18 21:18:50 networkd[86] <Error>: -[NETAWDManager reportStats:metricID:] AWDServerConnection newMetricContainerWithIdentifier failed for metric 2686983, server 0x16d7cb90, not reporting:
+	<AWDLibnetcoreTCPConnectionReport: 0x16d707e0> {
+	    cellularFallbackReport =     {
+	        dataUsageSnapshotsAtNetworkEvents =         (
+	                        {
+	                bytesIn = 0;
+	                bytesOut = 390;
+	            }
+	        );
+	        "fallbackTimer_msecs" = 0;
+	        fellback = 0;
+	        networkEvents =         (
+	            "NETWORK_EVENT_DATA_STALL_AT_APP_LAYER"
+	        );
+	        "timeToNetworkEvents_msecs" =         (
+	            3019
+	        );
+	    };
+	    clientIdentifier = mediaserverd;
+	    connectionStatisticsReport =     {
+	        DNSAnswersCached = 0;
+	        "DNSResolvedTime_msecs" = 0;
+	        RTTvariance = 0;
+	        "appDataStallTimer_msecs" = 3;
+	        appReportingDataStallCount = 1;
+	        "bestRTT_msecs" = 0;
+	        betterRouteEventCount = 0;
+	        bytesDuplicate = 0;
+	        bytesIn = 0;
+	        bytesOut = 390;
+	        bytesOutOfOrder = 0;
+	        bytesRetransmitted = 0;
+	        cellularFallback = 0;
+	        cellularRRCConnected = 0;
+	        connected = 1;
+	        connectedInterfaceType = "(unknown: 4)";
+	        "connectionEstablishmentTime_msecs" = 3;
+	        connectionReuseCount = 0;
+	        "currentRTT_msecs" = 0;
+	        "flowDuration_msecs" = 300181;
+	        interfaceType = "(unknown: 4)";
+	        kernelReportedStalls = 0;
+	        kernelReportingConnectionStalled = 0;
+	        kernelReportingReadStalled = 0;
+	        kernelReportingWriteStalled = 0;
+	        packetsDuplicate = 0;
+	        packetsIn = 0;
+	        packetsOut = 1;
+	        packetsOutOfOrder = 0;
+	        packetsRetransmitted = 0;
+	        "smoothedRTT_msecs" = 0;
+	        synRetransmissionCount = 0;
+	        tcpFastOpen = 0;
+	        "timeToConnectionEstablishment_msecs" = 9;
+	        "timeToConnectionStart_msecs" = 6;
+	        "timeToDNSResolved_msecs" = 0;
+	        "timeToDNSStart_msecs" = 0;
+	        trafficClass = 500;
+	    };
+	    delegated = 1;
+	    reportReason = "REPORT_REASON_DATA_STALL_AT_APP_LAYER";
+	    sourceAppIdentifier = "com.webosflux.xupertv.ios";
+	}
+Nov 18 21:23:18 XuperTV[906] <Warning>: [xuper-ios] media 843967D2F0C843A8999C5BD2DFA2E676 lista (297381220 bytes)
+Nov 18 21:25:12 com.apple.xpc.launchd[1] (UIKitApplication:com.webosflux.xupertv.ios[0xb36c][906]) <Notice>: Service exited due to signal: Killed: 9
+Nov 18 21:25:12 SpringBoard[222] <Warning>: Application 'UIKitApplication:com.webosflux.xupertv.ios[0xb36c]' exited abnormally via signal.

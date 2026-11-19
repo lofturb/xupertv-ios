@@ -1,4 +1,4 @@
-#import "LocalServer.h"
+﻿#import "LocalServer.h"
 #import "ServiceBridge.h"
 #import "HLSProxy.h"
 #import "GCDWebServer.h"
@@ -52,29 +52,16 @@
                            options:0
                              range:NSMakeRange(0, html.length)
                       withTemplate:@"<meta name=\"viewport\" content=\"width=1920, height=1080, user-scalable=no\">"];
-        // webOSTV.js define webOS.service.request (Luna) pero en iOS no hay
-        // PalmServiceBridge. Se reemplaza por un puente XHR a nuestra API 8910.
-        NSString *bridge =
-            @"(function(){if(!window.webOS)window.webOS={};window.PalmServiceBridge=undefined;"
-             "window.webOS.service={request:function(uri,opts){opts=opts||{};"
-             "var method=opts.method||'';var params=opts.parameters||{};var xhr=new XMLHttpRequest();"
-             "var url='http://127.0.0.1:8910/'+encodeURIComponent(method)+'?q='+encodeURIComponent(JSON.stringify(params));"
-             "var finished=false;var timer=setTimeout(function(){if(finished)return;finished=true;"
-             "try{xhr.abort();}catch(e){}if(opts.onFailure)opts.onFailure({returnValue:false,errorText:'timeout'});},35000);"
-             "function done(data){if(finished)return;finished=true;clearTimeout(timer);"
-             "var ok=!(data&&data.returnValue===false);if(ok){if(opts.onSuccess)opts.onSuccess(data);}"
-             "else{if(opts.onFailure)opts.onFailure(data);}if(opts.onComplete)opts.onComplete(data);}"
-             "xhr.onreadystatechange=function(){if(xhr.readyState!==4)return;var data;"
-             "try{data=JSON.parse(xhr.responseText);}catch(e){data={returnValue:false,errorText:xhr.responseText};}done(data);};"
-             "xhr.onerror=function(){done({returnValue:false,errorText:'network'});};"
-             "xhr.open('GET',url,true);xhr.send(null);"
-             "return {cancel:function(){finished=true;clearTimeout(timer);try{xhr.abort();}catch(e){}}};}};})();";
-        NSString *tag = [NSString stringWithFormat:
-            @"<script src=\"js/webOSTV.js\"></script><script>%@</script>", bridge];
+        // webOSTV.js define webOS.service.request (Luna) solo si ya existe
+        // PalmServiceBridge. Se carga nuestro puente ANTES para que lo detecte
+        // y la app use el camino Luna -> messageHandlers.xuperService (nativo).
+        NSString *tag = @"<script src=\"js/xuper-bridge.js\"></script>"
+                         "<script src=\"js/webOSTV.js\"></script>";
         [html replaceOccurrencesOfString:@"<script src=\"js/webOSTV.js\"></script>"
                               withString:tag
                                  options:0
                                    range:NSMakeRange(0, html.length)];
+
 
         // iOS 9 / A5: sin transiciones ni sombras, y scroll con inercia.
         NSString *perf =
@@ -137,6 +124,18 @@
 
     [self startAPI];
     return YES;
+}
+
+- (void)callService:(NSString *)lunaService
+         parameters:(NSString *)paramsJSON
+         completion:(XuperJsonHandler)completion {
+    if (!completion) return;
+    NSString *method = [lunaService lastPathComponent];
+    NSDictionary *parsed = [self paramsFromQuery:paramsJSON method:method];
+    [self runMethod:method params:parsed completion:^(NSDictionary *out) {
+        NSData *d = [NSJSONSerialization dataWithJSONObject:out options:0 error:NULL];
+        completion(d ? [[NSString alloc] initWithData:d encoding:NSUTF8StringEncoding] : @"{}");
+    }];
 }
 
 - (void)startAPI {
@@ -211,53 +210,62 @@
 - (void)handleMethod:(NSString *)name
              request:(GCDWebServerRequest *)request
           completion:(GCDWebServerCompletionBlock)completion {
+    NSDictionary *params = [self paramsFromRequest:request];
+    [self runMethod:name params:params completion:^(NSDictionary *out) {
+        completion([self json:out]);
+    }];
+}
+
+- (void)runMethod:(NSString *)name
+           params:(NSDictionary *)params
+       completion:(void (^)(NSDictionary *out))completion {
+    void (^reply)(NSDictionary *) = ^(NSDictionary *d) { completion(d ?: @{}); };
     if ([name isEqualToString:@"ping"]) {
-        completion([self json:@{@"returnValue": @YES,
-                                @"service": @"com.webosflux.xupertv.ios",
-                                @"version": @"1.0.0",
-                                @"platform": @"ios-armv7"}]);
+        reply(@{@"returnValue": @YES,
+                @"service": @"com.webosflux.xupertv.ios",
+                @"version": @"1.0.0",
+                @"platform": @"ios-armv7"});
         return;
     }
     if ([name isEqualToString:@"liveChannels"]) {
-        completion([self json:@{@"returnValue": @YES, @"channels": @[]}]);
+        reply(@{@"returnValue": @YES, @"channels": @[]});
         return;
     }
     if ([name isEqualToString:@"liveCategories"]) {
-        completion([self json:@{@"returnValue": @YES, @"categories": @[]}]);
+        reply(@{@"returnValue": @YES, @"categories": @[]});
         return;
     }
     if ([name isEqualToString:@"resolveLive"]) {
-        completion([self json:@{@"returnValue": @NO, @"errorText": @"TV en vivo no disponible en esta version"}]);
+        reply(@{@"returnValue": @NO, @"errorText": @"TV en vivo no disponible en esta version"});
         return;
     }
     if ([name isEqualToString:@"abortMedia"] || [name isEqualToString:@"prewarm"] ||
         [name isEqualToString:@"setProxy"] || [name isEqualToString:@"keepAlive"] ||
         [name isEqualToString:@"heartbeat"] || [name isEqualToString:@"liveLog"]) {
-        completion([self json:@{@"returnValue": @YES}]);
+        reply(@{@"returnValue": @YES});
         return;
     }
     if ([name isEqualToString:@"checkUpdate"]) {
-        completion([self json:@{@"returnValue": @YES, @"hasUpdate": @NO}]);
+        reply(@{@"returnValue": @YES, @"hasUpdate": @NO});
         return;
     }
     if ([name isEqualToString:@"netdiag"]) {
-        completion([self json:@{@"returnValue": @YES, @"ok": @YES}]);
+        reply(@{@"returnValue": @YES, @"ok": @YES});
         return;
     }
     if (!self.service) {
-        completion([self json:@{@"returnValue": @NO, @"errorText": @"servicio no cargado"}]);
+        reply(@{@"returnValue": @NO, @"errorText": @"servicio no cargado"});
         return;
     }
 
-    NSDictionary *params = [self paramsFromRequest:request];
     NSString *callName = name;
     if ([name isEqualToString:@"resolveSmooth"]) callName = @"resolve";
     __weak typeof(self) weakSelf = self;
     [self.service invoke:callName params:params completion:^(NSError *error, id data) {
         if (error) {
             NSLog(@"[xuper-ios] %@: %@", name, error.localizedDescription);
-            completion([weakSelf json:@{@"returnValue": @NO,
-                                        @"errorText": error.localizedDescription ?: @"error"}]);
+            reply(@{@"returnValue": @NO,
+                    @"errorText": error.localizedDescription ?: @"error"});
             return;
         }
         NSMutableDictionary *out = [NSMutableDictionary dictionary];
@@ -271,8 +279,8 @@
             if ([srcHeaders isKindOfClass:[NSDictionary class]]) out[@"remoteHeaders"] = srcHeaders;
             NSString *token = [weakSelf.hls registerStream:(NSDictionary *)data];
             if (!token) {
-                completion([weakSelf json:@{@"returnValue": @NO,
-                                            @"errorText": @"el portal no devolvio URL de video"}]);
+                reply(@{@"returnValue": @NO,
+                        @"errorText": @"el portal no devolvio URL de video"});
                 return;
             }
             NSString *local = [NSString stringWithFormat:@"http://127.0.0.1:8910/hls/%@.m3u8", token];
@@ -283,8 +291,17 @@
             if (!out[@"codec"]) out[@"codec"] = @"H264";
         }
         out[@"returnValue"] = @YES;
-        completion([weakSelf json:out]);
+        reply(out);
     }];
+}
+
+/* Parsea el JSON de parametros que envia la pagina (o una query string). */
+- (NSDictionary *)paramsFromQuery:(NSString *)json method:(NSString *)method {
+    if (!json.length) return @{};
+    NSData *d = [json dataUsingEncoding:NSUTF8StringEncoding];
+    id obj = d ? [NSJSONSerialization JSONObjectWithData:d options:0 error:NULL] : nil;
+    if ([obj isKindOfClass:[NSDictionary class]]) return obj;
+    return @{@"value": json};
 }
 
 - (NSDictionary *)paramsFromRequest:(GCDWebServerRequest *)request {
@@ -326,3 +343,6 @@
 }
 
 @end
+
+
+
