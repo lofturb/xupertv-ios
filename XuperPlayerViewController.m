@@ -48,36 +48,27 @@
 }
 
 - (void)startPlayback {
-    NSURL *url = [NSURL URLWithString:self.videoURL ?: @""];
+    /* Se recibe la URL del HLS local (proxyPath = /hls/<token>.m3u8) y las
+       cabeceras del CDN aparte: VLCKit de esta build no acepta cabeceras por
+       pista, asi que el HLS local es quien las pone al pedir cada .ts. */
+    NSString *playURL = self.videoURL;
+    if (!playURL.length) {
+        NSLog(@"[xuper-vlc] sin URL de reproduccion");
+        return;
+    }
+    NSURL *url = [NSURL URLWithString:playURL];
     if (!url) {
         NSLog(@"[xuper-vlc] URL no valida");
         return;
     }
-    NSLog(@"[xuper-vlc] abriendo %@", self.videoURL);
+    NSLog(@"[xuper-vlc] abriendo %@", playURL);
     VLCMedia *media = [VLCMedia mediaWithURL:url];
     NSMutableDictionary *opts = [NSMutableDictionary dictionary];
-    opts[@":network-caching"] = @(2000);
-    NSMutableString *ua = [NSMutableString stringWithString:@"Mozilla/5.0"];
-    NSMutableDictionary *refs = [NSMutableDictionary dictionary];
-    for (NSString *key in self.headers) {
-        NSString *value = [self.headers[key] description];
-        NSString *lower = [key lowercaseString];
-        if ([lower isEqualToString:@"user-agent"]) {
-            [ua setString:value];
-        } else {
-            refs[key] = value;
-        }
-    }
-    opts[@":http-user-agent"] = [ua copy];
+    opts[@":network-caching"] = @(1200);
+    opts[@":adaptive-logic"] = @"default";
+    opts[@":clock-jitter"] = @0;
+    opts[@":clock-synchro"] = @0;
     [media addOptions:opts];
-    // VLCKit permite inyectar cabeceras HTTP arbitrarias por pista:
-    //   :http-headers  (o :http-headers=KEY: VALUE encadenado en algunas builds)
-    // Las del portal (Content-Auth / Content-License / App / App-Version) son
-    // obligatorias o el CDN responde 403.
-    for (NSString *key in refs) {
-        NSString *opt = [NSString stringWithFormat:@":http-%@", [key lowercaseString]];
-        [media addOptions:@{ opt: refs[key] }];
-    }
 
     VLCMediaPlayer *player = [[VLCMediaPlayer alloc] init];
     player.media = media;

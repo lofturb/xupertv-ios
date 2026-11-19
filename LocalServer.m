@@ -51,7 +51,7 @@
         [re replaceMatchesInString:html
                            options:0
                              range:NSMakeRange(0, html.length)
-                      withTemplate:@"<meta name=\"viewport\" content=\"width=1920, height=1080, user-scalable=no\">"];
+                      withTemplate:@"<meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no\">"];
         // webOSTV.js define webOS.service.request (Luna) solo si ya existe
         // PalmServiceBridge. Se carga nuestro puente ANTES para que lo detecte
         // y la app use el camino Luna -> messageHandlers.xuperService (nativo).
@@ -100,7 +100,7 @@
                  requestClass:[GCDWebServerRequest class]
                  processBlock:indexBlock];
 
-    NSArray *ports = @[@8080, @8081, @0];
+    NSArray *ports = @[@8910, @8911, @0];
     NSError *lastError = nil;
     BOOL webStarted = NO;
     for (NSNumber *port in ports) {
@@ -136,6 +136,17 @@
         NSData *d = [NSJSONSerialization dataWithJSONObject:out options:0 error:NULL];
         completion(d ? [[NSString alloc] initWithData:d encoding:NSUTF8StringEncoding] : @"{}");
     }];
+}
+
+- (NSString *)localPlaylistForRemote:(NSString *)remoteURL
+                             headers:(NSDictionary *)headers {
+    if (!remoteURL.length || !self.hls) return nil;
+    NSString *token = [self.hls registerStream:@{ @"url": remoteURL,
+                                                 @"headers": headers ?: @{},
+                                                 @"duration": @0 }];
+    if (!token.length) return nil;
+    return [NSString stringWithFormat:
+            @"http://127.0.0.1:8910/hls/%@.m3u8", token];
 }
 
 - (void)startAPI {
@@ -343,6 +354,7 @@
 }
 
 @end
+
 
 
 

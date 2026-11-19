@@ -63,6 +63,8 @@
     status.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.35];
     [self.view addSubview:status];
 
+    // A5 (iPad mini 1): el viewport de la TV (1920x1080) se lo sirve el
+    // servidor reducido, para no cocinar en CPU un canvas de 2 Mpx.
     NSString *url = [NSString stringWithFormat:@"http://127.0.0.1:%lu/index.html", (unsigned long)self.server.port];
     NSLog(@"[xuper-ios] cargando %@", url);
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
@@ -106,11 +108,17 @@
     NSString *url = body[@"url"];
     if (![url isKindOfClass:[NSString class]] || !url.length) return;
     NSDictionary *headers = [body[@"headers"] isKindOfClass:[NSDictionary class]] ? body[@"headers"] : @{};
-    NSLog(@"[xuper-ios] xuperPlay %@", url);
+    // La URL del CDN ya viene firmada: se registra en el proxy local y VLC
+    // abre el HLS local que inyecta las cabeceras del portal en cada segmento.
+    NSString *local = [self.server localPlaylistForRemote:url headers:headers];
+    NSString *playURL = local.length ? local : url;
+    NSLog(@"[xuper-ios] xuperPlay %@ -> %@", url, playURL);
+    UIViewController *top = self;
+    if (top.presentedViewController) top = top.presentedViewController;
     XuperPlayerViewController *player =
-        [[XuperPlayerViewController alloc] initWithURL:url headers:headers title:body[@"title"]];
+        [[XuperPlayerViewController alloc] initWithURL:playURL headers:headers title:body[@"title"]];
     player.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:player animated:YES completion:nil];
+    [top presentViewController:player animated:YES completion:nil];
 }
 
 - (void)handleServiceCall:(id)body {
@@ -162,9 +170,12 @@
     "window.webOS.deviceInfo=function(cb){try{cb(info);}catch(e){}};"
     "window.webOS.systemInfo=function(cb){try{cb(info);}catch(e){}};"
     "window.webOS.platformBack=window.__xuperNativeBack;"
-    "window.__xuperPlay=function(url,headers,title){"
+    "window.__xuperIosNative=true;"
+    "window.__xuperPlayVlc=function(url,headers,title){"
+    "if(!url||!/^https?:/i.test(String(url)))return;"
     "try{window.webkit.messageHandlers.xuperPlay.postMessage("
-    "{url:String(url||''),headers:headers||{},title:String(title||'')});}catch(e){}};"
+    "{url:String(url),headers:headers||{},title:String(title||'')});}catch(e){}};"
+    "window.__xuperPlay=window.__xuperPlayVlc;"
     "try{var k='xuper_global_playback_v1';var s=JSON.parse(localStorage.getItem(k)||'{}');"
     "s.streamMode='normal';s.audioPreferenceCode='es-lat';s.playback=s.playback||{};"
     "s.playback.quality='720';s.playback.audio='spa';localStorage.setItem(k,JSON.stringify(s));"

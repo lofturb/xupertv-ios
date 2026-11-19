@@ -1,4 +1,4 @@
-!(function () {
+﻿!(function () {
   "use strict";
   var APP_VERSION = "3.1.13";
   function e(e, t, a) {
@@ -11275,6 +11275,41 @@ var seasonBtn = de ? (de.querySelector(".detail-season-select") ||
   }
   function Qr(e, t) {
     var a = yr;
+    /* iOS armv7 (iPad mini 1 / A5): el <video> no tiene decodificador HEVC ni
+       HLS en la web vieja. Se resuelve igual (para tener la URL firmada del
+       CDN) pero en vez de reproducirla, se abre VLC embebido. */
+    if (window.__xuperIosNative) {
+      var iosEp = X.playerEpisode;
+      var iosP = { contentId: e.id, playbackMode: X.streamMode, hevc: !1, uhd: !1 };
+      iosP.forceRelay = "smooth" === X.streamMode || "relay" === X.streamMode;
+      iosP.trackIndex = X.trackIndex || 0;
+      iosP.quality = (X.playback && X.playback.quality) || "auto";
+      iosP.audioTrack = 0;
+      iosP.audioPreference = X.audioPreferenceCode || "es-lat";
+      if (x(e)) {
+        if (iosEp && iosEp.id) {
+          iosP.contentId = iosEp.id;
+          iosP.seriesContentId = e.seasonId || e.id;
+        } else if (e.episodes && e.episodes.length) {
+          X.playerEpisode = e.episodes[0];
+          iosP.contentId = e.episodes[0].id;
+          iosP.seriesContentId = e.seasonId || e.id;
+        } else {
+          return void t("");
+        }
+      }
+      return void P("resolve", iosP, function (err, res) {
+        var direct = res && res.remoteUrl;
+        if (err || !direct) return t("");
+        var hdrs = res.remoteHeaders || {};
+        var title = (X.playerItem && X.playerItem.title) || "";
+        if (iosEp && iosEp.title) title += " - " + iosEp.title;
+        try {
+          window.__xuperPlayVlc(direct, hdrs, title);
+        } catch (eIos) {}
+        t("");
+      });
+    }
     function i() {
       var i = { contentId: e.id };
       var ptT0 = Date.now();
@@ -11825,6 +11860,13 @@ var seasonBtn = de ? (de.querySelector(".detail-season-select") ||
       Se && Se.classList.remove("is-active"),
       "player" === X.screen && rt(Ce));
   }
+  /* Escala del lienzo de la app. En el iPad (__xuperIos) se usa "cover": la
+     pantalla del televisor es 16:9 y el pad 4:3, con el "contain" sobraban
+     bandas negras y todo se veia diminuto. */
+  function fitScale(w, h) {
+    if (window.__xuperIos) return Math.max(w / 1920, h / 1080);
+    return Math.min(w / 1920, h / 1080);
+  }
   function oo() {
     var e = t("app");
     if (e) {
@@ -11851,12 +11893,12 @@ var seasonBtn = de ? (de.querySelector(".detail-season-select") ||
         })(),
         i = a.w,
         n = a.h,
-        r = Math.min(i / 1920, n / 1080),
+        r = fitScale(i, n),
         displayScale = 1;
       r *= displayScale;
       ((!isFinite(r) || r <= 0) && (r = 1), (r = Math.round(1e4 * r) / 1e4));
-      var o = Math.max(0, Math.round((i - 1920 * r) / 2)),
-        s = Math.max(0, Math.round((n - 1080 * r) / 2));
+      var o = window.__xuperIos ? 0 : Math.max(0, Math.round((i - 1920 * r) / 2)),
+        s = window.__xuperIos ? 0 : Math.max(0, Math.round((n - 1080 * r) / 2));
       ((e.style.left = o + "px"),
         (e.style.top = s + "px"),
         (e.style.webkitTransform = "scale(" + r + ")"),

@@ -13,4 +13,9 @@ typedef void (^XuperJsonHandler)(NSString *json);
          parameters:(NSString *)paramsJSON
          completion:(XuperJsonHandler)completion;
 
+/* Registra la URL firmada del CDN y devuelve la lista HLS local que la envuelve
+   (los segmentos .ts los pide este proceso con las cabeceras del portal). */
+- (NSString *)localPlaylistForRemote:(NSString *)remoteURL
+                             headers:(NSDictionary *)headers;
+
 @end
