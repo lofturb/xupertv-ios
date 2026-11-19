@@ -2,11 +2,19 @@
 #import "GCDWebServerDataResponse.h"
 #import "GCDWebServerResponse.h"
 
-/* Remux local del CDN para VLC.
-   AVPlayer no decodifica HEVC en el A5 (error 3). VLC si, por CPU, pero no
-   puede usar las cabeceras del portal (Content-Auth etc.). Por eso VLC lee
-   un HLS local de un unico segmento y este servidor pide el TS al CDN con
-   sus cabeceras y lo reenvia byte a byte.
+/* Puente de video para el iPad mini 1 (A5).
+ *
+ * AVPlayer solo decodifica por hardware y el A5 no tiene HEVC: los titulos
+ * en H265 dan error 3 y se quedan en "Cargando". VLCKit trae decodificador
+ * por CPU y si puede, pero no admite las cabeceras del portal (Content-Auth
+ * y compania).
+ *
+ * Este objeto hace de proxy local:
+ *   - registerStream guarda la URL firmada del CDN y sus cabeceras.
+ *   - playlistForToken devuelve una lista HLS de un unico segmento.
+ *   - mediaForToken pide el TS al CDN con esas cabeceras y lo entrega.
+ * Asi VLC recibe un .ts correcto y no hace falta descargar el episodio
+ * entero antes de empezar.
  */
 
 @interface HLSProxy () <NSURLSessionDelegate>
@@ -21,8 +29,8 @@
     if (self) {
         _streams = [NSMutableDictionary dictionary];
         NSURLSessionConfiguration *cfg = [NSURLSessionConfiguration defaultSessionConfiguration];
-        cfg.timeoutIntervalForRequest = 600.0;
-        cfg.timeoutIntervalForResource = 3600.0;
+        cfg.timeoutIntervalForRequest = 120.0;
+        cfg.timeoutIntervalForResource = 600.0;
         _session = [NSURLSession sessionWithConfiguration:cfg delegate:self delegateQueue:nil];
     }
     return self;
@@ -69,30 +77,29 @@
         completion([GCDWebServerResponse responseWithStatusCode:404]);
         return;
     }
-
-    NSMutableURLRequest *reqmut = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
-    reqmut.timeoutInterval = 600.0;
+    NSMutableURLRequest *cdnReq = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    cdnReq.timeoutInterval = 600.0;
     NSString *range = request.headers[@"Range"];
-    if (range.length) [reqmut setValue:range forHTTPHeaderField:@"Range"];
-    NSDictionary *headers = s[@"headers"];
-    for (NSString *key in headers) {
-        [reqmut setValue:[headers[key] description] forHTTPHeaderField:key];
+    if (range.length) [cdnReq setValue:range forHTTPHeaderField:@"Range"];
+    NSDictionary *hdrs = s[@"headers"];
+    for (NSString *key in hdrs) {
+        [cdnReq setValue:[hdrs[key] description] forHTTPHeaderField:key];
     }
     NSLog(@"[xuper-relay] %@ rango=%@", token, range ?: @"-");
 
-    NSURLSessionDataTask *task = [self.session dataTaskWithRequest:reqmut
+    NSURLSessionDataTask *task = [self.session dataTaskWithRequest:cdnReq
         completionHandler:^(NSData *data, NSURLResponse *resp, NSError *err) {
-        NSHTTPURLResponse *hr = (NSHTTPURLResponse *)resp;
-        if (err || !hr) {
-            NSLog(@"[xuper-relay] %@ error %@", token, err.localizedDescription);
+        if (![resp isKindOfClass:[NSHTTPURLResponse class]]) {
+            NSLog(@"[xuper-relay] %@ sin respuesta: %@", token, err.localizedDescription);
             completion([GCDWebServerResponse responseWithStatusCode:502]);
             return;
         }
-        NSLog(@"[xuper-relay] %@ %ld %lu bytes", token, (long)hr.statusCode,
-              (unsigned long)data.length);
-        GCDWebServerDataResponse *r =
-            [GCDWebServerDataResponse responseWithData:(data ?: [NSData data])
-                                           contentType:@"video/mp2t"];
+        NSHTTPURLResponse *hr = (NSHTTPURLResponse *)resp;
+        NSData *body = data ?: [NSData data];
+        NSLog(@"[xuper-relay] %@ estado=%ld bytes=%lu", token, (long)hr.statusCode,
+              (unsigned long)body.length);
+        GCDWebServerDataResponse *r = [GCDWebServerDataResponse responseWithData:body
+                                                                    contentType:@"video/mp2t"];
         r.statusCode = hr.statusCode;
         [r setValue:@"*" forAdditionalHeader:@"Access-Control-Allow-Origin"];
         completion(r);
@@ -122,3 +129,4 @@
 }
 
 @end
+

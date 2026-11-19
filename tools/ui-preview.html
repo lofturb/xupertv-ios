@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>XuperTV iOS - preview UI</title>
+<link rel="stylesheet" href="../web/ui.css">
+<style>
+  /* solo para la vista previa: simula el iPad 1024x768 */
+  html, body { width: 1024px; height: 768px; }
+</style>
+</head>
+<body>
+<div class="app">
+  <nav class="rail">
+    <div class="brand">XUPER<b>TV</b></div>
+    <button class="nav-item is-on" data-view="home">Inicio</button>
+    <button class="nav-item" data-view="series">Series</button>
+    <button class="nav-item" data-view="movies">Pel&iacute;culas</button>
+    <button class="nav-item" data-view="anime">Anime</button>
+    <button class="nav-item" data-view="search">Buscar</button>
+    <button class="nav-item" data-view="history">Historial</button>
+  </nav>
+  <main class="main">
+    <div class="topbar">
+      <div class="title" id="page-title">Inicio</div>
+      <button class="ghost" id="btn-reload">Actualizar</button>
+    </div>
+    <div class="content" id="content"></div>
+  </main>
+</div>
+<div class="searchbar" id="searchbar" hidden>
+  <input id="search-input" type="text" placeholder="Buscar serie o pel&iacute;cula">
+  <button class="ghost" id="btn-search-cancel">Cancelar</button>
+</div>
+<div class="toast" id="toast"></div>
+<div class="overlay" id="overlay" hidden>
+  <div class="overlay-box">
+    <div class="overlay-title"></div>
+    <div class="overlay-body"></div>
+    <div class="overlay-actions"></div>
+  </div>
+</div>
+<script>
+/* stub de la API nativa para la vista previa */
+window.webkit = { messageHandlers: { xuperService: { postMessage: function () {} } } };
+var demo = [];
+for (var i = 0; i < 24; i++) {
+  demo.push({ id: "d" + i, title: "Titulo de muestra " + (i + 1),
+              kind: i % 3 === 0 ? "serie" : "pelicula",
+              poster: "posters/" + ["amor","carrie","matchbox","sintel","tenzing","spiderman"][i % 6] + ".jpg",
+              synopsis: "Sinopsis de muestra para comprobar el diseno de la ficha." });
+}
+setTimeout(function () {
+  if (window.__xuiToast) window.__xuiToast("Bienvenido a XuperTV");
+}, 600);
+</script>
+<script src="../web/xuper.js"></script>
+<script>
+/* pinta la muestra: la app real pide a la API nativa */
+setTimeout(function () {
+  var host = document.getElementById("content");
+  var html = '<div class="grid">';
+  for (var i = 0; i < demo.length; i++) {
+    html += '<button class="card" data-id="' + demo[i].id + '">' +
+            '<div class="ph"><img src="' + demo[i].poster + '"></div>' +
+            '<div class="t">' + demo[i].title + '</div></button>';
+  }
+  host.innerHTML = html + "</div>";
+}, 400);
+</script>
+</body>
+</html>

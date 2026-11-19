@@ -1,4 +1,4 @@
-#import "RootViewController.h"
+﻿#import "RootViewController.h"
 #import "LocalServer.h"
 #import "XuperPlayerViewController.h"
 #import <WebKit/WebKit.h>
@@ -65,7 +65,7 @@
 
     // A5 (iPad mini 1): el viewport de la TV (1920x1080) se lo sirve el
     // servidor reducido, para no cocinar en CPU un canvas de 2 Mpx.
-    NSString *url = [NSString stringWithFormat:@"http://127.0.0.1:%lu/index.html", (unsigned long)self.server.port];
+    NSString *url = [NSString stringWithFormat:@"http://127.0.0.1:%lu/web/index.html", (unsigned long)self.server.port];
     NSLog(@"[xuper-ios] cargando %@", url);
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
 }
@@ -136,6 +136,16 @@
     [self.server callService:service
                   parameters:payload
                   completion:^(NSString *json) {
+        if ([ident hasPrefix:@"ui"] && weakSelf.webView) {
+            NSData *arr = [NSJSONSerialization dataWithJSONObject:@[ident, json ?: @"{}"]
+                                                         options:0 error:NULL];
+            NSString *args = arr ? [[NSString alloc] initWithData:arr encoding:NSUTF8StringEncoding] : nil;
+            if (!args) return;
+            NSString *script = [NSString stringWithFormat:
+                @"(function(){try{window.__uiResolve.apply(null,%@);}catch(e){}})();", args];
+            [weakSelf.webView evaluateJavaScript:script completionHandler:nil];
+            return;
+        }
         [weakSelf replyService:ident json:json];
     }];
 }
@@ -227,3 +237,8 @@
 }
 
 @end
+
+
+
+
+

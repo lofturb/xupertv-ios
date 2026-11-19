@@ -1,4 +1,4 @@
-TARGET = iphone:clang:9.3:9.0
+﻿TARGET = iphone:clang:9.3:9.0
 ARCHS = armv7
 INSTALL_PATH = /Applications
 
@@ -23,7 +23,6 @@ XuperTV_CFLAGS = -fobjc-arc -Wno-deprecated-declarations -Wno-unused-parameter \
 XuperTV_CODESIGN_FLAGS = -Sentitlements.plist
 
 VLC_FRAMEWORK = vendor/vlckit/MobileVLCKit-binary/MobileVLCKit.framework
-XuperTV_EMBEDDED_FRAMEWORKS = $(VLC_FRAMEWORK)
 
 include $(THEOS_MAKE_PATH)/application.mk
 
@@ -33,7 +32,12 @@ before-package::
 	mkdir -p "$$FRAMEWORKS"; \
 	rm -rf "$$FRAMEWORKS/MobileVLCKit.framework"; \
 	cp -R "$(THEOS_PROJECT_DIR)/$(VLC_FRAMEWORK)" "$$FRAMEWORKS/"; \
-	$(THEOS)/bin/ldid -S"$$FRAMEWORKS/MobileVLCKit.framework/MobileVLCKit" || true
+	$(THEOS)/bin/ldid -S"$$FRAMEWORKS/MobileVLCKit.framework/MobileVLCKit" || true; \
+	rm -rf "$$APP/web" "$$APP/posters"; \
+	mkdir -p "$$APP/web" "$$APP/posters"; \
+	cp web/index.html web/ui.css web/xuper.js "$$APP/web/"; \
+	cp posters/*.jpg "$$APP/posters/"
 
 after-install::
 	install.exec "killall -9 XuperTV 2>/dev/null || true"
+

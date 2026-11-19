@@ -1,4 +1,4 @@
-﻿#import "LocalServer.h"
+#import "LocalServer.h"
 #import "ServiceBridge.h"
 #import "HLSProxy.h"
 #import "GCDWebServer.h"
@@ -88,6 +88,25 @@
         return [GCDWebServerDataResponse responseWithHTML:html];
     };
 
+    // UI propia (sustituye al lienzo fijo 1920x1080 de la TV) y posters.
+    NSString *uiRoot = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html" inDirectory:@"web"];
+    if (uiRoot) {
+        uiRoot = [uiRoot stringByDeletingLastPathComponent];
+    [_web addGETHandlerForBasePath:@"/web/"
+                           directoryPath:[uiRoot stringByAppendingString:@"/"]
+                           indexFilename:@"index.html"
+                                cacheAge:0
+                    allowRangeRequests:NO];
+    }
+    NSString *posterRoot = [[NSBundle mainBundle] pathForResource:@"posters" ofType:nil];
+    if (!posterRoot) posterRoot = [[NSBundle mainBundle] pathForResource:@"posters" ofType:nil inDirectory:@"Resources"];
+    if (posterRoot) {
+        [_web addGETHandlerForBasePath:@"/posters/"
+                           directoryPath:[posterRoot stringByAppendingString:@"/"]
+                           indexFilename:nil
+                                cacheAge:86400
+                    allowRangeRequests:NO];
+    }
     [_web addGETHandlerForBasePath:@"/"
                        directoryPath:webRoot
                        indexFilename:nil
@@ -354,6 +373,10 @@
 }
 
 @end
+
+
+
+
 
 
 
