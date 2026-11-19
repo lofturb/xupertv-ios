@@ -18,7 +18,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y build-essential fakeroot rsync curl perl zip unzip git \
-            xz-utils libxml2 libz3-dev libtinfo6
+            xz-utils libxml2 libz3-dev libtinfo6 libbz2-dev
           sudo update-alternatives --set fakeroot /usr/bin/fakeroot-sysv || true
 
       - name: Instalar Theos + toolchain + SDK 9.3
@@ -34,7 +34,6 @@ jobs:
           cp -R /tmp/theos-sdks/iPhoneOS9.3.sdk "$HOME/theos/sdks/"
           cp /tmp/theos-sdks/iPhoneOS10.3.sdk/usr/lib/system/liblaunch.tbd \
              "$HOME/theos/sdks/iPhoneOS9.3.sdk/usr/lib/system/liblaunch.tbd" || true
-          # El SDK trae un WebKit.framework privado (sin cabeceras) que tapa al publico.
           rm -rf "$HOME/theos/sdks/iPhoneOS9.3.sdk/System/Library/PrivateFrameworks/WebKit.framework"
           rm -rf "$HOME/theos/sdks/iPhoneOS9.3.sdk/System/Library/PrivateFrameworks/JavaScriptCore.framework"
           ls "$HOME/theos/toolchain/linux/iphone/bin" | head
@@ -45,26 +44,10 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p vendor/vlckit
-          if [ ! -f vendor/vlckit/MobileVLCKit-binary/MobileVLCKit.framework/MobileVLCKit ]; then
-            curl -L --retry 5 --retry-delay 3 -o /tmp/mv.tar.xz \
-              "https://download.videolan.org/pub/cocoapods/prod/MobileVLCKit-3.3.1-3387892-12ce8cd7f6.tar.xz"
-            tar -xJf /tmp/mv.tar.xz -C vendor/vlckit
-          fi
-          # Cabeceras publicas del framework (solo para compilar)
-          tar -xJf /tmp/mv.tar.xz -C vendor/vlckit \
-            MobileVLCKit-binary/MobileVLCKit.framework/Headers
-          FW=vendor/vlckit/MobileVLCKit-binary/MobileVLCKit.framework
-          if [ ! -f "$FW/Info.plist" ]; then
-            /usr/libexec/PlistBuddy -c "Add :CFBundleIdentifier string org.videolan.ios.MobileVLCKit" \
-                                       -c "Add :CFBundleName string MobileVLCKit" \
-                                       -c "Add :CFBundleExecutable string MobileVLCKit" \
-                                       -c "Add :CFBundlePackageType string FMWK" \
-                                       -c "Add :CFBundleShortVersionString string 3.3.1" \
-                                       -c "Add :CFBundleVersion string 3.3.1" \
-                                       -c "Add :MinimumOSVersion string 9.0" \
-                                       "$FW/Info.plist"
-          fi
-          ls -la "$FW"
+          curl -L --retry 5 --retry-delay 3 -o /tmp/mv.tar.xz \
+            "https://download.videolan.org/pub/cocoapods/prod/MobileVLCKit-3.3.1-3387892-12ce8cd7f6.tar.xz"
+          tar -xJf /tmp/mv.tar.xz -C vendor/vlckit
+          ls -la vendor/vlckit/MobileVLCKit-binary
 
       - name: Compilar IPA
         run: |
