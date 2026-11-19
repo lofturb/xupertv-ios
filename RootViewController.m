@@ -199,7 +199,10 @@
 }
 
 - (void)showError:(NSString *)message {
-    if (self.errorLabel) return;
+    if (self.errorLabel) {
+        self.errorLabel.text = message;
+        return;
+    }
     self.errorLabel = [[UILabel alloc] initWithFrame:self.view.bounds];
     self.errorLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.errorLabel.text = message;
@@ -211,8 +214,11 @@
 }
 
 - (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation withError:(NSError *)error {
-    NSLog(@"[xuper-ios] fallo al cargar: %@", error.localizedDescription);
-    [self showError:error.localizedDescription];
+    NSString *page = webView.URL.absoluteString ?: @"(sin URL)";
+    NSLog(@"[xuper-ios] fallo al cargar %@: %@", page, error.localizedDescription);
+    // Se deja visible el motivo para no quedarse con una pantalla negra.
+    [self showError:[NSString stringWithFormat:@"No se pudo abrir la interfaz\n%@\n\n%@",
+                      page, error.localizedDescription]];
 }
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
@@ -237,6 +243,7 @@
 }
 
 @end
+
 
 
 
