@@ -32,12 +32,13 @@ before-package::
 	mkdir -p "$$FRAMEWORKS"; \
 	rm -rf "$$FRAMEWORKS/MobileVLCKit.framework"; \
 	cp -R "$(THEOS_PROJECT_DIR)/$(VLC_FRAMEWORK)" "$$FRAMEWORKS/"; \
-	$(THEOS)/bin/ldid -S"$$FRAMEWORKS/MobileVLCKit.framework/MobileVLCKit" || true; \
+	ldid -S"$$FRAMEWORKS/MobileVLCKit.framework/MobileVLCKit" 2>/dev/null || $(THEOS)/bin/ldid -S"$$FRAMEWORKS/MobileVLCKit.framework/MobileVLCKit" 2>/dev/null || true; \
 	rm -rf "$$APP/web" "$$APP/posters"; \
 	mkdir -p "$$APP/web" "$$APP/posters"; \
 	cp web/index.html web/ui.css web/xuper.js "$$APP/web/"; \
-	cp posters/*.jpg "$$APP/posters/"
+	cp Resources/posters/*.jpg "$$APP/posters/"
 
 after-install::
 	install.exec "killall -9 XuperTV 2>/dev/null || true"
+
 
